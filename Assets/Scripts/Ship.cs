@@ -1,36 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class Ship : MonoBehaviour
 {
     [SerializeField] float health;
     [SerializeField] float defaultSpeed;
     private float currentSpeed;
     private Movements movements;
+
+    public event Action OnDeath;
+    public event Action OnArrival;
+    private void OnEnable()
+    {
+        OnArrival += ArrivedDock;
+        OnDeath += DestroyShip;
+    }
     private void Start()
     {
         currentSpeed = defaultSpeed;
         movements = GetComponent<Movements>();
         movements.SetSpeed(defaultSpeed);
     }
-    public void OnArrival()
+    private void OnCollisionEnter(Collision other)
     {
-        //add RP
-        //visual effects
-        //sound effect
-        //stop
-        GetComponent<Movements>().isMoving = false;
-        Destroy(gameObject, 1f);
+        if (other.gameObject.CompareTag("Dock"))
+        {
+            OnArrival?.Invoke();
+        }
     }
 
-    public void UnderAttack()
+    public void UnderAttack(float damage)
     {
         GetComponentInChildren<Renderer>().material.color = Color.yellow;
         GetComponent<Movements>().isMoving = false;
-        Destroy(gameObject, 0.5f);
+        health -= damage;
+        if (health <= 0f)
+        {
+
+            OnDeath?.Invoke();
+        }
     }
 
+    public void ArrivedDock()
+    {
+        GetComponent<Movements>().isMoving = false;
+        Destroy(gameObject, 1f);
+    }
+    public void DestroyShip()
+    {
+        //Temp
+        gameObject.tag = null;
+        Destroy(gameObject);
+    }
     public void SpeedUp()
     {
         float newSpeed = defaultSpeed * 2f;

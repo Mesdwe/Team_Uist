@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1413818546418758864}
   - component: {fileID: 1413818546418758869}
   - component: {fileID: 1413818546418758866}
-  - component: {fileID: 1413818546418758867}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -27,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413818546418758865}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1413818547809563194}
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1413818546418758867
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413818546418758865}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1413818547809563193
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,10 +91,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1413818547809563194}
   - component: {fileID: 4646037587292113503}
-  - component: {fileID: 1413818547809563195}
   - component: {fileID: 1413818547809563192}
   - component: {fileID: -2651136457374509636}
   - component: {fileID: 7598451911856735571}
+  - component: {fileID: -1246288896899397474}
   m_Layer: 0
   m_Name: Monster B
   m_TagString: Untagged
@@ -147,24 +133,11 @@ MonoBehaviour:
   speed: 125
   damageDealt: 10
   spawnChances: 0.5
---- !u!114 &1413818547809563195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413818547809563193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215eac3c06f714a5caccaf778529bd04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   target: {fileID: 0}
   maxDist: 10
   minDist: 2
-  closestShip: {fileID: 0}
   shipContact: 0
-  life: 5
+  life: 1
 --- !u!114 &1413818547809563192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,8 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327d09b12423c4f3992949b60db3c402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 125
-  target: {fileID: 0}
   isMoving: 1
 --- !u!136 &-2651136457374509636
 CapsuleCollider:
@@ -189,7 +160,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1413818547809563193}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
@@ -210,3 +181,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!195 &-1246288896899397474
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413818547809563193}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 0.625
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

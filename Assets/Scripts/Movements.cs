@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movements : MonoBehaviour
 {
     private float speed;
-    public Transform target;
+    private Transform target;
     public bool isMoving;
 
     void Update()
@@ -21,6 +21,9 @@ public class Movements : MonoBehaviour
     {
         speed = newSpeed;
     }
-
+    public void SetTargetTransform(Transform tar)
+    {
+        target = tar;
+    }
 
 }

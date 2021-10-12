@@ -7,7 +7,7 @@ public class SpawnPoint : MonoBehaviour
     [SerializeField] Transform target;
     public void SpawnTarget(GameObject ship)
     {
-        GameObject go = Instantiate(ship,transform);
-        go.GetComponent<Movements>().target = this.target;
+        GameObject go = Instantiate(ship, transform);
+        go.GetComponent<Movements>().SetTargetTransform(target);
     }
 }
