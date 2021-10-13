@@ -13,7 +13,7 @@ public class Movements : MonoBehaviour
         if (isMoving && target != null)
         {
             transform.LookAt(target);
-            float step = speed * Time.deltaTime / 200f;
+            float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         }
     }
