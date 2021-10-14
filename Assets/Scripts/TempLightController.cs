@@ -14,9 +14,20 @@ public class TempLightController : MonoBehaviour
     }
     void Update()
     {
-        Vector3 screenPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, CameraZDistance);
-        Vector3 newWolrdPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        transform.position = new Vector3(newWolrdPosition.x, 355f, newWolrdPosition.z);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //CHANGE THE LIGHT'S ABILITY
+            GetComponent<Light>().color = Color.red;    //temp
+        }
+        transform.position = GetWolrdPositionOnPlane(Input.mousePosition, 355f);
+    }
+    public Vector3 GetWolrdPositionOnPlane(Vector3 screenPosition, float y)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        Plane xy = new Plane(Vector3.up, new Vector3(0, y, 0));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
     }
     private void OnTriggerEnter(Collider other)
     {
