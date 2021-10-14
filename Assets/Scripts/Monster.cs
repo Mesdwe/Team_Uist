@@ -22,6 +22,7 @@ public class Monster : MonoBehaviour
     [SerializeField] float life;
     private float timer;
     private bool switchTarget = true;
+    private bool cooldown = false;
 
 
     //private Movements movements;
@@ -37,7 +38,7 @@ public class Monster : MonoBehaviour
     public Transform GetClosestShip()
     {
         multipleShips = GameObject.FindGameObjectsWithTag("Ship");
-        float closestDistance = Mathf.Infinity;
+        float closestDistance = maxDist;
         Transform trans = null;
         foreach (GameObject go in multipleShips)
         {
@@ -84,11 +85,14 @@ public class Monster : MonoBehaviour
             float distance = Vector3.Distance(target.position, transform.position);
             if (distance <= maxDist)
             {
+                //transform.LookAt(target);
                 agent.SetDestination(target.position);
                 if (distance <= agent.stoppingDistance)
                 {
                     transform.LookAt(target);
-                    StartCoroutine(Attack(target));
+                    agent.speed = target.GetComponent<Ship>().currentSpeed;
+                    if (!cooldown)
+                        StartCoroutine(Attack(target));
                 }
             }
         }
@@ -96,10 +100,10 @@ public class Monster : MonoBehaviour
 
     private IEnumerator Attack(Transform tar)
     {
+        cooldown = true;
         tar.gameObject.GetComponent<Ship>().UnderAttack(damageDealt);
         yield return new WaitForSeconds(1f);
-        if (shipContact)
-            StartCoroutine(Attack(tar));
+        cooldown = false;
     }
     private void FindATarget()
     {
@@ -110,13 +114,13 @@ public class Monster : MonoBehaviour
             closestShip.gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
             closestShip.gameObject.GetComponent<Ship>().OnArrival += TargetDisapear;
             closestShip.gameObject.GetComponent<Ship>().OnDeath += TargetDisapear;
+            transform.LookAt(closestShip.transform);
         }
         else
             Destroy(gameObject, 0.6f);  //Destroy Effect
     }
     public void TargetDisapear()
     {
-        Debug.Log("SHIP DEAD");
         shipContact = false;
         if (switchTarget)
         {

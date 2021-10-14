@@ -6,16 +6,17 @@ public class TempLightController : MonoBehaviour
 {
     public float CameraZDistance;
     private LightSkills lightSkills;
+    public Camera mainCamera;
     public void Start()
     {
-        CameraZDistance = Camera.main.WorldToScreenPoint(transform.position).z;
+        CameraZDistance = mainCamera.WorldToScreenPoint(transform.position).z;
         lightSkills = GetComponent<LightSkills>();
     }
     void Update()
     {
         Vector3 screenPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, CameraZDistance);
         Vector3 newWolrdPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        transform.position = new Vector3(newWolrdPosition.x, 4f, newWolrdPosition.z);
+        transform.position = new Vector3(newWolrdPosition.x, 355f, newWolrdPosition.z);
     }
     private void OnTriggerEnter(Collider other)
     {

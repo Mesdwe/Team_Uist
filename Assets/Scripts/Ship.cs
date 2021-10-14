@@ -4,7 +4,7 @@ public class Ship : MonoBehaviour
 {
     [SerializeField] float health;
     [SerializeField] float defaultSpeed;
-    private float currentSpeed;
+    public float currentSpeed;
     private Movements movements;
 
     public event Action OnDeath;
@@ -30,12 +30,13 @@ public class Ship : MonoBehaviour
 
     public void UnderAttack(float damage)
     {
+        Debug.Log("ATTACKED");
         GetComponentInChildren<Renderer>().material.color = Color.yellow;
         GetComponent<Movements>().isMoving = false;
         health -= damage;
         if (health <= 0f)
         {
-
+            Debug.Log("SHIP DEAD");
             OnDeath?.Invoke();
         }
     }
@@ -48,12 +49,13 @@ public class Ship : MonoBehaviour
     public void DestroyShip()
     {
         //Temp
-        gameObject.tag = null;
+        gameObject.tag = "Untagged";
         Destroy(gameObject);
     }
     public void SpeedUp()
     {
-        float newSpeed = defaultSpeed * 2f;
+        Debug.Log("Speed Up");
+        float newSpeed = defaultSpeed * 1.25f;
         currentSpeed = newSpeed;
         movements.SetSpeed(currentSpeed);
     }
