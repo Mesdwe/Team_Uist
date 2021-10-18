@@ -9,3 +9,11 @@ public class LightSkills : MonoBehaviour
         ship.SpeedUp();
     }
 }
+public enum LightAbilities
+{
+    Light,
+    Heal,
+    Barrier,
+    Stun
+}
+

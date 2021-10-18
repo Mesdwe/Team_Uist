@@ -6,6 +6,7 @@ public class TempLightController : MonoBehaviour
 {
     public float CameraZDistance;
     private LightSkills lightSkills;
+    private LightAbilities lightAbilities;
     public Camera mainCamera;
     public void Start()
     {
@@ -14,10 +15,24 @@ public class TempLightController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             //CHANGE THE LIGHT'S ABILITY
-            GetComponent<Light>().color = Color.red;    //temp
+            GetComponent<Light>().color = Color.white;
+            lightAbilities = LightAbilities.Light;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            //CHANGE THE LIGHT'S ABILITY
+            GetComponent<Light>().color = Color.green;
+            lightAbilities = LightAbilities.Heal;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            //CHANGE THE LIGHT'S ABILITY
+            GetComponent<Light>().color = Color.red;
+            lightAbilities = LightAbilities.Barrier;
         }
         transform.position = GetWolrdPositionOnPlane(Input.mousePosition, 355f);
     }
