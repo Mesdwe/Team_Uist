@@ -8,6 +8,7 @@ public class TempLightController : MonoBehaviour
     private LightSkills lightSkills;
     private LightAbilities lightAbilities;
     public Camera mainCamera;
+
     public void Start()
     {
         CameraZDistance = mainCamera.WorldToScreenPoint(transform.position).z;
@@ -49,7 +50,7 @@ public class TempLightController : MonoBehaviour
         if (other.CompareTag("Ship"))
         {
             //temp
-            lightSkills.SpeedUpShips(other.gameObject.GetComponent<Ship>());
+            UseAbility(other.gameObject.GetComponent<Ship>());
         }
     }
     private void OnTriggerExit(Collider other)
@@ -61,4 +62,22 @@ public class TempLightController : MonoBehaviour
         }
     }
 
+    private void UseAbility(Ship ship)
+    {
+        if (lightAbilities == LightAbilities.Light)
+        {
+            lightSkills.SpeedUpShips(ship);
+            return;
+        }
+        if (lightAbilities == LightAbilities.Heal)
+        {
+            Debug.Log("HEALING");
+            //lightSkills.SpeedUpShips(ship);
+            return;
+        }
+        if (lightAbilities == LightAbilities.Barrier)
+        {
+            Debug.Log("Drawing Barrier");
+        }
+    }
 }

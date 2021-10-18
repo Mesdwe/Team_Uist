@@ -59,6 +59,11 @@ public class Ship : MonoBehaviour
         currentSpeed = newSpeed;
         movements.SetSpeed(currentSpeed);
     }
+
+    public void HealShip()
+    {
+
+    }
     public void ResetShip()
     {
         currentSpeed = defaultSpeed;
