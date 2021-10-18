@@ -60,4 +60,5 @@ public class TempLightController : MonoBehaviour
             other.gameObject.GetComponent<Ship>().ResetShip();
         }
     }
+
 }
