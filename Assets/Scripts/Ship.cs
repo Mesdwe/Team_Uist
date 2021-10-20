@@ -4,7 +4,8 @@ public class Ship : MonoBehaviour
 {
     [SerializeField] float health;
     [SerializeField] float defaultSpeed;
-    public float currentSpeed;
+    [SerializeField] float underAttackSpeed;
+    private float currentSpeed;
     private Movements movements;
 
     public event Action OnDeath;
@@ -36,16 +37,17 @@ public class Ship : MonoBehaviour
             OnArrival?.Invoke();
         }
     }
-
+    public float UnderAttackSpeed()
+    {
+        return underAttackSpeed;
+    }
     public void UnderAttack(float damage)
     {
+        currentSpeed = underAttackSpeed;
+        movements.SetSpeed(currentSpeed);
         ModifyHealth(-damage);
-        GetComponentInChildren<Renderer>().material.color = Color.yellow;
-        GetComponent<Movements>().isMoving = false;
-        //health -= damage;
         if (CurrentHealth <= 0f)
         {
-            Debug.Log("SHIP DEAD");
             OnDeath?.Invoke();
         }
     }

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 250
   defaultSpeed: 50
-  currentSpeed: 0
+  underAttackSpeed: 25
 --- !u!114 &4991751222332513850
 MonoBehaviour:
   m_ObjectHideFlags: 0

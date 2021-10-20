@@ -63,25 +63,7 @@ public class Monster : MonoBehaviour
             switchTarget = false;
         }
         if (target != null)
-        {/*
-            if (Vector3.Distance(transform.position, target.position) <= maxDist)
-            {
-                if (shipContact)
-                    return;
-                if (Vector3.Distance(transform.position, target.position) <= minDist && !shipContact)
-                {
-                    shipContact = true;
-                    StartCoroutine(Attack(target));
-                    //TargetDisapear();
-
-
-
-                    GetComponent<Movements>().isMoving = false;
-                    return;
-                }
-                shipContact = false;
-                GetComponent<Movements>().isMoving = true;
-            }*/
+        {
             float distance = Vector3.Distance(target.position, transform.position);
             if (distance <= maxDist)
             {
@@ -90,7 +72,9 @@ public class Monster : MonoBehaviour
                 if (distance <= agent.stoppingDistance)
                 {
                     transform.LookAt(target);
-                    agent.speed = target.GetComponent<Ship>().currentSpeed;
+                    Ship targetShip = target.GetComponent<Ship>();
+
+                    agent.speed = targetShip.UnderAttackSpeed();
                     if (!cooldown)
                         StartCoroutine(Attack(target));
                 }
@@ -111,7 +95,7 @@ public class Monster : MonoBehaviour
         SetTarget(closestShip);
         if (closestShip != null)
         {
-            closestShip.gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
+            //closestShip.gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
             closestShip.gameObject.GetComponent<Ship>().OnArrival += TargetDisapear;
             closestShip.gameObject.GetComponent<Ship>().OnDeath += TargetDisapear;
             transform.LookAt(closestShip.transform);

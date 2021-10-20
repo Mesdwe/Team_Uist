@@ -9,6 +9,8 @@ public class TempLightController : MonoBehaviour
     private LightAbilities lightAbilities;
     public Camera mainCamera;
     private Ship currentShip;
+    [SerializeField] private GameObject barrierPreview;
+    [SerializeField] private Barrier barrierPrefab;
     public void Start()
     {
         CameraZDistance = mainCamera.WorldToScreenPoint(transform.position).z;
@@ -19,6 +21,8 @@ public class TempLightController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             //CHANGE THE LIGHT'S ABILITY
+            barrierPreview.SetActive(false);       //temp
+
             GetComponent<Light>().color = Color.white;
             lightAbilities = LightAbilities.Light;
             if (currentShip != null)
@@ -30,6 +34,8 @@ public class TempLightController : MonoBehaviour
             //CHANGE THE LIGHT'S ABILITY
             GetComponent<Light>().color = Color.green;
             lightAbilities = LightAbilities.Heal;
+            barrierPreview.SetActive(false);       //temp
+
             if (currentShip != null)
                 UseAbility(currentShip);
 
@@ -39,9 +45,27 @@ public class TempLightController : MonoBehaviour
             //CHANGE THE LIGHT'S ABILITY
             GetComponent<Light>().color = Color.red;
             lightAbilities = LightAbilities.Barrier;
-            if (currentShip != null)
-                UseAbility(currentShip);
+            UseAbility(currentShip);
+
+            //if (currentShip != null)
         }
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            barrierPreview.transform.Rotate(Vector3.forward * 15f, Space.Self);
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            barrierPreview.transform.Rotate(Vector3.back * 15f, Space.Self);
+        }
+
+        //temp
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            var go = Instantiate(barrierPrefab, transform);
+            go.transform.SetParent(null);
+        }
+
         transform.position = GetWolrdPositionOnPlane(Input.mousePosition, 355f);
     }
     private void UseAbility(Ship ship)
@@ -50,17 +74,20 @@ public class TempLightController : MonoBehaviour
         if (lightAbilities == LightAbilities.Light)
         {
             lightSkills.SpeedUpShips(ship);
+
             return;
         }
         if (lightAbilities == LightAbilities.Heal)
         {
             Debug.Log("HEALING");
             lightSkills.HealShips(ship);
+
             return;
         }
         if (lightAbilities == LightAbilities.Barrier)
         {
             Debug.Log("Drawing Barrier");
+            barrierPreview.SetActive(true); //temp
         }
     }
     public Vector3 GetWolrdPositionOnPlane(Vector3 screenPosition, float y)
