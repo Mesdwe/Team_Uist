@@ -9,11 +9,20 @@ public class Ship : MonoBehaviour
 
     public event Action OnDeath;
     public event Action OnArrival;
+
+    public static Action<Ship> OnHealthAdded;
+    public static Action<Ship> OnHealthRemoved;
+    public event Action<float> OnHealthPctChanged;
+    public float CurrentHealth { get; private set; }
+
     private void OnEnable()
     {
         OnArrival += ArrivedDock;
         OnDeath += DestroyShip;
+        CurrentHealth = health;
+        OnHealthAdded(this);
     }
+
     private void Start()
     {
         currentSpeed = defaultSpeed;
@@ -59,7 +68,12 @@ public class Ship : MonoBehaviour
         currentSpeed = newSpeed;
         movements.SetSpeed(currentSpeed);
     }
-
+    public void ModifyHealth(int amount)
+    {
+        CurrentHealth += amount;
+        float currentHealthPct = CurrentHealth / health;
+        OnHealthPctChanged?.Invoke(currentHealthPct);
+    }
     public void HealShip()
     {
 
@@ -68,5 +82,9 @@ public class Ship : MonoBehaviour
     {
         currentSpeed = defaultSpeed;
         movements.SetSpeed(currentSpeed);
+    }
+    private void OnDisable()
+    {
+        OnHealthRemoved(this);
     }
 }

@@ -70,7 +70,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 1
 --- !u!195 &7883687500956634179
 NavMeshAgent:
@@ -86,12 +86,12 @@ NavMeshAgent:
   m_Acceleration: 300
   avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 300
+  m_StoppingDistance: 500
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 150
-  m_BaseOffset: 0
+  m_BaseOffset: -20.39
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &6137950891292173899
