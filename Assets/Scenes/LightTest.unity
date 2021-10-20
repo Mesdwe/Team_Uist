@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1988,8 +1988,8 @@ GameObject:
   - component: {fileID: 1926844856}
   - component: {fileID: 1926844855}
   - component: {fileID: 1926844854}
-  - component: {fileID: 1926844857}
   - component: {fileID: 1926844858}
+  - component: {fileID: 1926844857}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -2099,6 +2099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77956a7f60bda44e791fa8878225750f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healTime: 1
+  healValue: 20
 --- !u!65 &1926844858
 BoxCollider:
   m_ObjectHideFlags: 0

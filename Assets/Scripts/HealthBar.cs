@@ -30,6 +30,8 @@ public class HealthBar : MonoBehaviour
     }
     private void HandleHealthChanged(float pct)
     {
+        //foregroundImage.fillAmount = pct;
+
         StartCoroutine(ChangeToPct(pct));
     }
 
@@ -51,7 +53,7 @@ public class HealthBar : MonoBehaviour
     private void LateUpdate()
     {
         //transform.position = Camera.main.WorldToScreenPoint(ship.transform.position + Vector3.up * positionOffset);
-        Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(ship.transform.position);
+        Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(ship.transform.position + Vector3.up * positionOffset);
         Vector2 proportionalPosition = new Vector2(ViewportPosition.x * canvasRect.sizeDelta.x, ViewportPosition.y * canvasRect.sizeDelta.y);
 
         // Set the position and remove the screen offset

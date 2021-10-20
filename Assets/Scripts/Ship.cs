@@ -39,11 +39,11 @@ public class Ship : MonoBehaviour
 
     public void UnderAttack(float damage)
     {
-        Debug.Log("ATTACKED");
+        ModifyHealth(-damage);
         GetComponentInChildren<Renderer>().material.color = Color.yellow;
         GetComponent<Movements>().isMoving = false;
-        health -= damage;
-        if (health <= 0f)
+        //health -= damage;
+        if (CurrentHealth <= 0f)
         {
             Debug.Log("SHIP DEAD");
             OnDeath?.Invoke();
@@ -68,20 +68,20 @@ public class Ship : MonoBehaviour
         currentSpeed = newSpeed;
         movements.SetSpeed(currentSpeed);
     }
-    public void ModifyHealth(int amount)
+    public void ModifyHealth(float amount)
     {
         CurrentHealth += amount;
+        if (CurrentHealth >= health)
+            CurrentHealth = health;
         float currentHealthPct = CurrentHealth / health;
         OnHealthPctChanged?.Invoke(currentHealthPct);
     }
-    public void HealShip()
-    {
 
-    }
     public void ResetShip()
     {
         currentSpeed = defaultSpeed;
         movements.SetSpeed(currentSpeed);
+
     }
     private void OnDisable()
     {

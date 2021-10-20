@@ -12,7 +12,7 @@ public class TempLightController : MonoBehaviour
     public void Start()
     {
         CameraZDistance = mainCamera.WorldToScreenPoint(transform.position).z;
-        lightSkills = GetComponent<LightSkills>();
+        lightSkills = GetComponent<LightSkills>(); //temp
     }
     void Update()
     {
@@ -46,6 +46,7 @@ public class TempLightController : MonoBehaviour
     }
     private void UseAbility(Ship ship)
     {
+        lightSkills.ResetAbility(ship);
         if (lightAbilities == LightAbilities.Light)
         {
             lightSkills.SpeedUpShips(ship);
@@ -54,7 +55,7 @@ public class TempLightController : MonoBehaviour
         if (lightAbilities == LightAbilities.Heal)
         {
             Debug.Log("HEALING");
-            //lightSkills.SpeedUpShips(ship);
+            lightSkills.HealShips(ship);
             return;
         }
         if (lightAbilities == LightAbilities.Barrier)

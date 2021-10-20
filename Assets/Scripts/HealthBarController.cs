@@ -11,6 +11,7 @@ public class HealthBarController : MonoBehaviour
         Ship.OnHealthAdded += AddHealthBar;
         Ship.OnHealthRemoved += RemoveHealthBar;
     }
+
     private void AddHealthBar(Ship ship)
     {
         if (healthBars.ContainsKey(ship) == false)
@@ -25,7 +26,8 @@ public class HealthBarController : MonoBehaviour
     {
         if (healthBars.ContainsKey(ship))
         {
-            Destroy(healthBars[ship].gameObject);
+            if (healthBars[ship].gameObject != null)
+                Destroy(healthBars[ship].gameObject);
             healthBars.Remove(ship);
         }
     }
