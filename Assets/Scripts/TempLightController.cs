@@ -6,20 +6,89 @@ public class TempLightController : MonoBehaviour
 {
     public float CameraZDistance;
     private LightSkills lightSkills;
+    private LightAbilities lightAbilities;
     public Camera mainCamera;
+    private Ship currentShip;
+    [SerializeField] private GameObject barrierPreview;
+    [SerializeField] private Barrier barrierPrefab;
     public void Start()
     {
         CameraZDistance = mainCamera.WorldToScreenPoint(transform.position).z;
-        lightSkills = GetComponent<LightSkills>();
+        lightSkills = GetComponent<LightSkills>(); //temp
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             //CHANGE THE LIGHT'S ABILITY
-            GetComponent<Light>().color = Color.red;    //temp
+            barrierPreview.SetActive(false);       //temp
+
+            GetComponent<Light>().color = Color.white;
+            lightAbilities = LightAbilities.Light;
+            if (currentShip != null)
+                UseAbility(currentShip);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            //CHANGE THE LIGHT'S ABILITY
+            GetComponent<Light>().color = Color.green;
+            lightAbilities = LightAbilities.Heal;
+            barrierPreview.SetActive(false);       //temp
+
+            if (currentShip != null)
+                UseAbility(currentShip);
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            //CHANGE THE LIGHT'S ABILITY
+            GetComponent<Light>().color = Color.red;
+            lightAbilities = LightAbilities.Barrier;
+            UseAbility(currentShip);
+
+            //if (currentShip != null)
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            barrierPreview.transform.Rotate(Vector3.forward * 15f, Space.Self);
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            barrierPreview.transform.Rotate(Vector3.back * 15f, Space.Self);
+        }
+
+        //temp
+        if (Input.GetKeyDown(KeyCode.Mouse0) && lightAbilities == LightAbilities.Barrier)
+        {
+            var go = Instantiate(barrierPrefab, barrierPreview.transform.position, barrierPreview.transform.rotation, transform);
+            go.transform.SetParent(null);
+        }
+
         transform.position = GetWolrdPositionOnPlane(Input.mousePosition, 355f);
+    }
+    private void UseAbility(Ship ship)
+    {
+        lightSkills.ResetAbility(ship);
+        if (lightAbilities == LightAbilities.Light)
+        {
+            lightSkills.SpeedUpShips(ship);
+
+            return;
+        }
+        if (lightAbilities == LightAbilities.Heal)
+        {
+            Debug.Log("HEALING");
+            lightSkills.HealShips(ship);
+
+            return;
+        }
+        if (lightAbilities == LightAbilities.Barrier)
+        {
+            Debug.Log("Drawing Barrier");
+            barrierPreview.SetActive(true); //temp
+        }
     }
     public Vector3 GetWolrdPositionOnPlane(Vector3 screenPosition, float y)
     {
@@ -34,7 +103,15 @@ public class TempLightController : MonoBehaviour
         if (other.CompareTag("Ship"))
         {
             //temp
-            lightSkills.SpeedUpShips(other.gameObject.GetComponent<Ship>());
+            if (currentShip == null)
+                currentShip = other.gameObject.GetComponent<Ship>();
+            else if (other.gameObject.GetComponent<Ship>() != currentShip)
+            {
+                lightSkills.ResetAbility(currentShip);
+                currentShip.ResetShip();
+                currentShip = other.gameObject.GetComponent<Ship>();
+            }
+            UseAbility(currentShip);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -42,7 +119,10 @@ public class TempLightController : MonoBehaviour
         if (other.CompareTag("Ship"))
         {
             //temp
+            lightSkills.ResetAbility(currentShip);
             other.gameObject.GetComponent<Ship>().ResetShip();
+            Debug.Log("Reset Ship");
+            currentShip = null;
         }
     }
 }
