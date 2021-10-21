@@ -74,7 +74,7 @@ public class Monster : MonoBehaviour
                     transform.LookAt(target);
                     Ship targetShip = target.GetComponent<Ship>();
 
-                    agent.speed = targetShip.UnderAttackSpeed();
+                    agent.speed = targetShip.UnderAttackSpeed() + 50f;
                     if (!cooldown)
                         StartCoroutine(Attack(target));
                 }

@@ -55,7 +55,9 @@ public class Ship : MonoBehaviour
     public void ArrivedDock()
     {
         GetComponent<Movements>().isMoving = false;
-        Destroy(gameObject, 1f);
+        gameObject.tag = "Untagged";
+        //disappear effect
+        Destroy(gameObject);
     }
     public void DestroyShip()
     {

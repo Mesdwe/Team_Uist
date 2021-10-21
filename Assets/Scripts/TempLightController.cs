@@ -60,9 +60,9 @@ public class TempLightController : MonoBehaviour
         }
 
         //temp
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            var go = Instantiate(barrierPrefab, transform);
+            var go = Instantiate(barrierPrefab, barrierPreview.transform.position, barrierPreview.transform.rotation, transform);
             go.transform.SetParent(null);
         }
 
