@@ -1,12 +1,13 @@
 using UnityEngine;
 using System;
+using UnityEngine.AI;
 public class Ship : MonoBehaviour
 {
     [SerializeField] float health;
     [SerializeField] float defaultSpeed;
     [SerializeField] float underAttackSpeed;
     private float currentSpeed;
-    private Movements movements;
+    //private Movements movements;
 
     public event Action OnDeath;
     public event Action OnArrival;
@@ -15,6 +16,9 @@ public class Ship : MonoBehaviour
     public static Action<Ship> OnHealthRemoved;
     public event Action<float> OnHealthPctChanged;
     public float CurrentHealth { get; private set; }
+
+    NavMeshAgent agent;
+    private Transform target;
 
     private void OnEnable()
     {
@@ -27,8 +31,10 @@ public class Ship : MonoBehaviour
     private void Start()
     {
         currentSpeed = defaultSpeed;
-        movements = GetComponent<Movements>();
-        movements.SetSpeed(defaultSpeed);
+        //movements = GetComponent<Movements>();
+        //movements.SetSpeed(defaultSpeed);
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = defaultSpeed;
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -37,6 +43,28 @@ public class Ship : MonoBehaviour
             OnArrival?.Invoke();
         }
     }
+    void Update()
+    {
+        ShipMovement();
+    }
+    public void SetSpeed(float newSpeed)
+    {
+        agent.speed = newSpeed;
+    }
+    public void SetTargetTransform(Transform tar)
+    {
+        target = tar;
+    }
+    private void ShipMovement()
+    {
+        float distance = Vector3.Distance(target.position, transform.position);
+        agent.SetDestination(target.position);
+        // if (distance <= agent.stoppingDistance)
+        // {
+        //     //effect on arrive docks
+        //     OnArrival?.Invoke();
+        // }
+    }
     public float UnderAttackSpeed()
     {
         return underAttackSpeed;
@@ -44,7 +72,7 @@ public class Ship : MonoBehaviour
     public void UnderAttack(float damage)
     {
         currentSpeed = underAttackSpeed;
-        movements.SetSpeed(currentSpeed);
+        agent.speed = currentSpeed;
         ModifyHealth(-damage);
         if (CurrentHealth <= 0f)
         {
@@ -54,7 +82,8 @@ public class Ship : MonoBehaviour
 
     public void ArrivedDock()
     {
-        GetComponent<Movements>().isMoving = false;
+        //GetComponent<Movements>().isMoving = false;
+        agent.speed = 0;
         gameObject.tag = "Untagged";
         //disappear effect
         Destroy(gameObject);
@@ -70,7 +99,7 @@ public class Ship : MonoBehaviour
         Debug.Log("Speed Up");
         float newSpeed = defaultSpeed * 1.25f;
         currentSpeed = newSpeed;
-        movements.SetSpeed(currentSpeed);
+        agent.speed = currentSpeed;
     }
     public void ModifyHealth(float amount)
     {
@@ -84,7 +113,8 @@ public class Ship : MonoBehaviour
     public void ResetShip()
     {
         currentSpeed = defaultSpeed;
-        movements.SetSpeed(currentSpeed);
+        // movements.SetSpeed(currentSpeed);
+        agent.speed = currentSpeed;
 
     }
     private void OnDisable()

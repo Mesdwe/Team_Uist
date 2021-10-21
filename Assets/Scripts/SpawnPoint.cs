@@ -8,8 +8,9 @@ public class SpawnPoint : MonoBehaviour
     public void SpawnTarget(GameObject ship)
     {
         GameObject go = Instantiate(ship, transform);
-        Movements movements = go.GetComponent<Movements>();
-        if (movements!=null)
-            go.GetComponent<Movements>().SetTargetTransform(target);
+        //Movements movements = go.GetComponent<Movements>();
+        Ship shipT = go.GetComponent<Ship>();
+        if (shipT != null)
+            shipT.SetTargetTransform(target);
     }
 }

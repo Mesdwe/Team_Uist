@@ -28,8 +28,8 @@ public class LightSkills : MonoBehaviour
         if (healing)
             return;
         currentShip = ship;
-        startHealing = true;
         StartCoroutine(HealingShip(ship));
+        startHealing = true;
     }
 
     private IEnumerator HealingShip(Ship ship)
@@ -38,7 +38,7 @@ public class LightSkills : MonoBehaviour
         yield return new WaitForSeconds(healTime);
         if (startHealing)
         {
-            Debug.Log("HEALED");
+            Debug.Log("HEALED" + startHealing);
             ship.ModifyHealth(+healValue);
 
         }

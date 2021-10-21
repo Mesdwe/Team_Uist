@@ -103,7 +103,14 @@ public class TempLightController : MonoBehaviour
         if (other.CompareTag("Ship"))
         {
             //temp
-            currentShip = other.gameObject.GetComponent<Ship>();
+            if (currentShip == null)
+                currentShip = other.gameObject.GetComponent<Ship>();
+            else if (other.gameObject.GetComponent<Ship>() != currentShip)
+            {
+                lightSkills.ResetAbility(currentShip);
+                currentShip.ResetShip();
+                currentShip = other.gameObject.GetComponent<Ship>();
+            }
             UseAbility(currentShip);
         }
     }
@@ -112,7 +119,9 @@ public class TempLightController : MonoBehaviour
         if (other.CompareTag("Ship"))
         {
             //temp
+            lightSkills.ResetAbility(currentShip);
             other.gameObject.GetComponent<Ship>().ResetShip();
+            Debug.Log("Reset Ship");
             currentShip = null;
         }
     }
