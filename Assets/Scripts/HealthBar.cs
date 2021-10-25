@@ -59,9 +59,4 @@ public class HealthBar : MonoBehaviour
         // Set the position and remove the screen offset
         this.rectTransform.localPosition = proportionalPosition - uiOffset;
     }
-
-    private void OnDestroy()
-    {
-        ship.OnHealthPctChanged -= HandleHealthChanged;
-    }
 }

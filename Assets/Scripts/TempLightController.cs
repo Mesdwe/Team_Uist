@@ -7,7 +7,6 @@ public class TempLightController : MonoBehaviour
 
     private LightSkills lightSkills;
     private LightAbilities lightAbilities;
-    public Camera mainCamera;
     private Ship currentShip;
     [SerializeField] private GameObject barrierPreview;
     [SerializeField] private Barrier barrierPrefab;
@@ -17,6 +16,7 @@ public class TempLightController : MonoBehaviour
     [SerializeField] private float maxElectricity = 100f;
     public float CurrentElectricity { get; private set; }
     [SerializeField] private float electricityDuration = 60f;
+    private bool isDrain;
 
     public void Start()
     {
@@ -27,6 +27,8 @@ public class TempLightController : MonoBehaviour
     private void UseAbility(Ship ship)
     {
         lightSkills.ResetAbility(ship);
+        if (!lightOn)
+            return;
         if (lightAbilities == LightAbilities.Light)
         {
             lightSkills.SpeedUpShips(ship);
@@ -47,10 +49,6 @@ public class TempLightController : MonoBehaviour
         }
     }
 
-    private void LightOff()
-    {
-        Reset();
-    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -67,6 +65,7 @@ public class TempLightController : MonoBehaviour
 
             if (CurrentElectricity < 0)
             {
+                isDrain = true;
                 CurrentElectricity = 0;
                 lightOn = false;
                 GetComponent<Light>().enabled = lightOn;
@@ -122,9 +121,16 @@ public class TempLightController : MonoBehaviour
         }
         else
         {
-            CurrentElectricity += (maxElectricity / electricityDuration) * Time.deltaTime;
+            if (!isDrain)
+                CurrentElectricity += (maxElectricity / electricityDuration) * Time.deltaTime;
+            else
+                CurrentElectricity += (maxElectricity / electricityDuration) / 2f * Time.deltaTime;
             if (CurrentElectricity >= 100f)
+            {
                 CurrentElectricity = 100f;
+                isDrain = false;
+                electricityBar.UpdateBarColor(isDrain);
+            }
             electricityBar.HandleElectricityChanged(CurrentElectricity / maxElectricity);
         }
         transform.position = GetWolrdPositionOnPlane(Input.mousePosition, 355f);
@@ -151,6 +157,8 @@ public class TempLightController : MonoBehaviour
 
     private void Reset()
     {
+        electricityBar.UpdateBarColor(isDrain);
+        barrierPreview.SetActive(false);
         if (currentShip != null)
         {
             lightSkills.ResetAbility(currentShip);

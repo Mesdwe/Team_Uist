@@ -11,4 +11,12 @@ public class ElectricityBar : MonoBehaviour
     {
         foregroundImage.fillAmount = pct;
     }
+
+    public void UpdateBarColor(bool isDrain)
+    {
+        if (isDrain)
+            foregroundImage.color = Color.red;
+        else
+            foregroundImage.color = Color.yellow;
+    }
 }

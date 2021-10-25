@@ -25,7 +25,7 @@ public class Ship : MonoBehaviour
         OnArrival += ArrivedDock;
         OnDeath += DestroyShip;
         CurrentHealth = health;
-        OnHealthAdded(this);
+        OnHealthAdded?.Invoke(this);
     }
 
     private void Start()
@@ -119,6 +119,6 @@ public class Ship : MonoBehaviour
     }
     private void OnDisable()
     {
-        OnHealthRemoved(this);
+        OnHealthRemoved?.Invoke(this);
     }
 }

@@ -6,6 +6,7 @@ public class HealthBarController : MonoBehaviour
 {
     [SerializeField] private HealthBar healthBarPrefab;
     private Dictionary<Ship, HealthBar> healthBars = new Dictionary<Ship, HealthBar>();
+
     private void Awake()
     {
         Ship.OnHealthAdded += AddHealthBar;
@@ -30,5 +31,12 @@ public class HealthBarController : MonoBehaviour
                 Destroy(healthBars[ship].gameObject);
             healthBars.Remove(ship);
         }
+    }
+
+    private void OnDestroy()
+    {
+        Ship.OnHealthAdded -= AddHealthBar;
+
+        Ship.OnHealthRemoved -= RemoveHealthBar;
     }
 }
