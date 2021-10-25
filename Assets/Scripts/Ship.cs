@@ -26,6 +26,8 @@ public class Ship : MonoBehaviour
         OnDeath += DestroyShip;
         CurrentHealth = health;
         OnHealthAdded?.Invoke(this);
+
+        Player.Instance.SetShip(this);
     }
 
     private void Start()
@@ -120,5 +122,6 @@ public class Ship : MonoBehaviour
     private void OnDisable()
     {
         OnHealthRemoved?.Invoke(this);
+        OnArrival -= Player.Instance.HandleRPChanged;
     }
 }
