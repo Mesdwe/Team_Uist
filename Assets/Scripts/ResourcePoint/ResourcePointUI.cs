@@ -23,4 +23,9 @@ public class ResourcePointUI : MonoBehaviour
         rpTMP.text = Player.Instance.rp.ToString();
     }
 
+    void OnDisable()
+    {
+        Player.Instance.OnRPChanged -= UpdateRP;
+    }
+
 }

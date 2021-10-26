@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4991751222332513851}
   - component: {fileID: -7951053318214036968}
   - component: {fileID: 2042355738140231039}
+  - component: {fileID: -5918561631497169604}
   m_Layer: 0
   m_Name: Ship_A_Big
   m_TagString: Ship
@@ -116,6 +117,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-5918561631497169604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4991751222332513853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801e4e550ada2ab48b1ae4565ee4535f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4991751223758038261
 PrefabInstance:
   m_ObjectHideFlags: 0
