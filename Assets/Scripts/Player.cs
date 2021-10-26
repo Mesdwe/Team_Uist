@@ -14,13 +14,13 @@ public class Player : GenericSingletonClass<Player>
         ship.OnArrival += HandleRPChanged; //watch out
     }
 
-    public void HandleRPChanged()
+    public void HandleRPChanged(Ship ship)
     {
-        UpdateRP();
+        UpdateRP(ship.shipRewards.GetRewards(ship.GetCurrentHealthPct()));
     }
-    public void UpdateRP()
+    public void UpdateRP(int rpChange)
     {
-        rp++;
+        rp += rpChange;
         OnRPChanged?.Invoke();
     }
 

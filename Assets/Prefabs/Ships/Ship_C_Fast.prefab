@@ -51,6 +51,7 @@ MonoBehaviour:
   health: 50
   defaultSpeed: 150
   underAttackSpeed: 75
+  shipRewards: {fileID: 11400000, guid: 857d225942570fa4a9d77ab7cc7b6699, type: 2}
 --- !u!114 &6976006455068818070
 MonoBehaviour:
   m_ObjectHideFlags: 0
