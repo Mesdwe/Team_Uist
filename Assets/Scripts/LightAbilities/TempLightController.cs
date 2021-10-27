@@ -51,6 +51,8 @@ public class TempLightController : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.gameState != GameState.Gameplay)
+            return;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             lightOn = !lightOn;

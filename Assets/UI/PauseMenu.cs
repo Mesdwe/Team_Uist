@@ -9,11 +9,18 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     public void Resume()
     {
-        Time.timeScale = 1f;
+        GameManager.Instance.ResumeGame();
+
     }
 
     public void Pause()
     {
-        Time.timeScale = 0f;
+        GameManager.Instance.PauseGame();
     }
+    public void ReturnMainMenu()
+    {
+        GameManager.Instance.ReturnMainMenu();
+    }
+
+
 }

@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LightTest.unity
-    guid: fb51164d44ce7554488c4d368e605249
+    path: Assets/UI/main.unity
+    guid: f51102cc2618b404ca76b77ae68b806b
   - enabled: 1
     path: Assets/Scenes/RPTest.unity
     guid: b428c8b01e62f9a478408d0aaba67f44
