@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/UI/water 1.unity
+    guid: e4a4fbb4d25d75744a336a80e0f8950c
+  - enabled: 1
+    path: Assets/UI/main.unity
+    guid: f51102cc2618b404ca76b77ae68b806b
   m_configObjects: {}
