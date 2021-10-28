@@ -130,6 +130,8 @@ public class Ship : MonoBehaviour
     {
         OnHealthRemoved?.Invoke(this);
         OnArrival -= Player.Instance.HandleRPChanged;
+        OnArrival -= Player.Instance.SavedShip;
+        OnDeath -= Player.Instance.LostShip;
         OnDeath -= DestroyShip;
 
     }

@@ -523,7 +523,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5713884881700954885}
+      - m_Target: {fileID: 5713884881700954885, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -731,6 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 4657658273439753888}
+  isSaved: 1
 --- !u!1 &4657658272572678068
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,6 +2063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 4657658273287607233}
+  isSaved: 0
 --- !u!1 &5583883752392541924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2075,6 +2077,7 @@ GameObject:
   - component: {fileID: 5583883752392541926}
   - component: {fileID: 5583883752392541925}
   - component: {fileID: 5583883752392541921}
+  - component: {fileID: 2080353003}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -2177,6 +2180,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarPrefab: {fileID: 7295594225406861355, guid: a733349c1f26b4915a2c7319144cf698, type: 3}
+--- !u!114 &2080353003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583883752392541924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82cc219a742f32418fe47738d185169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5713884880775422181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,8 +2568,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5713884882202719243}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 2080353003}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ReturnMainMenu
         m_Mode: 1
         m_Arguments:
@@ -2577,7 +2592,6 @@ GameObject:
   - component: {fileID: 5713884881700954884}
   - component: {fileID: 5713884881700954891}
   - component: {fileID: 5713884881700954890}
-  - component: {fileID: 5713884881700954885}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2687,7 +2701,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5713884881700954885}
+      - m_Target: {fileID: 2080353003}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 1
@@ -2711,18 +2725,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &5713884881700954885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5713884881700954888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c82cc219a742f32418fe47738d185169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5713884881861424003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2835,7 +2837,6 @@ GameObject:
   - component: {fileID: 5713884882202719242}
   - component: {fileID: 5713884882202719241}
   - component: {fileID: 5713884882202719240}
-  - component: {fileID: 5713884882202719243}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2904,15 +2905,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5713884882202719243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5713884882202719247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b32992642373a0441abcb824e935cae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
