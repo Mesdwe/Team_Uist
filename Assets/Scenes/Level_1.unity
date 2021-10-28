@@ -2843,7 +2843,7 @@ MonoBehaviour:
   barrierPrefab: {fileID: 8843612539281554604, guid: ccd3c6bb5dd8f4e4bb5555456ab85bb4, type: 3}
   electricityBar: {fileID: 1627183219462672775}
   maxElectricity: 100
-  electricityDuration: 5
+  electricityDuration: 60
 --- !u!108 &1926844855
 Light:
   m_ObjectHideFlags: 0
