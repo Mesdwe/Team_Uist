@@ -77,5 +77,5 @@ Material:
     m_Colors:
     - _Color: {r: 0.15574935, g: 0.55573696, b: 0.9433962, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OffsetX: {r: -750, g: 0, b: 0, a: 1}
+    - _OffsetX: {r: -1000, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

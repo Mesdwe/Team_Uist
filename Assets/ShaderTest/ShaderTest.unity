@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2f10fe65c35b20f49a2ae80741a0dcdb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
     - target: {fileID: 919132149155446097, guid: 2f10fe65c35b20f49a2ae80741a0dcdb, type: 3}
       propertyPath: m_Name
       value: GB_Lighthouse_Minor_03
@@ -633,6 +637,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 82a1524282bd30746ad16632aed7e4bb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 82a1524282bd30746ad16632aed7e4bb, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
     - target: {fileID: 919132149155446097, guid: 82a1524282bd30746ad16632aed7e4bb, type: 3}
       propertyPath: m_Name
       value: GB_Village_House_02
@@ -698,7 +710,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ae335efbd7d00eb4690b103936cf7ba5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 581a3d863204741ed999c9671dfda0ad, type: 2}
+      objectReference: {fileID: 2100000, guid: be89a8b63ced542638f5ae06f5be9062, type: 2}
     - target: {fileID: 919132149155446097, guid: ae335efbd7d00eb4690b103936cf7ba5, type: 3}
       propertyPath: m_Name
       value: GB_Hexagon_Grid
@@ -852,6 +864,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 02521e281782265409a240fcf7579e01, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 02521e281782265409a240fcf7579e01, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
     - target: {fileID: 919132149155446097, guid: 02521e281782265409a240fcf7579e01, type: 3}
       propertyPath: m_Name
       value: GB_Village_House_04
@@ -1109,6 +1129,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ae2151996b1cddd41a38e60009dbe504, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
+    - target: {fileID: -7511558181221131132, guid: ae2151996b1cddd41a38e60009dbe504, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
     - target: {fileID: 919132149155446097, guid: ae2151996b1cddd41a38e60009dbe504, type: 3}
       propertyPath: m_Name
       value: GB_Village_House_03
@@ -1171,6 +1199,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: dcf6a7b08065a7945b22e68937ff98bc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
+    - target: {fileID: -7511558181221131132, guid: dcf6a7b08065a7945b22e68937ff98bc, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
+    - target: {fileID: -7511558181221131132, guid: dcf6a7b08065a7945b22e68937ff98bc, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
     - target: {fileID: 919132149155446097, guid: dcf6a7b08065a7945b22e68937ff98bc, type: 3}
       propertyPath: m_Name
       value: GB_Dock_02
@@ -1763,6 +1803,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b30cb397d2734cd44892b746effd986f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
+    - target: {fileID: -7511558181221131132, guid: b30cb397d2734cd44892b746effd986f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
     - target: {fileID: 919132149155446097, guid: b30cb397d2734cd44892b746effd986f, type: 3}
       propertyPath: m_Name
       value: GB_Village_House_01
@@ -2782,6 +2830,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 42fae114493fa9d4ea03f7005fab704b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
     - target: {fileID: 919132149155446097, guid: 42fae114493fa9d4ea03f7005fab704b, type: 3}
       propertyPath: m_Name
       value: GB_Lighthouse_Minor_02
@@ -3188,6 +3240,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f8e4e7bfecf776b4eb854568a2dee40d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
     - target: {fileID: 919132149155446097, guid: f8e4e7bfecf776b4eb854568a2dee40d, type: 3}
       propertyPath: m_Name
       value: GB_Lighthouse_Minor_01
@@ -3361,6 +3417,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8f049ee8e56baab4cb58aaedebb63af5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d94ab62b62aab4c1e906d1f20fb6db28, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f049ee8e56baab4cb58aaedebb63af5, type: 3}
       propertyPath: m_Name
       value: GB_Lighthouse_Major
