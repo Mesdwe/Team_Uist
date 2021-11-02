@@ -24,3 +24,11 @@ inline float4 GetFixedRollClipPos(float4 objVertex,float intensity,float3 offset
 
     return mul(UNITY_MATRIX_VP, float4(worldPos, 1));
 }
+
+inline float4 GetFixedRollWorldPos(float4 worldPos,float intensity,float3 offset) {
+    float dist2Player = GetXZRollDist(worldPos+offset);
+    _RollStrength = intensity;
+    worldPos.y -= dist2Player * _RollStrength;
+
+    return worldPos;
+}

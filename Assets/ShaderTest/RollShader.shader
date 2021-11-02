@@ -5,8 +5,8 @@ Shader "Unlit/RollShader"
         _Color ("Color", Color) = (1, 1, 1, 1)
         _MainTex ("Texture", 2D) = "white" {}
         _Intensity ("Intensity", Range(0.0,1.0)) = 0.5
-        _IntensityX ("IntensityX", Range(0.0,1.0)) = 0.5
-        _OffsetX ("Offset X",Vector) =(100,0,0)
+        //_IntensityX ("IntensityX", Range(0.0,1.0)) = 0.5
+        _Offset ("Offset ",Vector) =(0,0,0)
     }
     SubShader
     {
@@ -45,13 +45,12 @@ Shader "Unlit/RollShader"
             float4 _MainTex_ST;
             fixed3 _Color;
             float _Intensity;
-            float3 _OffsetX;
-            float _IntensityX;
+            float3 _Offset;
 
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = GetFixedRollClipPos(v.vertex,_Intensity,_OffsetX);
+                o.vertex = GetFixedRollClipPos(v.vertex,_Intensity,_Offset);
                 // get vertex normal in world space
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 half3 worldNormal = UnityObjectToWorldNormal(v.normal);
@@ -60,7 +59,7 @@ Shader "Unlit/RollShader"
                 half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
                 // factor in the light color
                 o.diff = nl * _LightColor0;
-				o.normal = UnityObjectToWorldNormal(v.normal);
+                o.normal = UnityObjectToWorldNormal(v.normal);
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
@@ -69,10 +68,10 @@ Shader "Unlit/RollShader"
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
                 col.rgb *= _Color;
-				fixed3 lightDir = normalize(_WorldSpaceLightPos0.xyz);
-				fixed3 normalDir = normalize(i.normal);
-				fixed diffuse = max(0, dot(normalDir, lightDir));
-				col.rgb *= diffuse * 0.5 + 0.5;
+                fixed3 lightDir = normalize(_WorldSpaceLightPos0.xyz);
+                fixed3 normalDir = normalize(i.normal);
+                fixed diffuse = max(0, dot(normalDir, lightDir));
+                col.rgb *= diffuse * 0.5 + 0.5;
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 col *= i.diff;
                 return col;
