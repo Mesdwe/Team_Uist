@@ -9,8 +9,8 @@ public class Ship : MonoBehaviour
     private float currentSpeed;
     //private Movements movements;
 
-    public event Action OnDeath;
-    public event Action OnArrival;
+    public event Action<Ship> OnDeath;
+    public event Action<Ship> OnArrival;
 
     public static Action<Ship> OnHealthAdded;
     public static Action<Ship> OnHealthRemoved;
@@ -20,12 +20,16 @@ public class Ship : MonoBehaviour
     NavMeshAgent agent;
     private Transform target;
 
+    public ShipRewards shipRewards;
+
     private void OnEnable()
     {
         OnArrival += ArrivedDock;
         OnDeath += DestroyShip;
         CurrentHealth = health;
-        OnHealthAdded(this);
+        OnHealthAdded?.Invoke(this);
+
+        Player.Instance.SetShip(this);
     }
 
     private void Start()
@@ -40,8 +44,13 @@ public class Ship : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Dock"))
         {
-            OnArrival?.Invoke();
+            OnArrival?.Invoke(this);
         }
+    }
+
+    public float GetCurrentHealthPct()
+    {
+        return CurrentHealth / health;
     }
     void Update()
     {
@@ -76,11 +85,11 @@ public class Ship : MonoBehaviour
         ModifyHealth(-damage);
         if (CurrentHealth <= 0f)
         {
-            OnDeath?.Invoke();
+            OnDeath?.Invoke(this);
         }
     }
 
-    public void ArrivedDock()
+    public void ArrivedDock(Ship ship)
     {
         //GetComponent<Movements>().isMoving = false;
         agent.speed = 0;
@@ -88,7 +97,7 @@ public class Ship : MonoBehaviour
         //disappear effect
         Destroy(gameObject);
     }
-    public void DestroyShip()
+    public void DestroyShip(Ship ship)
     {
         //Temp
         gameObject.tag = "Untagged";
@@ -119,6 +128,11 @@ public class Ship : MonoBehaviour
     }
     private void OnDisable()
     {
-        OnHealthRemoved(this);
+        OnHealthRemoved?.Invoke(this);
+        OnArrival -= Player.Instance.HandleRPChanged;
+        OnArrival -= Player.Instance.SavedShip;
+        OnDeath -= Player.Instance.LostShip;
+        OnDeath -= DestroyShip;
+
     }
 }

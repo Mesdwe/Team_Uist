@@ -52,7 +52,7 @@ MonoBehaviour:
   damageDealt: 20
   spawnChances: 0.2
   target: {fileID: 0}
-  maxDist: 1500
+  maxDist: 2000
   minDist: 2
   shipContact: 0
   life: 3

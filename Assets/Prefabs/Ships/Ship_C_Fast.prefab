@@ -51,6 +51,7 @@ MonoBehaviour:
   health: 50
   defaultSpeed: 150
   underAttackSpeed: 75
+  shipRewards: {fileID: 11400000, guid: 857d225942570fa4a9d77ab7cc7b6699, type: 2}
 --- !u!114 &6976006455068818070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +167,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0ea99ff2399208e4cbd26558660704fd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c0de756ae0b2245029cd75235931759e, type: 2}
     - target: {fileID: 919132149155446097, guid: 0ea99ff2399208e4cbd26558660704fd, type: 3}
       propertyPath: m_Name
       value: GB_Ship_C_Fast

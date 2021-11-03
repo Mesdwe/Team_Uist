@@ -8,4 +8,9 @@ public class TempUIController : MonoBehaviour
     {
         Time.timeScale *= 2f;
     }
+
+    public void ReplayGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
 }

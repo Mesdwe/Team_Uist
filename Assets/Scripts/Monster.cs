@@ -103,7 +103,7 @@ public class Monster : MonoBehaviour
         else
             Destroy(gameObject, 0.6f);  //Destroy Effect
     }
-    public void TargetDisapear()
+    public void TargetDisapear(Ship ship)
     {
         shipContact = false;
         if (switchTarget)

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4991751222332513851}
   - component: {fileID: -7951053318214036968}
   - component: {fileID: 2042355738140231039}
+  - component: {fileID: -5918561631497169604}
   m_Layer: 0
   m_Name: Ship_A_Big
   m_TagString: Ship
@@ -51,6 +52,7 @@ MonoBehaviour:
   health: 250
   defaultSpeed: 50
   underAttackSpeed: 25
+  shipRewards: {fileID: 11400000, guid: 9ce86e50cc0880a4c9a42aecf6e33444, type: 2}
 --- !u!114 &4991751222332513850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +117,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-5918561631497169604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4991751222332513853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801e4e550ada2ab48b1ae4565ee4535f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeCamera: {fileID: 0}
 --- !u!1001 &4991751223758038261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -166,6 +181,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a6ee98ab11fa3954ba2081f7c3f36e0b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 581a3d863204741ed999c9671dfda0ad, type: 2}
     - target: {fileID: 919132149155446097, guid: a6ee98ab11fa3954ba2081f7c3f36e0b, type: 3}
       propertyPath: m_Name
       value: GB_Ship_A_Big
