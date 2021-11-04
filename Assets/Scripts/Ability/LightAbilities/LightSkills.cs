@@ -16,7 +16,7 @@ public class LightSkills : MonoBehaviour
     private Ship currentShip;
     public void SpeedUpShips(Ship ship)
     {
-        ship.SpeedUp();
+        ship.SpeedUp(0.25f);
     }
     public void ResetAbility(Ship ship)
     {

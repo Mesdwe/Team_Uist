@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfb2a10f96609f04a846a959f84e8cfe, type: 3}
-  m_Name: Barrier
+  m_Script: {fileID: 11500000, guid: e353ba6b4d6e5418ea795a16860c616c, type: 3}
+  m_Name: IncreaseSpeed
   m_EditorClassIdentifier: 
-  aName: AddBarrier
+  aName: Increase Speed
   cooldownTime: 0
   activeTime: 0
-  lightColor: {r: 1, g: 0, b: 0, a: 1}
+  lightColor: {r: 1, g: 1, b: 1, a: 0}
   upgrade: 0
   maxUpgrade: 3
   upgradeData:
-  - 3
-  - 4
-  - 5
-  - 6
+  - 0.25
+  - 0.3
+  - 0.35
+  - 0.4

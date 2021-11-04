@@ -11,10 +11,15 @@ public class LightHouseAbility : Ability
     public override void Initialize(GameObject obj)
     {
         Debug.Log("Initialise lighthouse ability: " + aName);
+        obj.GetComponent<Light>().color = lightColor;
     }
 
-    public override void TriggerAbility()
+    public override void TriggerAbility<T>(T type)
+    { }
+    public override void ResetAbility()
     {
-        Debug.Log("Trigger Ability: " + aName);
+        Debug.Log("Reset " + aName);
     }
+
+
 }

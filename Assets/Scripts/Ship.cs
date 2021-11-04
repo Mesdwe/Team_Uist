@@ -103,10 +103,10 @@ public class Ship : MonoBehaviour
         gameObject.tag = "Untagged";
         Destroy(gameObject);
     }
-    public void SpeedUp()
+    public void SpeedUp(float increase)
     {
         Debug.Log("Speed Up");
-        float newSpeed = defaultSpeed * 1.25f;
+        float newSpeed = currentSpeed * (1+increase);
         currentSpeed = newSpeed;
         agent.speed = currentSpeed;
     }

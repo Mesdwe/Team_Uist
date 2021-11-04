@@ -46,7 +46,7 @@ public class TempLightController : MonoBehaviour
         {
             Debug.Log("Drawing Barrier");
             barrierPreview.SetActive(true); //temp
-        }
+        } 
     }
 
     void Update()

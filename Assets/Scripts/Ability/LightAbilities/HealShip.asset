@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfb2a10f96609f04a846a959f84e8cfe, type: 3}
-  m_Name: Barrier
+  m_Script: {fileID: 11500000, guid: 34d2a907597e640399eb5b50e4e2bf40, type: 3}
+  m_Name: HealShip
   m_EditorClassIdentifier: 
-  aName: AddBarrier
+  aName: Healing
   cooldownTime: 0
   activeTime: 0
-  lightColor: {r: 1, g: 0, b: 0, a: 1}
+  lightColor: {r: 0.10924828, g: 1, b: 0, a: 0}
   upgrade: 0
   maxUpgrade: 3
   upgradeData:
-  - 3
-  - 4
-  - 5
-  - 6
+  - 20
+  - 25
+  - 30
+  - 35

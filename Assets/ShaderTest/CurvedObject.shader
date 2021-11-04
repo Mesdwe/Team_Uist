@@ -1,6 +1,7 @@
 Shader "Unlit/CurvedObject"
 {
-   Properties {
+    Properties {
+        _MainTex ("Texture", 2D) = "white" {}
         _Color ("Diffuse Material Color", Color) = (1,1,1,1) 
         _SpecColor ("Specular Material Color", Color) = (1,1,1,1) 
         _Shininess ("Shininess", Float) = 10
@@ -23,6 +24,8 @@ Shader "Unlit/CurvedObject"
             // color of light source (from "Lighting.cginc")
             
             // User-specified properties
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
             uniform float4 _Color; 
             uniform float4 _SpecColor; 
             uniform float _Shininess;
@@ -32,11 +35,14 @@ Shader "Unlit/CurvedObject"
             struct vertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
+                float2 uv : TEXCOORD0;
+
             };
             struct vertexOutput {
                 float4 pos : SV_POSITION;
-                float4 posWorld : TEXCOORD0;
-                float3 normalDir : TEXCOORD1;
+                float2 uv : TEXCOORD0;
+                float4 posWorld : TEXCOORD1;
+                float3 normalDir : TEXCOORD2;
             };
             
             vertexOutput vert(vertexInput input) 
@@ -46,7 +52,7 @@ Shader "Unlit/CurvedObject"
                 float4x4 modelMatrix = unity_ObjectToWorld;
                 float4x4 modelMatrixInverse = unity_WorldToObject;
                 //output.pos = GetFixedRollClipPos(input.vertex,_Intensity,_Offset);
-                
+                output.uv = TRANSFORM_TEX(input.uv, _MainTex);
                 output.posWorld = mul(modelMatrix, input.vertex);
                 
                 //output.posWorld = GetFixedRollWorldPos(input.vertex,_Intensity,_Offset);
@@ -61,6 +67,8 @@ Shader "Unlit/CurvedObject"
             
             float4 frag(vertexOutput input) : COLOR
             {
+                fixed4 col = tex2D(_MainTex, input.uv);
+
                 float3 normalDirection = normalize(input.normalDir);
                 
                 float3 viewDirection = normalize(
@@ -91,7 +99,7 @@ Shader "Unlit/CurvedObject"
                 }
                 
                 return float4(ambientLighting + diffuseReflection 
-                + specularReflection, 1.0);
+                + specularReflection, 1.0)*col;
             }
             
             ENDCG
@@ -127,7 +135,7 @@ Shader "Unlit/CurvedObject"
             uniform float4 _Color; 
             uniform float4 _SpecColor; 
             uniform float _Shininess;
-                        float _Intensity;
+            float _Intensity;
             float3 _Offset;
             struct vertexInput {
                 float4 vertex : POSITION;
