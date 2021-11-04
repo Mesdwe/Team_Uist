@@ -6,11 +6,23 @@ using UnityEngine.AI;
 public class Barrier : MonoBehaviour
 {
     private NavMeshObstacle navMeshObstacle;
-
-
+    BarrierSkill barrierSkill;
     private void Start()
     {
         navMeshObstacle = GetComponent<NavMeshObstacle>();
-        Destroy(gameObject, 5f);
+
+
+    }
+
+    public void SetBarrierSkill(BarrierSkill bs)
+    {
+        barrierSkill = bs;
+        StartCoroutine(DestroyBarrier());
+    }
+    IEnumerator DestroyBarrier()
+    {
+        yield return new WaitForSeconds(3f);
+        barrierSkill.barrierCount--;
+        Destroy(gameObject);
     }
 }

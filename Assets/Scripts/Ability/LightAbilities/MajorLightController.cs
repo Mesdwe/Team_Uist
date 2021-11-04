@@ -11,9 +11,13 @@ public class MajorLightController : MonoBehaviour
     public float CurrentElectricity { get; private set; }
     [SerializeField] private float electricityDuration = 60f;
     private bool isDrain;
+
+    LightAbilityHolder[] lightAbilityHolders;
+    public Ability currentAbility;
     // Start is called before the first frame update
     void Start()
     {
+        lightAbilityHolders = GetComponents<LightAbilityHolder>();
         CurrentElectricity = maxElectricity;
     }
 
@@ -81,12 +85,12 @@ public class MajorLightController : MonoBehaviour
 
     void UseAbility(Ship ship)
     {
-        LightAbilityHolder[] lightAbilityHolders = GetComponents<LightAbilityHolder>();
-        foreach(var holder in lightAbilityHolders)
+        foreach (var holder in lightAbilityHolders)
         {
-            if(holder.state==AbilityState.ready)
+            if (holder.ability == currentAbility)
             {
-                holder.UseAbility(ship);
+                if (!holder.barrier)
+                    holder.UseAbility(ship.gameObject);
             }
         }
     }
@@ -97,6 +101,13 @@ public class MajorLightController : MonoBehaviour
         {
             //temp
             //lightSkills.ResetAbility(currentShip);
+            foreach (var holder in lightAbilityHolders)
+            {
+                if (holder.ability == currentAbility)
+                {
+                    holder.state = AbilityState.ready;
+                }
+            }
             other.gameObject.GetComponent<Ship>().ResetShip();
             currentShip = null;
         }
@@ -118,5 +129,24 @@ public class MajorLightController : MonoBehaviour
         float distance;
         xy.Raycast(ray, out distance);
         return ray.GetPoint(distance);
+    }
+
+    public void SetCurrentAbility(LightAbilityHolder lah)
+    {
+        foreach (var holder in lightAbilityHolders)
+        {
+            if (holder == lah)
+            {
+                holder.state = AbilityState.ready;
+            }
+            else
+            {
+                holder.state = AbilityState.cooldown;
+                holder.ResetAbility();
+            }
+        }
+        currentAbility = lah.ability;
+        if (currentShip != null)
+            UseAbility(currentShip);
     }
 }

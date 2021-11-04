@@ -687,7 +687,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d86b01b7f4adb3044ba965b5c7dfabc9, type: 2}
+  - {fileID: 2100000, guid: 8c115ce7ee7489741a25f9b9675e3bb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1455,9 +1455,10 @@ GameObject:
   - component: {fileID: 1556260247}
   - component: {fileID: 1556260246}
   - component: {fileID: 1556260245}
-  - component: {fileID: 1556260244}
   - component: {fileID: 1556260243}
+  - component: {fileID: 1556260244}
   - component: {fileID: 1556260249}
+  - component: {fileID: 1556260250}
   m_Layer: 0
   m_Name: Spot Light (1)
   m_TagString: Untagged
@@ -1480,6 +1481,7 @@ MonoBehaviour:
   electricityBar: {fileID: 1627183219462672775}
   maxElectricity: 100
   electricityDuration: 60
+  currentAbility: {fileID: 11400000, guid: 95a28b4aadbd84c929e23d8b9cb286ac, type: 2}
 --- !u!114 &1556260244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1494,7 +1496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 95a28b4aadbd84c929e23d8b9cb286ac, type: 2}
   state: 0
-  key: 115
+  key: 49
+  barrier: 0
 --- !u!114 &1556260245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1613,7 +1616,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 609b34eb4336741849eabefb6d848f45, type: 2}
   state: 2
-  key: 97
+  key: 50
+  barrier: 0
+--- !u!114 &1556260250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556260242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08df76ae8ec0d5b43821d4f35d849fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 8df02e0280977f94682cfd14680b5b93, type: 2}
+  state: 2
+  key: 51
+  barrier: 1
 --- !u!1 &1582890062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,7 +1864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1711853303
 Transform:
   m_ObjectHideFlags: 0
@@ -2304,6 +2324,7 @@ MonoBehaviour:
   ability: {fileID: 11400000, guid: 95a28b4aadbd84c929e23d8b9cb286ac, type: 2}
   state: 0
   key: 115
+  barrier: 0
 --- !u!4 &2015308388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5734025430978776691, guid: fbb9b6c1ab9961547bdb4efac6326dea, type: 3}
@@ -2925,6 +2946,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4012254040177068804, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5282306775816664113, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2959,6 +2984,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6453741256663050124, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124927149544199861, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7124927149638021013, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}

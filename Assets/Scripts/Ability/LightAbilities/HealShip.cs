@@ -11,13 +11,14 @@ public class HealShip : LightHouseAbility
         base.Initialize(obj);
 
     }
-    public override void TriggerAbility<Ship>(Ship ship)
+    public override void TriggerAbility(GameObject obj)
     {
-        //ship.SpeedUp(upgradeData[upgrade]);
+        Debug.Log("USE IT");
+
+        obj.GetComponent<Ship>().HealShips(upgradeData[upgrade]);
     }
     public override void ResetAbility()
     {
         Debug.Log("Reset " + aName);
-        isHealing =false;
     }
 }

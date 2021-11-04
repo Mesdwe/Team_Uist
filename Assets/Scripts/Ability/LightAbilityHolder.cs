@@ -10,30 +10,50 @@ public class LightAbilityHolder : MonoBehaviour
     int currentUpgrade;
     public AbilityState state;
     public KeyCode key;
-
+    public bool barrier;
     private void Update()
     {
         if (Input.GetKeyDown(key))
         {
             ability.Initialize(gameObject);
             state = AbilityState.ready;
+            GetComponent<MajorLightController>().SetCurrentAbility(this);
+        }
+        if (barrier && state == AbilityState.ready)
+        {
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                transform.Rotate(Vector3.forward * 15f, Space.Self);
+            }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                transform.Rotate(Vector3.back * 15f, Space.Self);
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse0) && state == AbilityState.ready)
+            {
+                ability.TriggerAbility(gameObject);
+                state = AbilityState.ready;
+            }
         }
     }
 
-    public void UseAbility(Ship ship)
+    public void UseAbility(GameObject ship)
     {
-        ability.TriggerAbility<Ship>(ship);
+        state = AbilityState.active;
+
+        ability.TriggerAbility(ship);
     }
 
     public void ResetAbility()
     {
         ability.ResetAbility();
+        //state = AbilityState.ready;
     }
 }
 
-    public enum AbilityState
-    {
-        ready,
-        active,
-        cooldown
-    }
+public enum AbilityState
+{
+    ready,
+    active,
+    cooldown
+}

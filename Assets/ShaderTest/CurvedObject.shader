@@ -10,14 +10,14 @@ Shader "Unlit/CurvedObject"
     }
     SubShader {
         Pass {    
-            Tags { "LightMode" = "ForwardBase" } // pass for ambient light 
+            Tags { "LightMode" = "ForwardBase" } 
+            // pass for ambient light 
             // and first directional light source without cookie
             
             CGPROGRAM
             
             #pragma vertex vert  
             #pragma fragment frag 
-            
             #include "UnityCG.cginc"
             #include "RollInclude.cginc"
             uniform float4 _LightColor0; 

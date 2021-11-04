@@ -14,7 +14,7 @@ public class LightHouseAbility : Ability
         obj.GetComponent<Light>().color = lightColor;
     }
 
-    public override void TriggerAbility<T>(T type)
+    public override void TriggerAbility(GameObject obj)
     { }
     public override void ResetAbility()
     {

@@ -10,9 +10,9 @@ public abstract class Ability : ScriptableObject
     public float cooldownTime;
     public float activeTime;
     public abstract void Initialize(GameObject obj);
-    public abstract void TriggerAbility<T>(T type) where T : Ship;
+    public abstract void TriggerAbility(GameObject obj);
     public virtual void ResetAbility()
     {
-        
+
     }
 }

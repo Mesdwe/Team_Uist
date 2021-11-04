@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using UnityEngine.AI;
+using System.Collections;
 public class Ship : MonoBehaviour
 {
     [SerializeField] float health;
@@ -21,7 +22,7 @@ public class Ship : MonoBehaviour
     private Transform target;
 
     public ShipRewards shipRewards;
-
+    private bool healing;
     private void OnEnable()
     {
         OnArrival += ArrivedDock;
@@ -106,7 +107,7 @@ public class Ship : MonoBehaviour
     public void SpeedUp(float increase)
     {
         Debug.Log("Speed Up");
-        float newSpeed = currentSpeed * (1+increase);
+        float newSpeed = currentSpeed * (1 + increase);
         currentSpeed = newSpeed;
         agent.speed = currentSpeed;
     }
@@ -124,6 +125,7 @@ public class Ship : MonoBehaviour
         currentSpeed = defaultSpeed;
         // movements.SetSpeed(currentSpeed);
         agent.speed = currentSpeed;
+        healing = false;
 
     }
     private void OnDisable()
@@ -134,5 +136,25 @@ public class Ship : MonoBehaviour
         OnDeath -= Player.Instance.LostShip;
         OnDeath -= DestroyShip;
 
+    }
+    public void HealShips(float healValue)
+    {
+        if (healing)
+            return;
+        healing = true;
+        StartCoroutine(HealingShip(healValue));
+    }
+
+    private IEnumerator HealingShip(float healValue)
+    {
+        while (healing)
+        {
+            yield return new WaitForSeconds(3f);
+            if (healing)
+            {
+                Debug.Log("HEALED");
+                ModifyHealth(+healValue);
+            }
+        }
     }
 }

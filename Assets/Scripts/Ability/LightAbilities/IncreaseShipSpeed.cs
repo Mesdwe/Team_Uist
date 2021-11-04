@@ -10,11 +10,11 @@ public class IncreaseShipSpeed : LightHouseAbility
         base.Initialize(obj);
 
     }
-    public override void TriggerAbility<Ship>(Ship ship)
+    public override void TriggerAbility(GameObject obj)
     {
-        ship.SpeedUp(upgradeData[upgrade]);
+        obj.GetComponent<Ship>().SpeedUp(upgradeData[upgrade]);
     }
-        public override void ResetAbility()
+    public override void ResetAbility()
     {
         Debug.Log("Reset " + aName);
     }
