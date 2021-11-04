@@ -8,6 +8,7 @@ public class BarrierSkill : LightHouseAbility
     public GameObject barrierPreview;
     public int barrierCount = 0;
     public GameObject barrierTemplate;
+
     public override void Initialize(GameObject obj)
     {
         base.Initialize(obj);

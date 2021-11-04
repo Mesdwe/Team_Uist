@@ -46,7 +46,7 @@ public class TempLightController : MonoBehaviour
         {
             Debug.Log("Drawing Barrier");
             barrierPreview.SetActive(true); //temp
-        } 
+        }
     }
 
     void Update()
@@ -118,6 +118,7 @@ public class TempLightController : MonoBehaviour
             {
                 var go = Instantiate(barrierPrefab, barrierPreview.transform.position, barrierPreview.transform.rotation, transform);
                 go.transform.SetParent(null);
+
             }
 
         }

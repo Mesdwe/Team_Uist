@@ -11,6 +11,7 @@ public class LightAbilityHolder : MonoBehaviour
     public AbilityState state;
     public KeyCode key;
     public bool barrier;
+    private int barrierCount;
     private void Update()
     {
         if (Input.GetKeyDown(key))
@@ -31,8 +32,12 @@ public class LightAbilityHolder : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Mouse0) && state == AbilityState.ready)
             {
+                if (barrierCount >= 3)
+                    return;
                 ability.TriggerAbility(gameObject);
                 state = AbilityState.ready;
+                barrierCount++;
+
             }
         }
     }
