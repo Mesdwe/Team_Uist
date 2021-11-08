@@ -11,7 +11,7 @@ public class LightHouseAbility : Ability
     public override void Initialize(GameObject obj)
     {
         Debug.Log("Initialise lighthouse ability: " + aName);
-        obj.GetComponent<Light>().color = lightColor;
+        obj.GetComponent<MajorLightController>().light.color = lightColor;
     }
 
     public override void TriggerAbility(GameObject obj)

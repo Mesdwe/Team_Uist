@@ -11,9 +11,16 @@ public class LightAbilityHolder : MonoBehaviour
     public AbilityState state;
     public KeyCode key;
     public bool barrier;
-    private int barrierCount;
+    public int barrierCount;
+    private MajorLightController major;
+    void Start()
+    {
+        major = GetComponent<MajorLightController>();
+    }
     private void Update()
     {
+        if (!major.lightOn)
+            return;
         if (Input.GetKeyDown(key))
         {
             ability.Initialize(gameObject);
@@ -32,12 +39,8 @@ public class LightAbilityHolder : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Mouse0) && state == AbilityState.ready)
             {
-                if (barrierCount >= 3)
-                    return;
                 ability.TriggerAbility(gameObject);
                 state = AbilityState.ready;
-                barrierCount++;
-
             }
         }
     }

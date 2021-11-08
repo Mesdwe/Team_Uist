@@ -5,7 +5,7 @@ using UnityEngine;
 public class MajorLightController : MonoBehaviour
 {
     private Ship currentShip;
-    private bool lightOn = true;
+    public bool lightOn = true;
     [SerializeField] ElectricityBar electricityBar;
     [SerializeField] private float maxElectricity = 100f;
     public float CurrentElectricity { get; private set; }
@@ -14,11 +14,13 @@ public class MajorLightController : MonoBehaviour
 
     LightAbilityHolder[] lightAbilityHolders;
     public Ability currentAbility;
+    public Light light;
     // Start is called before the first frame update
     void Start()
     {
         lightAbilityHolders = GetComponents<LightAbilityHolder>();
         CurrentElectricity = maxElectricity;
+        light = GetComponentInChildren<Light>();
     }
 
     // Update is called once per frame
@@ -29,8 +31,11 @@ public class MajorLightController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             lightOn = !lightOn;
-            GetComponent<Light>().enabled = lightOn;
-            Reset();
+            light.enabled = lightOn;
+            if (!lightOn)
+                Reset();
+            else
+                InitAbilities();
         }
 
         if (lightOn)
@@ -43,7 +48,7 @@ public class MajorLightController : MonoBehaviour
                 isDrain = true;
                 CurrentElectricity = 0;
                 lightOn = false;
-                GetComponent<Light>().enabled = lightOn;
+                light.enabled = lightOn;
                 Reset();
                 return;
             }
@@ -121,11 +126,25 @@ public class MajorLightController : MonoBehaviour
             //lightSkills.ResetAbility(currentShip);
             currentShip.GetComponent<Ship>().ResetShip();
         }
+        foreach (var holder in lightAbilityHolders)
+        {
+            holder.ResetAbility();
+        }
+
+    }
+
+    private void InitAbilities()
+    {
+        foreach (var holder in lightAbilityHolders)
+        {
+            if (holder.state == AbilityState.ready)
+                holder.ability.Initialize(gameObject);
+        }
     }
     public Vector3 GetWolrdPositionOnPlane(Vector3 screenPosition, float y)
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-        Plane xy = new Plane(Vector3.up, new Vector3(0, y, 0));
+        Plane xy = new Plane(Vector3.up, new Vector3(0, 0, 0));
         float distance;
         xy.Raycast(ray, out distance);
         return ray.GetPoint(distance);

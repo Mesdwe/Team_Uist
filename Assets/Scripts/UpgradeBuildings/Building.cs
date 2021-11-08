@@ -1,18 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Building : MonoBehaviour
+[CreateAssetMenu(menuName = "Buildings/Building")]
+public class Building : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string buildingName = "New Building";
+    public int defaultHealth;
+    public int MaxHealth;
+    public float healthPct;
 }

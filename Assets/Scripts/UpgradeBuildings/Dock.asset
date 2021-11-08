@@ -9,16 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfb2a10f96609f04a846a959f84e8cfe, type: 3}
-  m_Name: IncreaseSpeed
+  m_Script: {fileID: 11500000, guid: 2149f7b565889224e95e1b86d8dd78d9, type: 3}
+  m_Name: Dock
   m_EditorClassIdentifier: 
-  aName: IncreaseSpeed
-  aBaseCoolDown: 0
-  lightColor: {r: 1, g: 1, b: 1, a: 1}
-  upgrade: 0
-  maxUpgrade: 3
-  upgradeData:
-  - 0.15
-  - 0.25
-  - 0.35
-  - 0.45
+  buildingName: Dock 1
+  defaultHealth: 0
+  MaxHealth: 0
+  healthPct: 0

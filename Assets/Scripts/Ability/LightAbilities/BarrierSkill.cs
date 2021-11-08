@@ -6,26 +6,32 @@ using UnityEngine;
 public class BarrierSkill : LightHouseAbility
 {
     public GameObject barrierPreview;
-    public int barrierCount = 0;
-    public GameObject barrierTemplate;
 
+    public GameObject barrierTemplate;
+    public LightAbilityHolder lightAbilityHolder;
     public override void Initialize(GameObject obj)
     {
         base.Initialize(obj);
         barrierPreview = obj.transform.GetChild(0).gameObject;
         barrierPreview.SetActive(true);
+        LightAbilityHolder[] holders = obj.GetComponents<LightAbilityHolder>();
+        for (int i = 0; i < holders.Length; i++)
+        {
+            if (holders[i].barrier)
+                lightAbilityHolder = holders[i];
+        }
     }
     public override void TriggerAbility(GameObject goo)
     {
-        Debug.Log(barrierCount);
+        int barrierCount = lightAbilityHolder.barrierCount;
         if (barrierCount >= upgradeData[upgrade])
             return;
         Debug.Log("USE IT");
 
         var go = Instantiate(barrierTemplate, barrierPreview.transform.position, barrierPreview.transform.rotation, barrierPreview.transform.parent);
         go.transform.SetParent(null);
-        barrierCount++;
-        go.GetComponent<Barrier>().SetBarrierSkill(this);
+        lightAbilityHolder.barrierCount++;
+        go.GetComponent<Barrier>().SetBarrierSkill(lightAbilityHolder);
 
     }
     public override void ResetAbility()

@@ -7,6 +7,7 @@ public class Barrier : MonoBehaviour
 {
     private NavMeshObstacle navMeshObstacle;
     BarrierSkill barrierSkill;
+    //LightAbilityHolder lightAbilityHolder;
     private void Start()
     {
         navMeshObstacle = GetComponent<NavMeshObstacle>();
@@ -14,15 +15,16 @@ public class Barrier : MonoBehaviour
 
     }
 
-    public void SetBarrierSkill(BarrierSkill bs)
+    public void SetBarrierSkill(LightAbilityHolder lh)
     {
-        barrierSkill = bs;
-        StartCoroutine(DestroyBarrier());
+
+        StartCoroutine(DestroyBarrier(lh));
     }
-    IEnumerator DestroyBarrier()
+    IEnumerator DestroyBarrier(LightAbilityHolder lh)
     {
         yield return new WaitForSeconds(3f);
-        barrierSkill.barrierCount--;
+        //barrierSkill.barrierCount--;
+        lh.barrierCount--;
         Destroy(gameObject);
     }
 }
