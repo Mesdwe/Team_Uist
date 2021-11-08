@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2149f7b565889224e95e1b86d8dd78d9, type: 3}
-  m_Name: Dock 1
+  m_Name: VillagerHomes
   m_EditorClassIdentifier: 
-  buildingName: Dock 1
-  defaultHealth: 30
-  MaxHealth: 100
-  healthPct: 0.3
+  buildingName: Villager's Homes
+  defaultHealth: 100
+  MaxHealth: 350
+  healthPct: 0.285
