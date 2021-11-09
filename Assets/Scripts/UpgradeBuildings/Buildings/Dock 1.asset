@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Dock 1
   defaultHealth: 30
-  MaxHealth: 100
-  healthPct: 0.3
+  maxHealth: 100

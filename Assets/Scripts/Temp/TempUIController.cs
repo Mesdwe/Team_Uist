@@ -6,7 +6,8 @@ public class TempUIController : MonoBehaviour
 {
     public void SpeedUp()
     {
-        Time.timeScale *= 2f;
+        if (Time.timeScale <= 50)
+            Time.timeScale *= 2f;
     }
 
     public void ReplayGame()
