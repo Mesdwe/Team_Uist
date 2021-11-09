@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LowPolyWaterMaterial
-  m_Shader: {fileID: 4800000, guid: 06c619ac3c6e9c9458c18fd71ee821dc, type: 3}
+  m_Shader: {fileID: 4800000, guid: 00b5a18fecbed4da8984e4be07eff9a7, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -130,6 +130,8 @@ Material:
     m_Floats:
     - _Ambient: 1
     - _BumpScale: 1
+    - _CurveIntensityX: 0.0005
+    - _CurveIntensityZ: 0.0005
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Displacement: 0.27863377
@@ -204,6 +206,7 @@ Material:
     - _HorizonColor: {r: 0.052907113, g: 0.24486735, b: 0.2835821, a: 1}
     - _InvFadeParemeter: {r: 0.67, g: 0.17, b: 27.39, a: 9.18}
     - _MainTex_ST: {r: 1, g: 1, b: 0, a: 0}
+    - _OffsetX: {r: -750, g: 0, b: 0, a: 1}
     - _ReflectionColor: {r: 0.5794164, g: 0.6849238, b: 0.76119405, a: 0.43137255}
     - _ReflectionTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectiveColorCube_ST: {r: 1, g: 1, b: 0, a: 0}
