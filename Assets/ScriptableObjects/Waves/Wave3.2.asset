@@ -19,6 +19,8 @@ MonoBehaviour:
   - {fileID: 4991751222332513853, guid: 33f74b31533c66041b6b7d2262e4bb7a, type: 3}
   - {fileID: 8637400841571849841, guid: d5434e35ef119e543a67864aa0f381f9, type: 3}
   - {fileID: 6976006455068818073, guid: 76a5da942dd2a724ba87784b7eb7ed8c, type: 3}
+  minShipSpawnTime: 3
+  maxShipSpawnTime: 5
   monsterType:
   - {fileID: 7883687500956634177, guid: ce26684c7e7a9594ba797d064b2989d6, type: 3}
   - {fileID: 2522029670320728517, guid: cfc3f730692613842b86306d68d446f5, type: 3}

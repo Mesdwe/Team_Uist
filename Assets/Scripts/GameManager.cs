@@ -31,6 +31,8 @@ public class GameManager : GenericSingletonClass<GameManager>
     public void InitGameplay()
     {
         gameState = GameState.Gameplay;
+        if (LevelManager.Instance != null)
+            Destroy(LevelManager.Instance.gameObject);
     }
 }
 public enum GameState

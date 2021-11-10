@@ -13,6 +13,7 @@ public class CargoShip : MonoBehaviour
         ship = GetComponent<Ship>();
         ship.OnArrival += OnCargoShipArrived;
         upgradeCamera = GameObject.Find("Upgrade_Camera");
+        GameManager.Instance.gameState = GameState.Upgrade;
     }
 
     private void OnCargoShipArrived(Ship ship)

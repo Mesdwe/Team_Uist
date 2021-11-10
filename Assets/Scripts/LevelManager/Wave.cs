@@ -9,6 +9,8 @@ public class Wave : ScriptableObject
     public int waveID;
     public int shipCount;
     public GameObject[] ShipTypes;
+    public float minShipSpawnTime;
+    public float maxShipSpawnTime;
     public GameObject[] monsterType;
     public float minMonsterSpawnTime;
     public float maxMonsterSpawnTime;
