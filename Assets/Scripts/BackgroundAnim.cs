@@ -9,6 +9,8 @@ public class BackgroundAnim : MonoBehaviour
     void Start()
     {
         LevelManager.Instance.OnWaveStart += SetAnimTrigger;
+        LevelManager.Instance.OnUpgrade += SetAnimTrigger;
+
 
     }
     public void SetAnimTrigger()

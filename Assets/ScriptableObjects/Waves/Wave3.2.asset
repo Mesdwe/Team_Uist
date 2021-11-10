@@ -16,7 +16,6 @@ MonoBehaviour:
   waveID: 2
   shipCount: 35
   ShipTypes:
-  - {fileID: 4991751222332513853, guid: 33f74b31533c66041b6b7d2262e4bb7a, type: 3}
   - {fileID: 8637400841571849841, guid: d5434e35ef119e543a67864aa0f381f9, type: 3}
   - {fileID: 6976006455068818073, guid: 76a5da942dd2a724ba87784b7eb7ed8c, type: 3}
   minShipSpawnTime: 3

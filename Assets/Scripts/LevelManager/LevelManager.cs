@@ -6,16 +6,17 @@ public class LevelManager : GenericSingletonClass<LevelManager>
 {
     public static int level = 1;
     public static int wave = 1;
-    public event Action OnWaveEnd;
     public event Action OnLevelEnd;
     public event Action OnWaveStart;
 
+    public event Action OnUpgrade;
     [SerializeField] private Wave[] waves;
     [SerializeField] private SpawnController spawnController;
 
 
     void Start()
     {
+        OnWaveStart += AddLevelInfo;
         StartCoroutine(StartInitLevel());
     }
 
@@ -23,7 +24,6 @@ public class LevelManager : GenericSingletonClass<LevelManager>
     {
         yield return new WaitForSeconds(1f);
         spawnController.StartSpawning(waves[0]); //temp
-        //OnWaveStart();
 
     }
     public void StartWave()
@@ -36,14 +36,29 @@ public class LevelManager : GenericSingletonClass<LevelManager>
         wave = 1;
     }
 
+    private void AddLevelInfo()
+    {
+        int index = (level - 1) * 3 + (wave - 1);
+        spawnController.StartSpawning(waves[index]); //temp
+
+    }
+
+    public void StartUpgrade()
+    {
+        GameManager.Instance.gameState = GameState.Upgrade;
+        OnUpgrade?.Invoke();
+    }
     public void NextWave()
     {
         wave += 1;
         if (wave > 3)
         {
             wave = 1;
-            NextLevel();
+            //NextLevel();
+            StartUpgrade();
+            return;
         }
+        StartWave();
     }
 
     public void NextLevel()
@@ -53,6 +68,9 @@ public class LevelManager : GenericSingletonClass<LevelManager>
         {
             ResetLevel();
             Debug.Log("END");
+            return;
         }
+        OnLevelEnd?.Invoke();
+        StartWave();
     }
 }

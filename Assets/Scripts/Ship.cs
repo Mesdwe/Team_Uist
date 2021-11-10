@@ -131,11 +131,11 @@ public class Ship : MonoBehaviour
     private void OnDisable()
     {
         OnHealthRemoved?.Invoke(this);
-        if(Player.Instance!=null)
+        if (Player.Instance != null)
         {
-        OnArrival -= Player.Instance.HandleRPChanged;
-        OnArrival -= Player.Instance.SavedShip;
-        OnDeath -= Player.Instance.LostShip;
+            OnArrival -= Player.Instance.HandleRPChanged;
+            OnArrival -= Player.Instance.SavedShip;
+            OnDeath -= Player.Instance.LostShip;
         }
 
         OnDeath -= DestroyShip;
@@ -159,6 +159,15 @@ public class Ship : MonoBehaviour
                 Debug.Log("HEALED");
                 ModifyHealth(+healValue);
             }
+        }
+    }
+
+    void OnDestroy()
+    {
+        Debug.Log("DIED");
+        if (GameObject.FindGameObjectsWithTag("Ship").Length == 0)
+        {
+            LevelManager.Instance.NextWave();
         }
     }
 }
