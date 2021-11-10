@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         GameManager.Instance.InitGameplay();
+        
         SceneManager.LoadScene(1);
     }
 

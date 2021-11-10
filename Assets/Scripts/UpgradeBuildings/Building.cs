@@ -13,7 +13,6 @@ public class Building : ScriptableObject
     {
         currentHealth = defaultHealth;
         healthPct = (float)currentHealth / maxHealth;
-        Debug.Log(currentHealth / maxHealth);
     }
 
     public void UpdateBuildingData(int fixValue)

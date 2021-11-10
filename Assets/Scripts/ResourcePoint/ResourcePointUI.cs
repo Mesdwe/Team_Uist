@@ -25,6 +25,7 @@ public class ResourcePointUI : MonoBehaviour
 
     void OnDisable()
     {
+        if(Player.Instance!=null)
         Player.Instance.OnRPChanged -= UpdateRP;
     }
 

@@ -5,11 +5,21 @@ using System;
 
 public class GenericSingletonClass<T> : MonoBehaviour where T : Component
 {
+    private static bool applicationIsQuitting = false;
     private static T instance;
+    [RuntimeInitializeOnLoadMethod]
+     static void RunOnStart()
+     {
+         Application.quitting += () => applicationIsQuitting = true;
+     }
     public static T Instance
     {
         get
         {
+            if (applicationIsQuitting)
+             {
+                 return null;
+             }
             if (instance == null)
             {
                 instance = FindObjectOfType<T>();
