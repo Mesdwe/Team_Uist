@@ -5,8 +5,7 @@ using UnityEngine;
 public class SpawnController : MonoBehaviour
 {
     [SerializeField] SpawnPoint[] spawnPoints;
-    [SerializeField] GameObject[] ships;
-    //temp
+
     [SerializeField] int shipCount;
     int curShipIndex = 0;
     // [SerializeField] float minSpawnTime;
@@ -20,7 +19,10 @@ public class SpawnController : MonoBehaviour
     public void StartSpawning(Wave wave)
     {
         currentWave = wave;
+        curShipIndex = 0;
         StartCoroutine(SpawnShip());
+        GetComponent<MonsterSpawner>().MonsterInit(wave);
+
     }
     IEnumerator SpawnShip()
     {
@@ -44,20 +46,37 @@ public class SpawnController : MonoBehaviour
 
     GameObject GetSpawnShip(float value)
     {
-        if (curShipIndex >= shipCount)
+        if (currentWave.ShipTypes.Length > 2)
         {
-            curShipIndex++;
-            return currentWave.ShipTypes[0];        //ship A
+            if (curShipIndex >= currentWave.shipCount)
+            {
+                curShipIndex++;
+                return currentWave.ShipTypes[0];        //ship A
+            }
+            if (value > 0.3f)
+            {
+                curShipIndex++;
+                return currentWave.ShipTypes[1];       //ship B
+            }
+            else
+            {
+                curShipIndex++;
+                return currentWave.ShipTypes[2];    //ship C
+            }
         }
-        if (value > 0.3f)
-        {
-            curShipIndex++;
-            return currentWave.ShipTypes[1];       //ship B
-        }
+
         else
         {
-            curShipIndex++;
-            return currentWave.ShipTypes[2];    //ship C
+            if (value > 0.3f)
+            {
+                curShipIndex++;
+                return currentWave.ShipTypes[0];       //ship B
+            }
+            else
+            {
+                curShipIndex++;
+                return currentWave.ShipTypes[1];    //ship C
+            }
         }
     }
 }
