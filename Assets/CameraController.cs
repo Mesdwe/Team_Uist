@@ -49,4 +49,13 @@ public class CameraController : MonoBehaviour
             }
         }
     }
+
+    void OnDisable()
+    {
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.OnUpgrade -= MoveCamera;
+            LevelManager.Instance.OnLevelEnd -= ResetCamera;
+        }
+    }
 }

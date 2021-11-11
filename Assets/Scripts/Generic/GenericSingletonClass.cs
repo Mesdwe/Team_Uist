@@ -8,18 +8,18 @@ public class GenericSingletonClass<T> : MonoBehaviour where T : Component
     private static bool applicationIsQuitting = false;
     private static T instance;
     [RuntimeInitializeOnLoadMethod]
-     static void RunOnStart()
-     {
-         Application.quitting += () => applicationIsQuitting = true;
-     }
+    static void RunOnStart()
+    {
+        Application.quitting += () => applicationIsQuitting = true;
+    }
     public static T Instance
     {
         get
         {
             if (applicationIsQuitting)
-             {
-                 return null;
-             }
+            {
+                return null;
+            }
             if (instance == null)
             {
                 instance = FindObjectOfType<T>();
@@ -34,6 +34,7 @@ public class GenericSingletonClass<T> : MonoBehaviour where T : Component
         }
     }
 
+    public bool GetApplicationIsQuitting() => applicationIsQuitting;
     public virtual void Awake()
     {
         if (instance == null)

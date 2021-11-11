@@ -15,15 +15,17 @@ public class LevelManager : GenericSingletonClass<LevelManager>
 
     void Awake()
     {
-        OnWaveStart += AddLevelInfo;
-
+        //OnWaveStart += AddLevelInfo;
+        OnWaveStart += InitLevel;
     }
 
 
     public void InitLevel()
     {
-        //StartCoroutine(StartInitLevel());
-        spawnController.StartSpawning(waves[0]); //temp
+        // //StartCoroutine(StartInitLevel());
+        // spawnController.StartSpawning(waves[0]); //temp
+        int index = (level - 1) * 3 + (wave - 1);
+        spawnController.StartSpawning(waves[index]); //temp
 
     }
     IEnumerator StartInitLevel()
@@ -77,5 +79,13 @@ public class LevelManager : GenericSingletonClass<LevelManager>
         }
         OnLevelEnd?.Invoke();
         StartWave();
+        GameManager.Instance.ResumeGame();
     }
+
+    void OnDisable()
+    {
+        //OnWaveStart += AddLevelInfo;
+        OnWaveStart -= InitLevel;
+    }
+
 }

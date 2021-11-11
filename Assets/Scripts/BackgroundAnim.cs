@@ -17,4 +17,14 @@ public class BackgroundAnim : MonoBehaviour
     {
         this.ani.SetTrigger("test");
     }
+
+    void OnDisable()
+    {
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.OnWaveStart -= SetAnimTrigger;
+            LevelManager.Instance.OnUpgrade -= SetAnimTrigger;
+        }
+
+    }
 }
