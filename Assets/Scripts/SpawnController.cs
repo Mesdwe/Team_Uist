@@ -14,12 +14,13 @@ public class SpawnController : MonoBehaviour
     public Wave currentWave;
     void Start()
     {
-
+        LevelManager.Instance.InitLevel();
     }
     public void StartSpawning(Wave wave)
     {
         currentWave = wave;
         curShipIndex = 0;
+
         StartCoroutine(SpawnShip());
         GetComponent<MonsterSpawner>().MonsterInit(wave);
 
@@ -40,8 +41,7 @@ public class SpawnController : MonoBehaviour
         // {
         //     GetComponent<MonsterSpawner>().enabled = false;
         // }
-        else if (GameManager.Instance.gameState == GameState.Upgrade)
-            GetComponent<MonsterSpawner>().enabled = false;
+
     }
 
     GameObject GetSpawnShip(float value)

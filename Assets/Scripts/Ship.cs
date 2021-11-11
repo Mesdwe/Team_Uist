@@ -167,7 +167,8 @@ public class Ship : MonoBehaviour
         Debug.Log("DIED");
         if (GameObject.FindGameObjectsWithTag("Ship").Length == 0)
         {
-            LevelManager.Instance.NextWave();
+            if (!GameManager.Instance.GetApplicationIsQuitting())
+                LevelManager.Instance.NextWave();   //triggered when close game
         }
     }
 }

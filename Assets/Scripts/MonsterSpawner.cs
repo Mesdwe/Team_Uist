@@ -5,9 +5,6 @@ using UnityEngine;
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] SpawnPoint[] spawnPoints;
-    [SerializeField] GameObject[] monsters;
-    [SerializeField] float minSpawnTime;
-    [SerializeField] float maxSpawnTime;
     public Wave currentWave;
 
 
@@ -43,11 +40,11 @@ public class MonsterSpawner : MonoBehaviour
         {
             if (value > 0.7f)
             {
-                return currentWave.monsterType[1];        //Monster B
+                return currentWave.monsterType[0];        //Monster B
             }
             else
             {
-                return currentWave.monsterType[2];    //Monster C
+                return currentWave.monsterType[1];    //Monster C
             }
         }
         else if (currentWave.monsterType.Length == 3)
