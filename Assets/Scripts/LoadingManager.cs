@@ -7,6 +7,7 @@ public class LoadingManager : MonoBehaviour
     // Start is called before the first frame update
     private bool isClicked;
     private bool clickable;
+    [SerializeField] private Animator animator;
     void Start()
     {
         StartCoroutine(FakeLoading());
@@ -14,7 +15,7 @@ public class LoadingManager : MonoBehaviour
 
     IEnumerator LoadTheMainScene()
     {
-        Debug.Log("FUCK");
+        animator.SetTrigger("New Trigger"); //?????
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(2);
 
         // Wait until the asynchronous scene fully loads
@@ -26,7 +27,7 @@ public class LoadingManager : MonoBehaviour
 
     IEnumerator FakeLoading()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(8f);
         clickable = true;
     }
     void Update()
