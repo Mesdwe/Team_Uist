@@ -14,7 +14,7 @@ public class SpawnController : MonoBehaviour
     public Wave currentWave;
     void Start()
     {
-        LevelManager.Instance.InitLevel();
+        // LevelManager.Instance.InitLevel();
     }
     public void StartSpawning(Wave wave)
     {
