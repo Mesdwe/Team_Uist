@@ -5,9 +5,11 @@ using UnityEngine;
 public class LightHouseAbility : Ability
 {
     public Color lightColor;
+    public int defaultUpgrade;
     public int upgrade;
     public int maxUpgrade;
     public float[] upgradeData;
+    
     public override void Initialize(GameObject obj)
     {
         Debug.Log("Initialise lighthouse ability: " + aName);
@@ -21,5 +23,9 @@ public class LightHouseAbility : Ability
         Debug.Log("Reset " + aName);
     }
 
+    public void InitUpgrade()   //to default upgrade value
+    {
+        upgrade = defaultUpgrade;
+    }
 
 }

@@ -9,12 +9,24 @@ public class UpgradePanelUI : MonoBehaviour
     [SerializeField] private Image healthImage;
     private Building currentBuilding;
 
+    [SerializeField] private TextMeshProUGUI[] abilityText;
 
     public void DisplayBuildingData(Building building)
     {
         currentBuilding = building;
         nameTMP.text = building.buildingName;
         healthImage.fillAmount = building.GetCurrentHealthPct();
+        var isLighthouse = building.GetType() == typeof(LighthouseBuilding);
+        if (isLighthouse)
+        {
+            LighthouseBuilding lighthouse = (LighthouseBuilding) building;
+            //TODO: Show lighthouse abilities current upgrade
+            for(int i =0; i<lighthouse.lighthouseAbilities.Length;i++)
+            {
+                abilityText[i].text = lighthouse.lighthouseAbilities[i].upgrade.ToString();
+            }
+        }
+
     }
 
     public void FixBuilding()
@@ -24,5 +36,15 @@ public class UpgradePanelUI : MonoBehaviour
             currentBuilding.UpdateBuildingData(10);
             DisplayBuildingData(currentBuilding);
         }
+    }
+
+    public void UpgradeAbility(int index)
+    {
+        LighthouseBuilding lighthouse = (LighthouseBuilding) currentBuilding;
+        lighthouse.UpgradeAbility(index);
+        
+        DisplayBuildingData(lighthouse);
+        
+
     }
 }

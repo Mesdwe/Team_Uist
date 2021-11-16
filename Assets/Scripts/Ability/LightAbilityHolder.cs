@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LightAbilityHolder : MonoBehaviour
 {
-    public Ability ability;
+    public LightHouseAbility ability;
     float cooldownTime;
     float activeTime;
     int currentUpgrade;
@@ -16,6 +16,7 @@ public class LightAbilityHolder : MonoBehaviour
     void Start()
     {
         major = GetComponent<MajorLightController>();
+        ability.InitUpgrade();
     }
     private void Update()
     {

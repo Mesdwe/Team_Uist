@@ -6,4 +6,14 @@ using UnityEngine;
 public class LighthouseBuilding : Building
 {
     public LightHouseAbility[] lighthouseAbilities;
+
+    //Initialise the upgrade to zero when the game starts
+
+
+    public void UpgradeAbility(int index)
+    {
+        if (lighthouseAbilities[index].upgrade >= lighthouseAbilities[index].maxUpgrade)
+            return;
+        lighthouseAbilities[index].upgrade++;
+    }
 }

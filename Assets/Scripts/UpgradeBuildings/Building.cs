@@ -9,7 +9,7 @@ public class Building : ScriptableObject
     public int maxHealth;
     private float healthPct;
     private int currentHealth;
-    public void InitBuildingData()
+    public virtual void InitBuildingData()
     {
         currentHealth = defaultHealth;
         healthPct = (float)currentHealth / maxHealth;
