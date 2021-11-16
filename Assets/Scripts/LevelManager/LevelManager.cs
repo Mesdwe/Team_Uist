@@ -19,7 +19,10 @@ public class LevelManager : GenericSingletonClass<LevelManager>
         OnWaveStart += InitLevel;
     }
 
-
+    void Start()
+    {
+        StartCoroutine(StartInitLevel());
+    }
     public void InitLevel()
     {
         // //StartCoroutine(StartInitLevel());
@@ -31,6 +34,7 @@ public class LevelManager : GenericSingletonClass<LevelManager>
     IEnumerator StartInitLevel()
     {
         yield return new WaitForSeconds(1f);
+        InitLevel();
 
     }
     public void StartWave()
