@@ -15,6 +15,8 @@ public class MajorLightController : MonoBehaviour
     LightAbilityHolder[] lightAbilityHolders;
     public Ability currentAbility;
     public Light light;
+
+    [SerializeField] private LighthouseBuilding lighthouse;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,7 @@ public class MajorLightController : MonoBehaviour
 
         if (lightOn)
         {
-            CurrentElectricity -= (maxElectricity / electricityDuration) * Time.deltaTime;
+            CurrentElectricity -= (maxElectricity / electricityDuration) * Time.deltaTime * (1 - lighthouse.GetCurrentHealthEffect());
             electricityBar.HandleElectricityChanged(CurrentElectricity / maxElectricity);
 
             if (CurrentElectricity < 0)

@@ -15,6 +15,16 @@ MonoBehaviour:
   buildingName: Major Lighthouse
   defaultHealth: 100
   maxHealth: 250
+  fixCost: 50
+  healthValues: 6400000096000000c8000000fa000000
+  healthEffects:
+  - 0
+  - 0.1
+  - 0.25
+  - 0.4
+  description: '      reduction of total speed
+
+'
   lighthouseAbilities:
   - {fileID: 11400000, guid: 95a28b4aadbd84c929e23d8b9cb286ac, type: 2}
   - {fileID: 11400000, guid: 609b34eb4336741849eabefb6d848f45, type: 2}

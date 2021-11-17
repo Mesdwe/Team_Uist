@@ -15,3 +15,12 @@ MonoBehaviour:
   buildingName: Dock 1
   defaultHealth: 30
   maxHealth: 100
+  fixCost: 50
+  healthValues: 1e000000320000004600000064000000
+  healthEffects:
+  - 0
+  - 10
+  - 20
+  - 35
+  description: Docks increase the health of ships when they dock, giving the player
+    more RP for that ship.

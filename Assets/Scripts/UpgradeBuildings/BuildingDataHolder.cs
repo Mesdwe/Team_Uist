@@ -19,6 +19,8 @@ public class BuildingDataHolder : MonoBehaviour
     public void OnBuildingClicked()
     {
         upgradeUI.DisplayBuildingData(building);
+        //TODO: Update the button state
+        //Compare the cost with rp
     }
 
 

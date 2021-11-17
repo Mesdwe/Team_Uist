@@ -10,6 +10,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] float speed;
     private bool moving;
     [SerializeField] GameObject upgradeCanvas;
+    [SerializeField] GameObject hudCanvas;
+
 
     void Start()
     {
@@ -23,12 +25,15 @@ public class CameraController : MonoBehaviour
     {
         target = upgradeTransform;
         moving = true;
+        hudCanvas.SetActive(false);
+
     }
     private void ResetCamera()
     {
         target = origin;
         upgradeCanvas.SetActive(false);
 
+        hudCanvas.SetActive(true);
         moving = true;
     }
 

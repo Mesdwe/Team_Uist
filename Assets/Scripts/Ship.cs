@@ -139,6 +139,11 @@ public class Ship : MonoBehaviour
         }
 
         OnDeath -= DestroyShip;
+        if (GameObject.FindGameObjectsWithTag("Ship").Length == 0)
+        {
+            if (!LevelManager.Instance.GetApplicationIsQuitting())
+                LevelManager.Instance.NextWave();   //triggered when close game
+        }
 
     }
     public void HealShips(float healValue)
@@ -162,13 +167,5 @@ public class Ship : MonoBehaviour
         }
     }
 
-    void OnDestroy()
-    {
-        Debug.Log("DIED");
-        if (GameObject.FindGameObjectsWithTag("Ship").Length == 0)
-        {
-            if (!GameManager.Instance.GetApplicationIsQuitting())
-                LevelManager.Instance.NextWave();   //triggered when close game
-        }
-    }
+
 }

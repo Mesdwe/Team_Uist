@@ -15,4 +15,10 @@ MonoBehaviour:
   buildingName: Minor Lighthosue 1
   defaultHealth: 50
   maxHealth: 100
+  fixCost: 50
+  healthValues: 3200000064000000
+  healthEffects:
+  - 0
+  - 1
+  description: "Does not work until at 100 health\r"
   lighthouseAbilities: []

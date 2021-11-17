@@ -23,10 +23,10 @@ public class ResourcePointUI : MonoBehaviour
     }
 
 
-    void OnDisable()
+    void OnDestroy()
     {
-        if(Player.Instance!=null)
-        Player.Instance.OnRPChanged -= UpdateRP;
+        if (Player.Instance != null)
+            Player.Instance.OnRPChanged -= UpdateRP;
     }
 
 }

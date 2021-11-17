@@ -16,6 +16,7 @@ MonoBehaviour:
   cooldownTime: 0
   activeTime: 0
   lightColor: {r: 1, g: 1, b: 1, a: 0}
+  defaultUpgrade: 0
   upgrade: 0
   maxUpgrade: 3
   upgradeData:
@@ -23,3 +24,4 @@ MonoBehaviour:
   - 0.3
   - 0.35
   - 0.4
+  upgradeCost: 50

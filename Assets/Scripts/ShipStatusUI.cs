@@ -24,7 +24,7 @@ public class ShipStatusUI : MonoBehaviour
     {
         //temp
 
-        if (isSaved ==saved)
+        if (isSaved == saved)
         {
             Debug.Log("DIE SHIP DIE" + count);
             tmp.text = count.ToString();
@@ -34,7 +34,7 @@ public class ShipStatusUI : MonoBehaviour
 
     void OnDisable()
     {
-        if(Player.Instance!=null)
-        Player.Instance.OnShipChanged -= UpdateShipCount;
+        if (Player.Instance != null)
+            Player.Instance.OnShipChanged -= UpdateShipCount;
     }
 }
