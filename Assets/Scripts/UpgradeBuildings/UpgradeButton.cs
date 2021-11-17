@@ -14,6 +14,7 @@ public class UpgradeButton : MonoBehaviour
 
     public void UpdateButtonState(bool interactable)
     {
-        button.interactable = interactable;
+        if (button != null)
+            button.interactable = interactable;
     }
 }
