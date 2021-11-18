@@ -15,7 +15,7 @@ public class LighthouseBuilding : Building
         if (lighthouseAbilities[index].upgrade >= lighthouseAbilities[index].maxUpgrade)
             return;
 
-        Player.Instance.UpdateRP(lighthouseAbilities[index].upgradeCost);
+        Player.Instance.UpdateRP(-lighthouseAbilities[index].upgradeCost[lighthouseAbilities[index].upgrade]);
         lighthouseAbilities[index].upgrade++;
     }
 }

@@ -24,7 +24,7 @@ MonoBehaviour:
   - 4
   - 5
   - 6
-  upgradeCost: 30
+  upgradeCost: e8030000d0070000b80b0000
   barrierPreview: {fileID: 0}
   barrierTemplate: {fileID: 4241886592458094625, guid: 38896785e466bea4297ddff1b13eaadd, type: 3}
   lightAbilityHolder: {fileID: 0}

@@ -30,17 +30,42 @@ public class UpgradePanelUI : MonoBehaviour
         }
 
         //Check the cost and RP
-        foreach (UpgradeButton ub in upgradeButtons)
+        for (int i = 0; i < upgradeButtons.Length; i++) //foreach (UpgradeButton ub in upgradeButtons)
         {
             int buildingLevel = building.GetCurrentHealthLevel();
-            if (buildingLevel < building.fixCosts.Length)
-            {
-                bool interactable = (Player.Instance.rp >= building.fixCosts[buildingLevel]) ? true : false;
-                ub.UpdateButtonState(interactable);
-            }
-            else
-                ub.UpdateButtonState(false);//TODO: change the text later
+            TextMeshProUGUI buttonText = upgradeButtons[i].gameObject.GetComponentInChildren<TextMeshProUGUI>();
+            buttonText.text = currentBuilding.fixCosts[buildingLevel].ToString();
 
+            if (isLighthouse && i >= 1)
+            {
+                LighthouseBuilding lighthouse = (LighthouseBuilding)building;
+                LightHouseAbility currentAbility = lighthouse.lighthouseAbilities[i - 1];
+                if (currentAbility.upgrade < currentAbility.upgradeCost.Length)
+                {
+                    int currentUpgradeCost = currentAbility.upgradeCost[currentAbility.upgrade];
+                    buttonText.text = currentUpgradeCost.ToString();
+                    bool interactable = (Player.Instance.rp >= currentUpgradeCost) ? true : false;
+                    upgradeButtons[i].UpdateButtonState(interactable);
+
+                }
+                else
+                {
+                    buttonText.text = "  ";
+                    upgradeButtons[i].UpdateButtonState(false);
+                }
+
+            }
+            else//if (!isLighthouse)
+            {
+                buttonText.text = currentBuilding.fixCosts[buildingLevel].ToString();
+                if (buildingLevel < building.fixCosts.Length)
+                {
+                    bool interactable = (Player.Instance.rp >= building.fixCosts[buildingLevel]) ? true : false;
+                    upgradeButtons[i].UpdateButtonState(interactable);
+                }
+                else
+                    upgradeButtons[i].UpdateButtonState(false);//TODO: change the text later
+            }
         }
     }
 

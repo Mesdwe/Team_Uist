@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MajorLightController : MonoBehaviour
 {
+    [SerializeField] private KeyCode lightSwitch;
     private Ship currentShip;
     public bool lightOn = true;
     [SerializeField] ElectricityBar electricityBar;
@@ -30,7 +31,7 @@ public class MajorLightController : MonoBehaviour
     {
         if (GameManager.Instance.gameState != GameState.Gameplay)
             return;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(lightSwitch))
         {
             lightOn = !lightOn;
             light.enabled = lightOn;

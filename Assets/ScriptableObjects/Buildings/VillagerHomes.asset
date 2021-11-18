@@ -17,7 +17,7 @@ MonoBehaviour:
   maxHealth: 350
   fixCosts: e8030000d6060000c4090000
   defaultHealthLevel: 0
-  healthValues: 64000000
+  healthValues: 6400000096000000c80000002c010000
   healthEffects:
   - 0
   description: 
