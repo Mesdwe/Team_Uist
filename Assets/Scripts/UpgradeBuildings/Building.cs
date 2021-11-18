@@ -9,7 +9,7 @@ public class Building : ScriptableObject
     public int maxHealth;
     private float healthPct;
     private int currentHealth;
-    public int fixCost;
+    public int[] fixCosts;
 
     public int defaultHealthLevel;
     private int currentHealthLevel;
@@ -29,20 +29,23 @@ public class Building : ScriptableObject
         if (currentHealth >= maxHealth)
             return;
 
-        Player.Instance.UpdateRP(-fixCost);
+        Player.Instance.UpdateRP(-fixCosts[currentHealthLevel]);
 
-        currentHealth += fixValue;
-        if (currentHealth > maxHealth)
-            currentHealth = maxHealth;
-        if ((currentHealthLevel < healthValues.Length - 1) && currentHealth >= healthValues[currentHealthLevel + 1])      //upgrade
+        //currentHealth += fixValue;
+
+        if ((currentHealthLevel < healthValues.Length - 1))// && currentHealth >= healthValues[currentHealthLevel + 1])      //upgrade
         {
             currentHealthLevel += 1;
-            Debug.Log("Current Health: " + currentHealth + "  Current Health Level: " + currentHealthLevel);
+            currentHealth = healthValues[currentHealthLevel];
+            Debug.Log("Fixing the building");
+            if (currentHealth > maxHealth)
+                currentHealth = maxHealth;
+            //Debug.Log("Current Health: " + currentHealth + "  Current Health Level: " + currentHealthLevel);
         }
         healthPct = (float)currentHealth / maxHealth;
     }
     public float GetCurrentHealthPct() => healthPct;
-    public float GetCurrentHealthLevel() => currentHealthLevel;
+    public int GetCurrentHealthLevel() => currentHealthLevel;
 
     public float GetCurrentHealthEffect()
     {

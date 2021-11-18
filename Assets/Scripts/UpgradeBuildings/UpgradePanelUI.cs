@@ -32,9 +32,15 @@ public class UpgradePanelUI : MonoBehaviour
         //Check the cost and RP
         foreach (UpgradeButton ub in upgradeButtons)
         {
+            int buildingLevel = building.GetCurrentHealthLevel();
+            if (buildingLevel < building.fixCosts.Length)
+            {
+                bool interactable = (Player.Instance.rp >= building.fixCosts[buildingLevel]) ? true : false;
+                ub.UpdateButtonState(interactable);
+            }
+            else
+                ub.UpdateButtonState(false);//TODO: change the text later
 
-            bool interactable = (Player.Instance.rp >= building.fixCost) ? true : false;
-            ub.UpdateButtonState(interactable);
         }
     }
 

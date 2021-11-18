@@ -15,7 +15,8 @@ MonoBehaviour:
   buildingName: Minor Lighthouse 2
   defaultHealth: 50
   maxHealth: 100
-  fixCost: 50
+  fixCosts: e8030000
+  defaultHealthLevel: 0
   healthValues: 3200000064000000
   healthEffects:
   - 0

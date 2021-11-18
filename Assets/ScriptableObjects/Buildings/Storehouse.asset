@@ -15,7 +15,8 @@ MonoBehaviour:
   buildingName: Storehouse
   defaultHealth: 50
   maxHealth: 250
-  fixCost: 50
+  fixCosts: e8030000c409000088130000
+  defaultHealthLevel: 0
   healthValues: 320000006400000096000000fa000000
   healthEffects:
   - 25

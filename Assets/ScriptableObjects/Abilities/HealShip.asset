@@ -15,7 +15,7 @@ MonoBehaviour:
   aName: Healing
   cooldownTime: 0
   activeTime: 0
-  lightColor: {r: 0.10924828, g: 1, b: 0, a: 0}
+  lightColor: {r: 0.10924828, g: 1, b: 0, a: 1}
   defaultUpgrade: 0
   upgrade: 0
   maxUpgrade: 3

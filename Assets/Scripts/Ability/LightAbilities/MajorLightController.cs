@@ -15,7 +15,7 @@ public class MajorLightController : MonoBehaviour
     LightAbilityHolder[] lightAbilityHolders;
     public Ability currentAbility;
     public Light light;
-
+    [SerializeField] private GameObject lightBeam;
     [SerializeField] private LighthouseBuilding lighthouse;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,7 @@ public class MajorLightController : MonoBehaviour
         {
             lightOn = !lightOn;
             light.enabled = lightOn;
+            lightBeam.SetActive(lightOn);
             if (!lightOn)
                 Reset();
             else
@@ -51,6 +52,8 @@ public class MajorLightController : MonoBehaviour
                 CurrentElectricity = 0;
                 lightOn = false;
                 light.enabled = lightOn;
+                lightBeam.SetActive(lightOn);
+
                 Reset();
                 return;
             }
@@ -169,5 +172,11 @@ public class MajorLightController : MonoBehaviour
         currentAbility = lah.ability;
         if (currentShip != null)
             UseAbility(currentShip);
+    }
+
+    public void SetLightColor(Color color)
+    {
+        light.color = color;
+        lightBeam.GetComponent<Light>().color = color;
     }
 }

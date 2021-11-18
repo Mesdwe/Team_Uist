@@ -7,7 +7,7 @@ public class Player : GenericSingletonClass<Player>
     public int rp;
 
     public event Action OnRPChanged;
-    public event Action<bool,int> OnShipChanged;
+    public event Action<bool, int> OnShipChanged;
     public int shipSaved;
     public int shipLost;
 
@@ -26,13 +26,13 @@ public class Player : GenericSingletonClass<Player>
     public void SavedShip(Ship ship)
     {
         shipSaved++;
-        OnShipChanged?.Invoke(true,shipSaved);
+        OnShipChanged?.Invoke(true, shipSaved);
     }
 
     public void LostShip(Ship ship)
     {
         shipLost++;
-        OnShipChanged?.Invoke(false,shipLost);
+        OnShipChanged?.Invoke(false, shipLost);
     }
     public void UpdateRP(int rpChange)
     {

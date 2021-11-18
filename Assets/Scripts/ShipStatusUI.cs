@@ -26,7 +26,6 @@ public class ShipStatusUI : MonoBehaviour
 
         if (isSaved == saved)
         {
-            Debug.Log("DIE SHIP DIE" + count);
             tmp.text = count.ToString();
 
         }
