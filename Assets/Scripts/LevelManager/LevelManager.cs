@@ -21,6 +21,7 @@ public class LevelManager : GenericSingletonClass<LevelManager>
 
     void Start()
     {
+        GameManager.Instance.gameState = GameState.Gameplay;
         StartCoroutine(StartInitLevel());
     }
     public void InitLevel()

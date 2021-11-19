@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece1ac5bc0516ea4ab903dfebce0691b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 1
+  gameState: 2
 --- !u!1 &316153070 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7124927149638021018, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
