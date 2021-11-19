@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2933496353259511277}
   - component: {fileID: 2933496353259511276}
   - component: {fileID: 4418606836905013752}
+  - component: {fileID: 5912215161743392422}
   m_Layer: 0
   m_Name: Monster_C_Fast
   m_TagString: Monster
@@ -107,6 +108,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 1
+--- !u!95 &5912215161743392422
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933496353259511278}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb65e1f0edb22c44ba1bf321734ad45e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2933496354563131044
 PrefabInstance:
   m_ObjectHideFlags: 0
