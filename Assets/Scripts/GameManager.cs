@@ -9,13 +9,15 @@ public class GameManager : GenericSingletonClass<GameManager>
 
     public void PauseGame()
     {
-        if (gameState == GameState.Gameplay)
+        if (gameState == GameState.Gameplay || gameState == GameState.Upgrade)
         {
             Time.timeScale = 0f;
             gameState = GameState.Pause;
-            GameObject pauseMenu = GameObject.Find("HUD/Pause/Image");
+            GameObject pauseMenu = GameObject.Find("Pause");
             if (pauseMenu != null)
-                pauseMenu.SetActive(true);
+            {
+                pauseMenu.transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
 
     }
@@ -23,7 +25,7 @@ public class GameManager : GenericSingletonClass<GameManager>
     {
         Time.timeScale = 1f;
         gameState = GameState.Gameplay;
-        GameObject pauseMenu = GameObject.Find("HUD/Pause/Image");
+        GameObject pauseMenu = GameObject.Find("Pause/Image");
         if (pauseMenu != null)
             pauseMenu.SetActive(false);
     }
@@ -49,13 +51,13 @@ public class GameManager : GenericSingletonClass<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gameState == GameState.Gameplay)
+            if (gameState == GameState.Gameplay || gameState == GameState.Upgrade)
             {
                 Debug.Log("Pause");
                 PauseGame();
                 return;
             }
-            if (gameState == GameState.Pause)
+            if (gameState == GameState.Pause || gameState == GameState.Upgrade)
             {
                 Debug.Log("Resume");
                 ResumeGame();
