@@ -42,6 +42,11 @@ public class MajorLightController : MonoBehaviour
                 InitAbilities();
         }
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            CurrentElectricity+= 1f;
+            electricityBar.HandleElectricityChanged(CurrentElectricity / maxElectricity);
+        }
         if (lightOn)
         {
             CurrentElectricity -= (maxElectricity / electricityDuration) * Time.deltaTime * (1 - lighthouse.GetCurrentHealthEffect());

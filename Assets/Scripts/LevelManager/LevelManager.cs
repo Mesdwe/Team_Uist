@@ -78,7 +78,8 @@ public class LevelManager : GenericSingletonClass<LevelManager>
         level += 1;
         if (level > 3)
         {
-            ResetLevel();
+            //Don't DO THIS
+            //ResetLevel();
             Debug.Log("END");
             return;
         }
