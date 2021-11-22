@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2933496353259511276}
   - component: {fileID: 4418606836905013752}
   m_Layer: 0
-  m_Name: Monster_C_Fast
+  m_Name: Monster_C_Fast 1
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   maxDist: 2000
   minDist: 2
   shipContact: 0
-  life: 3
+  life: 10
 --- !u!54 &2933496353259511277
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -80,7 +80,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2933496353259511278}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1923039037
   m_Radius: 100
   m_Speed: 175
   m_Acceleration: 300
@@ -91,7 +91,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 100
-  m_BaseOffset: -13.11
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &4418606836905013752
