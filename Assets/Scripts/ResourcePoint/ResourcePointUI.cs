@@ -25,7 +25,6 @@ public class ResourcePointUI : MonoBehaviour
 
     void OnDestroy()
     {
-        Debug.Log("Resource Point Destroy");
         if (Player.Instance != null)
             Player.Instance.OnRPChanged -= UpdateRP;
     }

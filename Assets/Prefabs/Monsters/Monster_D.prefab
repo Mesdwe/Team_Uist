@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2933496353259511277}
   - component: {fileID: 2933496353259511276}
   - component: {fileID: 4418606836905013752}
+  - component: {fileID: 1835849472}
   m_Layer: 0
   m_Name: Monster_D
   m_TagString: Monster
@@ -42,7 +43,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2933496353259511278}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 337582c06a895054b9f82f51bfac856d, type: 3}
   m_Name: 
@@ -70,7 +71,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 126
   m_CollisionDetection: 1
 --- !u!195 &2933496353259511276
 NavMeshAgent:
@@ -107,6 +108,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 1
+--- !u!114 &1835849472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933496353259511278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d16de137dc849459b10239d6b0a2f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  speed: 0
+  damageDealt: 5
+  hitChance: 0.3
+  bullet: {fileID: 1382934741458862069, guid: 798cc6fd6e5474ecb88abd4c690ae831, type: 3}
+  minShot: 3
+  maxShot: 7
+  wtf: 27000
+  targetLighthouse: {fileID: 0}
+  missShot: {fileID: 0}
+  shootSpeed: 1
 --- !u!1001 &2933496354563131044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120,31 +144,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80da8a07368fd064fad25ae26b1cfaff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.8173099
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80da8a07368fd064fad25ae26b1cfaff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.6325836
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80da8a07368fd064fad25ae26b1cfaff, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7.740485
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80da8a07368fd064fad25ae26b1cfaff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8191521
+      value: 0.73621863
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80da8a07368fd064fad25ae26b1cfaff, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.25148302
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80da8a07368fd064fad25ae26b1cfaff, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5735764
+      value: 0.51550585
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80da8a07368fd064fad25ae26b1cfaff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.359155
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80da8a07368fd064fad25ae26b1cfaff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -156,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80da8a07368fd064fad25ae26b1cfaff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -52.01
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 80da8a07368fd064fad25ae26b1cfaff, type: 3}
       propertyPath: m_Materials.Array.data[0]

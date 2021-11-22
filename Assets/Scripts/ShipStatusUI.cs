@@ -31,7 +31,7 @@ public class ShipStatusUI : MonoBehaviour
         }
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         if (Player.Instance != null)
             Player.Instance.OnShipChanged -= UpdateShipCount;

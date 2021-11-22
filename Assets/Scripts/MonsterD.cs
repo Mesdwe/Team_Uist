@@ -9,19 +9,57 @@ public class MonsterD : MonoBehaviour
     [SerializeField] float damageDealt;
     [SerializeField] float hitChance;
     [SerializeField] GameObject bullet;
+    [SerializeField] int minShot;
+    [SerializeField] int maxShot;
+    private int currentShotCount;
+    private int shots;
     public float wtf;
+    public Transform targetLighthouse;
+    public Transform missShot;
 
+    private bool isActive;
 
-    void Update()
+    [SerializeField] float shootSpeed;
+    void Start()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        // shots = Random.Range(minShot, maxShot);
+        // isActive = true;
+        // transform.LookAt(targetLighthouse);
+        // StartCoroutine(Shoot());
+    }
+
+    public void InitMonster(Transform tLT, Transform mST)
+    {
+        targetLighthouse = tLT;
+        missShot = mST;
+        shots = Random.Range(minShot, maxShot);
+        isActive = true;
+        transform.LookAt(targetLighthouse);
+        StartCoroutine(Shoot());
+    }
+    IEnumerator Shoot()
+    {
+        while (isActive)
         {
-            GameObject instFoam = Instantiate(bullet, transform.position, Quaternion.identity);
-             Rigidbody instFoamRB = instFoam.GetComponent<Rigidbody>();
- 
-             instFoamRB.AddForce(-transform.GetChild(0).right * 500000);
-             instFoamRB.AddForce(Physics.gravity * wtf);
+            yield return new WaitForSeconds(shootSpeed);
+            GameObject bullete = Instantiate(bullet, transform.position, Quaternion.identity);
+            currentShotCount++;
+            if (Random.value > 0.7f)
+                bullete.GetComponent<MonsterBullet>().SetStartPos(transform.position, targetLighthouse.position);
+            else
+                bullete.GetComponent<MonsterBullet>().SetStartPos(transform.position, missShot.position);
+
+            if (currentShotCount == shots)
+            {
+
+                isActive = false;
+
+                //Change it later
+                Destroy(gameObject);
+            }
+
         }
     }
+
 
 }
