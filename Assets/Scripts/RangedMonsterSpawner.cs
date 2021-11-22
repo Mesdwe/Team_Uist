@@ -29,10 +29,15 @@ public class RangedMonsterSpawner : MonoBehaviour
         float spawnTime = Random.Range(10, 20);
         yield return new WaitForSeconds(spawnTime);
 
-
-        SpawnPoint spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        spawnPoint.SpawnTarget(monster);
         if (GameManager.Instance.gameState != GameState.Upgrade)
+        {
+            SpawnPoint spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            spawnPoint.SpawnTarget(monster);
+
             StartCoroutine(SpawnMonster());
+
+        }
+
+        //if (GameManager.Instance.gameState != GameState.Upgrade)
     }
 }

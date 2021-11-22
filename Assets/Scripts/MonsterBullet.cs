@@ -38,7 +38,6 @@ public class MonsterBullet : MonoBehaviour
         animation = animation % 3f;
         if (Vector3.Distance(transform.position, target) <= 100f)
         {
-            Debug.Log("WTHAFDFSDF");
             Destroy(gameObject);
             return; // object has reached goal 
         }

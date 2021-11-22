@@ -18,4 +18,21 @@ public class LighthouseBuilding : Building
         Player.Instance.UpdateRP(-lighthouseAbilities[index].upgradeCost[lighthouseAbilities[index].upgrade]);
         lighthouseAbilities[index].upgrade++;
     }
+
+    public void TakingDamage(float damage)
+    {
+        currentHealth -= damage;
+        healthPct = (float)currentHealth / maxHealth;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            healthPct = 0;
+            Debug.Log("Lighthouse Dead");
+        }
+    }
+
+    public void HandleHealthChange(LighthouseMajor lighthouse)
+    {
+        lighthouse.OnHealthPctChanged += TakingDamage;
+    }
 }

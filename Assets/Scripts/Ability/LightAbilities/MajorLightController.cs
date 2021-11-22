@@ -31,7 +31,7 @@ public class MajorLightController : MonoBehaviour
     {
         if (GameManager.Instance.gameState != GameState.Gameplay)
             return;
-        if (Input.GetKeyDown(lightSwitch))
+        if (Input.GetKeyDown(lightSwitch) && !isDrain)
         {
             lightOn = !lightOn;
             light.enabled = lightOn;
@@ -42,9 +42,9 @@ public class MajorLightController : MonoBehaviour
                 InitAbilities();
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isDrain)
         {
-            CurrentElectricity+= 1f;
+            CurrentElectricity += 1f;
             electricityBar.HandleElectricityChanged(CurrentElectricity / maxElectricity);
         }
         if (lightOn)

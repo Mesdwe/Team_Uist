@@ -45,9 +45,15 @@ public class MonsterD : MonoBehaviour
             GameObject bullete = Instantiate(bullet, transform.position, Quaternion.identity);
             currentShotCount++;
             if (Random.value > 0.7f)
+            {
                 bullete.GetComponent<MonsterBullet>().SetStartPos(transform.position, targetLighthouse.position);
+                bullete.tag = "Bullet";
+            }
             else
+            {
                 bullete.GetComponent<MonsterBullet>().SetStartPos(transform.position, missShot.position);
+                Debug.Log("Not Hit");
+            }
 
             if (currentShotCount == shots)
             {

@@ -5,15 +5,15 @@ using UnityEngine;
 public class Building : ScriptableObject
 {
     public string buildingName = "New Building";
-    public int defaultHealth;
-    public int maxHealth;
-    private float healthPct;
-    private int currentHealth;
+    public float defaultHealth;
+    public float maxHealth;
+    protected float healthPct;
+    protected float currentHealth;
     public int[] fixCosts;
 
     public int defaultHealthLevel;
     private int currentHealthLevel;
-    public int[] healthValues;
+    public float[] healthValues;
     public float[] healthEffects;
     [TextArea(10, 100)]
     public string description;
@@ -24,7 +24,7 @@ public class Building : ScriptableObject
         currentHealthLevel = defaultHealthLevel;
     }
 
-    public void UpdateBuildingData(int fixValue)
+    public void UpdateBuildingData(int fixValue)        //fixing and upgrading
     {
         if (currentHealth >= maxHealth)
             return;
