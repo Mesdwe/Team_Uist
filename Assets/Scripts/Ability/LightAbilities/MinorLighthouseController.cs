@@ -16,7 +16,9 @@ public class MinorLighthouseController : MonoBehaviour
     {
         cooldownTime = ability.cooldownTime;
         activeTime = ability.activeTime;
+        ability.InitUpgrade();
         ability.Initialize(gameObject.transform.GetChild(0).gameObject);
+
     }
     private void OnTriggerEnter(Collider other)
     {

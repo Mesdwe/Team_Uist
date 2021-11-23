@@ -23,6 +23,6 @@ MonoBehaviour:
   maxShipSpawnTime: 5
   monsterType:
   - {fileID: 2522029670320728517, guid: cfc3f730692613842b86306d68d446f5, type: 3}
-  - {fileID: 2933496353259511278, guid: d8e800e71e197a043bfb2ea0cbc6f4bc, type: 3}
+  - {fileID: 2933496353259511278, guid: c095f7d1178cc4a619b0d1e795c73848, type: 3}
   minMonsterSpawnTime: 4
   maxMonsterSpawnTime: 7

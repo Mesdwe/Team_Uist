@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d5880d81cdd54cafa0ba08c640100ba, type: 3}
-  m_Name: StunShip
+  m_Name: StunShip 2
   m_EditorClassIdentifier: 
-  aName: Stun
+  aName: Stun2
   cooldownTime: 10
   activeTime: 1
   lightColor: {r: 1, g: 1, b: 1, a: 0}

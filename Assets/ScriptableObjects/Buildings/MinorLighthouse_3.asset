@@ -17,9 +17,10 @@ MonoBehaviour:
   maxHealth: 100
   fixCosts: e8030000
   defaultHealthLevel: 0
-  healthValues: 3200000064000000
+  healthValues: []
   healthEffects:
   - 0
   - 1
   description: "Does not work until at 100 health\r"
-  lighthouseAbilities: []
+  lighthouseAbilities:
+  - {fileID: 11400000, guid: 55e8f8eae7612574289bed58aba24d51, type: 2}

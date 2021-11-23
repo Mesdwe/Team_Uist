@@ -26,7 +26,7 @@ public class LightHouseAbility : Ability
         Debug.Log("Reset " + aName);
     }
 
-    public void InitUpgrade()   //to default upgrade value
+    public virtual void InitUpgrade()   //to default upgrade value
     {
         upgrade = defaultUpgrade;
     }

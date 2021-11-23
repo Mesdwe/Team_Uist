@@ -7,9 +7,11 @@ public class BuildingDataHolder : MonoBehaviour
     public Building building;
     [SerializeField]
     private UpgradePanelUI upgradeUI;
+    [SerializeField] private bool isInit;
     void Start()
     {
-        building.InitBuildingData();
+        if (isInit)
+            building.InitBuildingData();
     }
     void OnMouseDown()
     {

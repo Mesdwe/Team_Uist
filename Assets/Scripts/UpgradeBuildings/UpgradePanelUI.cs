@@ -13,6 +13,14 @@ public class UpgradePanelUI : MonoBehaviour
 
     [SerializeField] private UpgradeButton[] upgradeButtons;
 
+    [SerializeField] private Building defaultBuilding;
+    [SerializeField] private GameObject upgradePanel;
+    void Start()
+    {
+        Debug.Log("INIT DEFAULT BUILDING");
+        //defaultBuilding.InitBuildingData();
+        DisplayBuildingData(defaultBuilding);
+    }
     public void DisplayBuildingData(Building building)
     {
         currentBuilding = building;
@@ -23,6 +31,7 @@ public class UpgradePanelUI : MonoBehaviour
         {
             LighthouseBuilding lighthouse = (LighthouseBuilding)building;
             //TODO: Show lighthouse abilities current upgrade
+            upgradePanel.SetActive(true);
             for (int i = 0; i < lighthouse.lighthouseAbilities.Length; i++)
             {
                 abilityText[i].text = lighthouse.lighthouseAbilities[i].upgrade.ToString();
@@ -39,6 +48,27 @@ public class UpgradePanelUI : MonoBehaviour
             if (isLighthouse && i >= 1)
             {
                 LighthouseBuilding lighthouse = (LighthouseBuilding)building;
+                if (lighthouse.lighthouseAbilities.Length < 2)  //minor
+                {
+                    LightHouseAbility currentAbilityMinor = lighthouse.lighthouseAbilities[0];
+
+                    if (currentAbilityMinor.upgrade < currentAbilityMinor.upgradeCost.Length)
+                    {
+                        int currentUpgradeCost = currentAbilityMinor.upgradeCost[currentAbilityMinor.upgrade];
+                        buttonText.text = currentUpgradeCost.ToString();
+                        bool interactable = (Player.Instance.rp >= currentUpgradeCost) ? true : false;
+                        upgradeButtons[i].UpdateButtonState(interactable);
+
+                    }
+                    else
+                    {
+                        buttonText.text = "  ";
+                        upgradeButtons[i].UpdateButtonState(false);
+                    }
+                    return;
+                }
+
+                //major
                 LightHouseAbility currentAbility = lighthouse.lighthouseAbilities[i - 1];
                 if (currentAbility.upgrade < currentAbility.upgradeCost.Length)
                 {
