@@ -2171,7 +2171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   back1: {fileID: 1667185927}
   back2: {fileID: 1667224763}
-  speed: 100
+  speed: 200
   endPosition: {fileID: 1644695721}
   startPosition: {fileID: 1644901715}
 --- !u!114 &1676842053
