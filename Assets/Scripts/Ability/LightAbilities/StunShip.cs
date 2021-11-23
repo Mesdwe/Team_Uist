@@ -18,6 +18,7 @@ public class StunShip : LightHouseAbility
         Debug.Log("STUNNNN");
         //currentLighthouse = obj;
         currentLighthouse.GetComponent<Light>().color = Color.red;
+        Debug.Log(obj.name);
         obj.GetComponentInParent<Monster>().Stunned(3f);    //Fix it
     }
     public override void ResetAbility()
