@@ -127,6 +127,27 @@ public class MajorLightController : MonoBehaviour
             other.gameObject.GetComponent<Ship>().ResetShip();
             currentShip = null;
         }
+
+        if (other.CompareTag("Barrier"))
+        {
+            Debug.Log("Destroy BARRIER");
+
+            for (int i = 0; i < lightAbilityHolders.Length; i++)
+            {
+                if (lightAbilityHolders[i].barrier)
+                {
+                    if (lightAbilityHolders[i].ability == currentAbility)
+                    {
+                        Debug.Log("NO?");
+                        lightAbilityHolders[i].ability.Initialize(gameObject);
+                        lightAbilityHolders[i].state = AbilityState.ready;
+                    }
+
+                }
+            }
+            Destroy(other.gameObject);
+            return;
+        }
     }
     private void Reset()
     {

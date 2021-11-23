@@ -23,16 +23,21 @@ public class BarrierSkill : LightHouseAbility
     }
     public override void TriggerAbility(GameObject goo)
     {
-        int barrierCount = lightAbilityHolder.barrierCount;
-        if (barrierCount >= upgradeData[upgrade])
-            return;
-        Debug.Log("USE IT");
+        // int barrierCount = lightAbilityHolder.barrierCount;
+        // if (barrierCount >= upgradeData[upgrade])
+        //     return;
+        // Debug.Log("USE IT");
 
+        barrierPreview.SetActive(false);
         var go = Instantiate(barrierTemplate, barrierPreview.transform.position, barrierPreview.transform.rotation, barrierPreview.transform.parent);
         go.transform.SetParent(null);
         lightAbilityHolder.barrierCount++;
         go.GetComponent<Barrier>().SetBarrierSkill(lightAbilityHolder);
+    }
 
+    public void ReactiveBarrier()
+    {
+        barrierPreview.SetActive(true);
     }
     public override void ResetAbility()
     {

@@ -15,7 +15,6 @@ public class StunShip : LightHouseAbility
 
     public override void TriggerAbility(GameObject obj)
     {
-        Debug.Log("STUNNNN");
         //currentLighthouse = obj;
         currentLighthouse.GetComponent<Light>().color = Color.red;
         Debug.Log(obj.name);

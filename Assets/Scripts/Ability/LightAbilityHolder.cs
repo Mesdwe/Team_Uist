@@ -22,7 +22,7 @@ public class LightAbilityHolder : MonoBehaviour
     {
         if (!major.lightOn)
             return;
-        if (Input.GetKeyDown(key))
+        if (Input.GetKeyDown(key) && state != AbilityState.active)
         {
             ability.Initialize(gameObject);
             state = AbilityState.ready;
@@ -41,7 +41,7 @@ public class LightAbilityHolder : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0) && state == AbilityState.ready)
             {
                 ability.TriggerAbility(gameObject);
-                state = AbilityState.ready;
+                state = AbilityState.active;
             }
         }
     }
@@ -58,6 +58,8 @@ public class LightAbilityHolder : MonoBehaviour
         ability.ResetAbility();
         //state = AbilityState.ready;
     }
+
+
 }
 
 public enum AbilityState
