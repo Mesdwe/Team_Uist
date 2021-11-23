@@ -24,7 +24,7 @@ public class Monster : MonoBehaviour
     private bool switchTarget = true;
     private bool cooldown = false;
 
-
+    private bool stunned = false;
     //private Movements movements;
     void Start()
     {
@@ -54,6 +54,8 @@ public class Monster : MonoBehaviour
     }
     void Update()
     {
+        if (stunned)
+            return;
         if (timer <= life)
         {
             timer += Time.deltaTime;
@@ -69,7 +71,7 @@ public class Monster : MonoBehaviour
             {
                 //transform.LookAt(target);
                 agent.SetDestination(target.position);
-                if (distance <= agent.stoppingDistance)
+                if (distance <= agent.stoppingDistance && !stunned)
                 {
                     transform.LookAt(target);
                     Ship targetShip = target.GetComponent<Ship>();
@@ -122,4 +124,18 @@ public class Monster : MonoBehaviour
         //movements.SetTargetTransform(tar);
     }
 
+
+    public void Stunned(float stunTime)
+    {
+        stunned = true;
+        StartCoroutine(BeingStunned(stunTime));
+    }
+
+    IEnumerator BeingStunned(float stunTime)
+    {
+        Debug.Log("Monster Stunned");
+        yield return new WaitForSeconds(stunTime);
+        stunned = false;
+        Debug.Log("Monster Recover");
+    }
 }

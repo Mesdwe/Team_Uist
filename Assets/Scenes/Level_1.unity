@@ -282,6 +282,39 @@ MonoBehaviour:
   rp: 0
   shipSaved: 0
   shipLost: 0
+--- !u!1 &207515814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 469613336, guid: 0217bcb3e0f525545a5bfc06aff06646, type: 3}
+  m_PrefabInstance: {fileID: 6053833688333379437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &207515816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207515814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba14d944af58c48bc909af08dd531214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 8ef318b6afba74a7ca774549c0cd6e04, type: 2}
+  state: 0
+--- !u!136 &207515817
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207515814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 300
+  m_Height: 300
+  m_Direction: 1
+  m_Center: {x: 100, y: -1000, z: 600}
 --- !u!1 &227186091
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416060725}
   m_LocalRotation: {x: -0, y: -0.5539002, z: -0, w: 0.83258307}
-  m_LocalPosition: {x: -1074, y: -10.152998, z: 1791}
+  m_LocalPosition: {x: -1265, y: -10.152998, z: 1871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1873073526}
@@ -2362,7 +2395,21 @@ CapsuleCollider:
   m_Radius: 300
   m_Height: 300
   m_Direction: 1
-  m_Center: {x: 32.4, y: -93.9, z: 752.3}
+  m_Center: {x: 147, y: -86.5, z: 728.8}
+--- !u!114 &1884718331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884718328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba14d944af58c48bc909af08dd531214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 8ef318b6afba74a7ca774549c0cd6e04, type: 2}
+  state: 0
 --- !u!1 &1888883280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3104,6 +3151,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1269366709, guid: 0217bcb3e0f525545a5bfc06aff06646, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269366709, guid: 0217bcb3e0f525545a5bfc06aff06646, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269366709, guid: 0217bcb3e0f525545a5bfc06aff06646, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599719434, guid: 0217bcb3e0f525545a5bfc06aff06646, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599719434, guid: 0217bcb3e0f525545a5bfc06aff06646, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599719434, guid: 0217bcb3e0f525545a5bfc06aff06646, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1950355546, guid: 0217bcb3e0f525545a5bfc06aff06646, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34.488525
@@ -3340,10 +3411,6 @@ PrefabInstance:
     - target: {fileID: 7124927149638021018, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
       propertyPath: m_Name
       value: UpgradeCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7124927149638021018, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
