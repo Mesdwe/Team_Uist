@@ -21,7 +21,8 @@ public class LevelupUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (i > 0) {            
+        if (i > 0)
+        {
             level1.SetActive(true);
             Text.text = "25% -> 35%";
         }

@@ -13,6 +13,9 @@ public class UpgradePanelUI : MonoBehaviour
 
     [SerializeField] private UpgradeButton[] upgradeButtons;
 
+    [SerializeField] private TextMeshProUGUI[] descriptionText;
+
+
     public void DisplayBuildingData(Building building)
     {
         currentBuilding = building;
@@ -39,6 +42,8 @@ public class UpgradePanelUI : MonoBehaviour
             if (isLighthouse && i >= 1)
             {
                 LighthouseBuilding lighthouse = (LighthouseBuilding)building;
+                if (lighthouse.lighthouseAbilities.Length < 2)      //lighthouse minors
+                    return;
                 LightHouseAbility currentAbility = lighthouse.lighthouseAbilities[i - 1];
                 if (currentAbility.upgrade < currentAbility.upgradeCost.Length)
                 {
@@ -65,6 +70,13 @@ public class UpgradePanelUI : MonoBehaviour
                 }
                 else
                     upgradeButtons[i].UpdateButtonState(false);//TODO: change the text later
+            }
+
+            for (int j = 0; j < descriptionText.Length; j++)
+            {
+                float currentEffect = currentBuilding.healthEffects[currentBuilding.GetCurrentHealthLevel()];
+                float targetEffect = currentBuilding.healthEffects[currentBuilding.GetCurrentHealthLevel() + 1];
+                descriptionText[j].text = currentEffect + " -> " + targetEffect;
             }
         }
     }
