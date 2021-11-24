@@ -22,11 +22,14 @@ public class LighthouseMajor : MonoBehaviour
 
             if (lighthouse.GetCurrentHealthPct() <= 0)
             {
+                Debug.Log("LOOOOOSE");
                 //Bad!
                 GameObject losePanel = GameObject.Find("Pause/LosePanel");
                 if (losePanel != null)
                 {
-                    losePanel.SetActive(true);
+                    Time.timeScale = 0f;
+                    GameManager.Instance.gameState = GameState.Pause;
+                    losePanel.transform.GetChild(0).gameObject.SetActive(true);
                 }
 
             }

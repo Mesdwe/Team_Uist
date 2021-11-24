@@ -81,6 +81,14 @@ public class LevelManager : GenericSingletonClass<LevelManager>
             //Don't DO THIS
             //ResetLevel();
             Debug.Log("END");
+
+            GameObject winPanel = GameObject.Find("Pause/WinPanel");
+            if (winPanel != null)
+            {
+                Time.timeScale = 0f;
+                GameManager.Instance.gameState = GameState.Pause;
+                winPanel.transform.GetChild(0).gameObject.SetActive(true);
+            }
             return;
         }
         OnLevelEnd?.Invoke();
