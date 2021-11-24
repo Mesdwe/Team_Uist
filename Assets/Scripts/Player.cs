@@ -40,4 +40,11 @@ public class Player : GenericSingletonClass<Player>
         OnRPChanged?.Invoke();
     }
 
+    public void InitPlayer()
+    {
+        rp = 0;
+        shipSaved = 0;
+        shipLost = 0;
+    }
+
 }

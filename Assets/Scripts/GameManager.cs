@@ -43,6 +43,9 @@ public class GameManager : GenericSingletonClass<GameManager>
     public void InitGameplay()
     {
         gameState = GameState.Gameplay;
+
+        Player.Instance.InitPlayer();   //Test
+
         if (LevelManager.Instance != null)
             Destroy(LevelManager.Instance.gameObject);
     }

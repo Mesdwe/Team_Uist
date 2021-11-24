@@ -23,6 +23,8 @@ public class Ship : MonoBehaviour
 
     public ShipRewards shipRewards;
     private bool healing;
+
+    private AudioController audioController;
     private void OnEnable()
     {
         OnArrival += ArrivedDock;
@@ -40,6 +42,8 @@ public class Ship : MonoBehaviour
         //movements.SetSpeed(defaultSpeed);
         agent = GetComponent<NavMeshAgent>();
         agent.speed = defaultSpeed;
+
+        audioController = GetComponent<AudioController>();
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -92,17 +96,27 @@ public class Ship : MonoBehaviour
 
     public void ArrivedDock(Ship ship)
     {
+        DestroyShipObject();
         //GetComponent<Movements>().isMoving = false;
         agent.speed = 0;
         gameObject.tag = "Untagged";
         //disappear effect
-        Destroy(gameObject);
+        audioController.SetAudioClip(0);
+        audioController.PlayAudioClip();
     }
     public void DestroyShip(Ship ship)
     {
+        DestroyShipObject();
         //Temp
+        agent.speed = 0;
         gameObject.tag = "Untagged";
-        Destroy(gameObject);
+        audioController.SetAudioClip(1);
+        audioController.PlayAudioClip();
+    }
+
+    private void DestroyShipObject()
+    {
+        Destroy(gameObject, 1.5f);
     }
     public void SpeedUp(float increase)
     {

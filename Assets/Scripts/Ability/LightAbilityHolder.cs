@@ -14,12 +14,17 @@ public class LightAbilityHolder : MonoBehaviour
     //public int barrierCount;
     private MajorLightController major;
 
+    private AudioController audioController;
+    public int id;
 
     void Start()
     {
         major = GetComponent<MajorLightController>();
         ability.InitUpgrade();
         cooldownTime = ability.cooldownTime;
+        //Init audio
+        audioController = GetComponent<AudioController>();
+        audioController.SetAudioClip(0);    //speed up
     }
     private void Update()
     {
@@ -27,10 +32,11 @@ public class LightAbilityHolder : MonoBehaviour
             return;
         if (Input.GetKeyDown(key) && state != AbilityState.active)
         {
-
+            audioController.SetAudioClip(id);
             if (state != AbilityState.cooldown)
             {
                 ability.Initialize(gameObject);
+
                 state = AbilityState.ready;
                 GetComponent<MajorLightController>().SetCurrentAbility(this);
 
@@ -40,6 +46,7 @@ public class LightAbilityHolder : MonoBehaviour
             {
                 state = AbilityState.readyCooldown;
                 ability.Initialize(gameObject);
+
             }
             //wait for the coolingdown over
         }
@@ -56,6 +63,7 @@ public class LightAbilityHolder : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0) && state == AbilityState.ready)
             {
                 ability.TriggerAbility(gameObject);
+                audioController.PlayAudioClip();
                 state = AbilityState.active;
             }
         }
@@ -66,6 +74,7 @@ public class LightAbilityHolder : MonoBehaviour
         state = AbilityState.active;
 
         ability.TriggerAbility(ship);
+        audioController.PlayAudioClip();
     }
 
     public void StartCooldown()

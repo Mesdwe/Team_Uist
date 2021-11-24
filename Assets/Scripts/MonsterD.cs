@@ -42,6 +42,14 @@ public class MonsterD : MonoBehaviour
         while (isActive)
         {
             yield return new WaitForSeconds(shootSpeed);
+            if (GameManager.Instance.gameState == GameState.Upgrade)
+            {
+                isActive = false;
+
+                //Change it later
+                Destroy(gameObject);
+                yield break;
+            }
             GameObject bullete = Instantiate(bullet, transform.position, Quaternion.identity);
             currentShotCount++;
             if (Random.value > 0.7f)

@@ -93,6 +93,11 @@ public class Monster : MonoBehaviour
     }
     private void FindATarget()
     {
+        if (!switchTarget)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Transform closestShip = GetClosestShip();
         SetTarget(closestShip);
         if (closestShip != null)
@@ -103,19 +108,20 @@ public class Monster : MonoBehaviour
             transform.LookAt(closestShip.transform);
         }
         else
-            Destroy(gameObject, 0.6f);  //Destroy Effect
+            Destroy(gameObject);  //Destroy Effect
     }
     public void TargetDisapear(Ship ship)
     {
         shipContact = false;
-        if (switchTarget)
-        {
-            FindATarget();
-        }
-        else       //kill
-        {
-            Destroy(gameObject, 0.6f);
-        }
+        FindATarget();
+        // if (switchTarget)
+        // {
+        //     FindATarget();
+        // }
+        // else       //kill
+        // {
+        //     Destroy(gameObject, 0.6f);
+        // }
     }
 
     public void SetTarget(Transform tar)

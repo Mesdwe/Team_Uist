@@ -26,7 +26,7 @@ public class RangedMonsterSpawner : MonoBehaviour
 
     IEnumerator SpawnMonster()
     {
-        float spawnTime = Random.Range(10, 20);
+        float spawnTime = Random.Range(30, 40);
         yield return new WaitForSeconds(spawnTime);
 
         if (GameManager.Instance.gameState != GameState.Upgrade)
