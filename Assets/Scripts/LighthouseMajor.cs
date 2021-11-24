@@ -19,6 +19,17 @@ public class LighthouseMajor : MonoBehaviour
             lighthouse.TakingDamage(10);
             OnHealthPctChanged?.Invoke(lighthouse.GetCurrentHealthPct());//CHANGE IT!!! Get monster's attack
             //
+
+            if (lighthouse.GetCurrentHealthPct() <= 0)
+            {
+                //Bad!
+                GameObject losePanel = GameObject.Find("Pause/LosePanel");
+                if (losePanel != null)
+                {
+                    losePanel.SetActive(true);
+                }
+
+            }
         }
     }
 
