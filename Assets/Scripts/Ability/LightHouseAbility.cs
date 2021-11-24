@@ -10,7 +10,9 @@ public class LightHouseAbility : Ability
     public int maxUpgrade;
     public float[] upgradeData;
     public int[] upgradeCost;
-
+    [TextArea(10, 100)]
+    public string description;
+    public string abilityDataSymbol;
     public override void Initialize(GameObject obj)
     {
         Debug.Log("Initialise lighthouse ability: " + aName);

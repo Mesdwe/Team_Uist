@@ -24,7 +24,7 @@ public class Barrier : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         //barrierSkill.barrierCount--;
-        lh.barrierCount--;
+        //lh.barrierCount--;
         Destroy(gameObject);
     }
 }

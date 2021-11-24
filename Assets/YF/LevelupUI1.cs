@@ -11,34 +11,47 @@ public class LevelupUI1 : MonoBehaviour
     public GameObject level1;
     public GameObject level2;
     public GameObject level3;
-    public TextMeshProUGUI Text;
+    //public TextMeshProUGUI Text;
     private int i = 0;
     void Start()
     {
         this.GetComponent<Button>().onClick.AddListener(click);
     }
 
-    // Update is called once per frame
-    void Update()
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     if (i >
+    //{   
+    //         level1.SetActive(true);
+    //         Text.text = "25 -> 30";
+    //     }
+    //     if (i > 1)
+    //     {
+    //         level2.SetActive(true);
+    //         Text.text = "30 -> 35";
+    //     }
+    //     if (i > 2)
+    //     {
+    //         level3.SetActive(true);
+    //         Text.text = "";
+    //     }
+
+    // }
+    void click()
     {
-        if (i > 0) {            
+        i++;
+        if (i > 0)
+        {
             level1.SetActive(true);
-            Text.text = "25 -> 30";
         }
         if (i > 1)
         {
             level2.SetActive(true);
-            Text.text = "30 -> 35";
         }
         if (i > 2)
         {
             level3.SetActive(true);
-            Text.text = "";
         }
-
-    }
-    void click()
-    {
-        i++;
     }
 }

@@ -16,7 +16,7 @@ public class MinorLighthouseController : MonoBehaviour
     {
         cooldownTime = ability.cooldownTime;
         activeTime = ability.activeTime;
-        ability.InitUpgrade();
+        ability.InitUpgrade();      // to default value, move to when it's unlocked
         ability.Initialize(gameObject.transform.GetChild(0).gameObject);
 
     }

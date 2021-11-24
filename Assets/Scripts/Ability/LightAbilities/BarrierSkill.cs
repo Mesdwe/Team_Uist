@@ -9,17 +9,26 @@ public class BarrierSkill : LightHouseAbility
 
     public GameObject barrierTemplate;
     public LightAbilityHolder lightAbilityHolder;
+    public Vector3 previewScale;
+    public Vector3 prefabScale;
     public override void Initialize(GameObject obj)
     {
         base.Initialize(obj);
         barrierPreview = obj.transform.GetChild(0).gameObject;
-        barrierPreview.SetActive(true);
+        barrierPreview.transform.localScale = previewScale + new Vector3(previewScale.x * upgradeData[upgrade], 0, 0);
+
+        //barrierPreview.SetActive(true);
         LightAbilityHolder[] holders = obj.GetComponents<LightAbilityHolder>();
         for (int i = 0; i < holders.Length; i++)
         {
             if (holders[i].barrier)
                 lightAbilityHolder = holders[i];
         }
+        if (lightAbilityHolder.state == AbilityState.readyCooldown)
+            barrierPreview.SetActive(false);
+        else
+            barrierPreview.SetActive(true);
+
     }
     public override void TriggerAbility(GameObject goo)
     {
@@ -30,8 +39,9 @@ public class BarrierSkill : LightHouseAbility
 
         barrierPreview.SetActive(false);
         var go = Instantiate(barrierTemplate, barrierPreview.transform.position, barrierPreview.transform.rotation, barrierPreview.transform.parent);
+        go.transform.localScale = prefabScale + new Vector3(prefabScale.x * upgradeData[upgrade], 0, 0);
         go.transform.SetParent(null);
-        lightAbilityHolder.barrierCount++;
+        //lightAbilityHolder.barrierCount++;
         go.GetComponent<Barrier>().SetBarrierSkill(lightAbilityHolder);
     }
 

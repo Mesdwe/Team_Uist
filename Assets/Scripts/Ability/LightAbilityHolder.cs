@@ -11,12 +11,15 @@ public class LightAbilityHolder : MonoBehaviour
     public AbilityState state;
     public KeyCode key;
     public bool barrier;
-    public int barrierCount;
+    //public int barrierCount;
     private MajorLightController major;
+
+
     void Start()
     {
         major = GetComponent<MajorLightController>();
         ability.InitUpgrade();
+        cooldownTime = ability.cooldownTime;
     }
     private void Update()
     {
@@ -24,9 +27,21 @@ public class LightAbilityHolder : MonoBehaviour
             return;
         if (Input.GetKeyDown(key) && state != AbilityState.active)
         {
-            ability.Initialize(gameObject);
-            state = AbilityState.ready;
-            GetComponent<MajorLightController>().SetCurrentAbility(this);
+
+            if (state != AbilityState.cooldown)
+            {
+                ability.Initialize(gameObject);
+                state = AbilityState.ready;
+                GetComponent<MajorLightController>().SetCurrentAbility(this);
+
+            }
+
+            if (state == AbilityState.cooldown)
+            {
+                state = AbilityState.readyCooldown;
+                ability.Initialize(gameObject);
+            }
+            //wait for the coolingdown over
         }
         if (barrier && state == AbilityState.ready)
         {
@@ -53,6 +68,26 @@ public class LightAbilityHolder : MonoBehaviour
         ability.TriggerAbility(ship);
     }
 
+    public void StartCooldown()
+    {
+        StartCoroutine(CoolingDown());
+    }
+
+    IEnumerator CoolingDown()
+    {
+        if (state != AbilityState.readyCooldown)
+            state = AbilityState.cooldown;
+        //if (state == AbilityState.readyCooldown)
+        yield return new WaitForSeconds(cooldownTime);
+        Debug.Log("Cooldown time: " + cooldownTime);
+        if (state == AbilityState.readyCooldown)
+        {
+            state = AbilityState.ready;
+            ability.Initialize(gameObject);
+        }
+        else
+            state = AbilityState.inactive;
+    }
     public void ResetAbility()
     {
         ability.ResetAbility();
@@ -66,5 +101,7 @@ public enum AbilityState
 {
     ready,
     active,
-    cooldown
+    cooldown,
+    inactive,
+    readyCooldown //in the mode but still cooling
 }

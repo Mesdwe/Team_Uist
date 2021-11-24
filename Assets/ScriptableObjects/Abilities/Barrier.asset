@@ -12,19 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415fbd03ac25c654ba2072be6df92b59, type: 3}
   m_Name: Barrier
   m_EditorClassIdentifier: 
-  aName: New Ability
-  cooldownTime: 0
+  aName: Barrier
+  cooldownTime: 5
   activeTime: 0
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   defaultUpgrade: 0
   upgrade: 0
   maxUpgrade: 3
   upgradeData:
-  - 3
-  - 4
-  - 5
-  - 6
+  - 0
+  - 0.15
+  - 0.25
+  - 0.4
   upgradeCost: e8030000d0070000b80b0000
+  description: Increasing the length
+  abilityDataSymbol: '%'
   barrierPreview: {fileID: 0}
   barrierTemplate: {fileID: 4241886592458094625, guid: 38896785e466bea4297ddff1b13eaadd, type: 3}
   lightAbilityHolder: {fileID: 0}
+  previewScale: {x: 1, y: 1, z: 1}
+  prefabScale: {x: 25, y: 2, z: 45}

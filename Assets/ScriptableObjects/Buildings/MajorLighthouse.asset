@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: MajorLighthouse
   m_EditorClassIdentifier: 
   buildingName: Major Lighthouse
-  defaultHealth: 250
+  defaultHealth: 0
   maxHealth: 250
-  fixCosts: f4010000e8030000d0070000
+  fixCosts: 0a0000000a0000000a000000
   defaultHealthLevel: 0
-  healthValues: 6400000096000000c8000000fa000000
+  healthValues: []
   healthEffects:
   - 0
   - 0.1

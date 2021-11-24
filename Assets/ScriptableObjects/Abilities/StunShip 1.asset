@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5880d81cdd54cafa0ba08c640100ba, type: 3}
   m_Name: StunShip 1
   m_EditorClassIdentifier: 
-  aName: Stun1
+  aName: Stun
   cooldownTime: 10
   activeTime: 1
   lightColor: {r: 1, g: 1, b: 1, a: 0}
   defaultUpgrade: 0
-  upgrade: 2
+  upgrade: 0
   maxUpgrade: 3
   upgradeData:
   - 3
@@ -25,3 +25,5 @@ MonoBehaviour:
   - 5
   - 6
   upgradeCost: ee020000e2040000d0070000
+  description: DESCRIPTION HERE
+  abilityDataSymbol: ' seconds'

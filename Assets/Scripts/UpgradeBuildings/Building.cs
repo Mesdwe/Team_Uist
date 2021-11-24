@@ -31,17 +31,20 @@ public class Building : ScriptableObject
 
         Player.Instance.UpdateRP(-fixCosts[currentHealthLevel]);
 
-        //currentHealth += fixValue;
+        currentHealth += fixValue;
 
-        if ((currentHealthLevel < healthValues.Length - 1))// && currentHealth >= healthValues[currentHealthLevel + 1])      //upgrade
+        // if ((currentHealthLevel < healthValues.Length - 1))// && currentHealth >= healthValues[currentHealthLevel + 1])      //upgrade
+        // {
+        //     currentHealthLevel += 1;
+        //     currentHealth = healthValues[currentHealthLevel];
+        //     Debug.Log("Fixing the building");
+        if (currentHealth >= maxHealth)
         {
-            currentHealthLevel += 1;
-            currentHealth = healthValues[currentHealthLevel];
-            Debug.Log("Fixing the building");
-            if (currentHealth > maxHealth)
-                currentHealth = maxHealth;
-            //Debug.Log("Current Health: " + currentHealth + "  Current Health Level: " + currentHealthLevel);
+            currentHealth = maxHealth;
+            Debug.Log("Fully fixed");
         }
+        //     //Debug.Log("Current Health: " + currentHealth + "  Current Health Level: " + currentHealthLevel);
+        // }
         healthPct = (float)currentHealth / maxHealth;
     }
     public float GetCurrentHealthPct() => healthPct;

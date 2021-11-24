@@ -5,11 +5,14 @@ using UnityEngine.UI;
 using TMPro;
 public class UpgradePanelUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI nameTMP;
+    //[SerializeField] private TextMeshProUGUI nameTMP;
     [SerializeField] private Image healthImage;
     private Building currentBuilding;
 
-    [SerializeField] private TextMeshProUGUI[] abilityText;
+    [SerializeField] private TextMeshProUGUI[] abilityNames;
+    [SerializeField] private TextMeshProUGUI[] abilityDescriptions;
+    [SerializeField] private TextMeshProUGUI[] abilityUpgradeData;
+    [SerializeField] private GameObject[] abilityUI;
 
     [SerializeField] private UpgradeButton[] upgradeButtons;
 
@@ -24,7 +27,7 @@ public class UpgradePanelUI : MonoBehaviour
     public void DisplayBuildingData(Building building)
     {
         currentBuilding = building;
-        nameTMP.text = building.buildingName;
+        //nameTMP.text = building.buildingName;
         healthImage.fillAmount = building.GetCurrentHealthPct();
         var isLighthouse = building.GetType() == typeof(LighthouseBuilding);
         if (isLighthouse)
@@ -32,10 +35,8 @@ public class UpgradePanelUI : MonoBehaviour
             LighthouseBuilding lighthouse = (LighthouseBuilding)building;
             //TODO: Show lighthouse abilities current upgrade
             upgradePanel.SetActive(true);
-            for (int i = 0; i < lighthouse.lighthouseAbilities.Length; i++)
-            {
-                abilityText[i].text = lighthouse.lighthouseAbilities[i].upgrade.ToString();
-            }
+            DisplaySkillInfo(lighthouse.lighthouseAbilities);
+
         }
 
         //Check the cost and RP
@@ -50,7 +51,15 @@ public class UpgradePanelUI : MonoBehaviour
                 LighthouseBuilding lighthouse = (LighthouseBuilding)building;
                 if (lighthouse.lighthouseAbilities.Length < 2)  //minor
                 {
+                    bool unlocked1 = lighthouse.GetCurrentHealthPct() >= 1 ? true : false;
+                    abilityUI[0].SetActive(unlocked1);
+                    abilityUI[1].SetActive(false);  //get rid of the 2nd and 3rd
+                    abilityUI[2].SetActive(false);
                     LightHouseAbility currentAbilityMinor = lighthouse.lighthouseAbilities[0];
+
+                    //Init upgrade icon
+                    abilityUI[0].GetComponent<UpgradeIcon>().ResetLevelInfo(currentAbilityMinor.upgrade);
+
 
                     if (currentAbilityMinor.upgrade < currentAbilityMinor.upgradeCost.Length)
                     {
@@ -70,6 +79,8 @@ public class UpgradePanelUI : MonoBehaviour
 
                 //major
                 LightHouseAbility currentAbility = lighthouse.lighthouseAbilities[i - 1];
+                abilityUI[i - 1].SetActive(true);
+                abilityUI[i - 1].GetComponent<UpgradeIcon>().ResetLevelInfo(currentAbility.upgrade);
                 if (currentAbility.upgrade < currentAbility.upgradeCost.Length)
                 {
                     int currentUpgradeCost = currentAbility.upgradeCost[currentAbility.upgrade];
@@ -85,25 +96,71 @@ public class UpgradePanelUI : MonoBehaviour
                 }
 
             }
-            else//if (!isLighthouse)
-            {
-                buttonText.text = currentBuilding.fixCosts[buildingLevel].ToString();
-                if (buildingLevel < building.fixCosts.Length)
-                {
-                    bool interactable = (Player.Instance.rp >= building.fixCosts[buildingLevel]) ? true : false;
-                    upgradeButtons[i].UpdateButtonState(interactable);
-                }
-                else
-                    upgradeButtons[i].UpdateButtonState(false);//TODO: change the text later
-            }
         }
     }
 
+    private void DisplaySkillInfo(LightHouseAbility[] lighthouseAbilities)
+    {
+        for (int i = 0; i < lighthouseAbilities.Length; i++)
+        {
+            abilityNames[i].text = lighthouseAbilities[i].aName;
+            abilityDescriptions[i].text = lighthouseAbilities[i].description;
+
+            int currentUpgrade = lighthouseAbilities[i].upgrade;
+            string symbol = lighthouseAbilities[i].abilityDataSymbol;
+            if (currentUpgrade + 1 <= lighthouseAbilities[i].maxUpgrade)
+            {
+                string currentData, nextData;
+                if (symbol == "%")
+                {
+                    currentData = (lighthouseAbilities[i].upgradeData[currentUpgrade] * 100).ToString() + symbol;
+                    nextData = (lighthouseAbilities[i].upgradeData[currentUpgrade + 1] * 100).ToString() + symbol;
+                }
+                else
+                {
+                    currentData = lighthouseAbilities[i].upgradeData[currentUpgrade].ToString() + symbol;
+                    nextData = lighthouseAbilities[i].upgradeData[currentUpgrade + 1].ToString() + symbol;
+                }
+                abilityUpgradeData[i].text = currentData + " -> " + nextData;
+            }
+            else if (symbol == "%")
+            {
+                abilityUpgradeData[i].text = (lighthouseAbilities[i].upgradeData[currentUpgrade] * 100).ToString() + lighthouseAbilities[i].abilityDataSymbol;
+            }
+            else
+                abilityUpgradeData[i].text = lighthouseAbilities[i].upgradeData[currentUpgrade].ToString() + symbol;
+        }
+    }
     public void FixBuilding()
     {
         if (currentBuilding != null)
         {
-            currentBuilding.UpdateBuildingData(10);
+            if (currentBuilding.buildingName == "Major Lighthouse")
+                currentBuilding.UpdateBuildingData(10);
+            else
+            {
+                currentBuilding.UpdateBuildingData(50);
+
+                if (currentBuilding.GetCurrentHealthPct() == 1) //fully fixed
+                {
+                    //BAD APPROACH!!!!! FIX IT!
+                    int buildingIndex = 0;
+                    if (currentBuilding.buildingName == "1")
+                    {
+                        buildingIndex = 0;
+                    }
+                    if (currentBuilding.buildingName == "2")
+                    {
+                        buildingIndex = 1;
+                    }
+                    if (currentBuilding.buildingName == "3")
+                    {
+                        buildingIndex = 2;
+                    }
+                    GameObject.Find("Minor_Lighthouses").GetComponent<LighthouseMinorManager>().UnlockLighthouse(buildingIndex);
+
+                }
+            }
 
             DisplayBuildingData(currentBuilding);
         }

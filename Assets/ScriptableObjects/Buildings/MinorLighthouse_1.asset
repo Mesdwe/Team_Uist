@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a713cd9236a76ff46ab57456fefd51cd, type: 3}
   m_Name: MinorLighthouse_1
   m_EditorClassIdentifier: 
-  buildingName: Minor Lighthosue 1
+  buildingName: 1
   defaultHealth: 50
   maxHealth: 100
   fixCosts: e8030000

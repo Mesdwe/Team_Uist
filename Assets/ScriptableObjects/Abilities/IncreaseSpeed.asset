@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e353ba6b4d6e5418ea795a16860c616c, type: 3}
   m_Name: IncreaseSpeed
   m_EditorClassIdentifier: 
-  aName: Increase Speed
+  aName: Speed
   cooldownTime: 0
   activeTime: 0
   lightColor: {r: 1, g: 1, b: 1, a: 1}
@@ -25,3 +25,5 @@ MonoBehaviour:
   - 0.35
   - 0.4
   upgradeCost: ee020000e2040000c4090000
+  description: Increase ship speed
+  abilityDataSymbol: '%'

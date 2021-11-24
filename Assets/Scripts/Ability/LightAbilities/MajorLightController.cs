@@ -138,11 +138,11 @@ public class MajorLightController : MonoBehaviour
                 {
                     if (lightAbilityHolders[i].ability == currentAbility)
                     {
-                        Debug.Log("NO?");
-                        lightAbilityHolders[i].ability.Initialize(gameObject);
-                        lightAbilityHolders[i].state = AbilityState.ready;
+                        //lightAbilityHolders[i].ability.Initialize(gameObject);
+                        lightAbilityHolders[i].state = AbilityState.readyCooldown;
                     }
-
+                    //TODO: Barrier Cooldown
+                    lightAbilityHolders[i].StartCooldown();
                 }
             }
             Destroy(other.gameObject);
@@ -192,7 +192,10 @@ public class MajorLightController : MonoBehaviour
             }
             else
             {
-                holder.state = AbilityState.cooldown;
+                if (holder.state == AbilityState.readyCooldown || holder.state == AbilityState.cooldown)        //cooldown
+                    holder.state = AbilityState.cooldown;
+                else
+                    holder.state = AbilityState.inactive;
                 holder.ResetAbility();
             }
         }
