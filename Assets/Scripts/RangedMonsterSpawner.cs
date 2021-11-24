@@ -11,7 +11,7 @@ public class RangedMonsterSpawner : MonoBehaviour
 
     void Start()
     {
-        InitRangedMonster(); //Remove it later maybe?
+        //InitRangedMonster(); //Remove it later maybe?
     }
     public void InitRangedMonster()
     {

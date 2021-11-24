@@ -16,7 +16,6 @@ public class LoadingManager : MonoBehaviour
         GameManager.Instance.gameState = GameState.Loading;
         //StartCoroutine(FakeLoading());
         StartCoroutine(LoadScene());
-        Debug.Log("SHDLFKSLDJFLJSDLKFJDSLF");
     }
     IEnumerator LoadScene()
     {

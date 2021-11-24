@@ -34,6 +34,11 @@ public class CameraController : MonoBehaviour
         upgradeCanvas.SetActive(false);
 
         hudCanvas.SetActive(true);
+
+        //BAD!
+        GameObject.Find("Lighthouse_Major/GB_Lighthouse_Major").GetComponent<LighthouseMajor>().UpdateHealth();
+
+
         moving = true;
     }
 

@@ -23,6 +23,7 @@ public class SpawnController : MonoBehaviour
 
         StartCoroutine(SpawnShip());
         GetComponent<MonsterSpawner>().MonsterInit(wave);
+        GetComponent<RangedMonsterSpawner>().InitRangedMonster();
 
     }
     IEnumerator SpawnShip()

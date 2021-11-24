@@ -21,4 +21,9 @@ public class LighthouseMajor : MonoBehaviour
             //
         }
     }
+
+    public void UpdateHealth()
+    {
+        OnHealthPctChanged?.Invoke(lighthouse.GetCurrentHealthPct());//CHANGE IT!!! Get monster's attack
+    }
 }
