@@ -25,6 +25,8 @@ public class Ship : MonoBehaviour
     private bool healing;
 
     private AudioController audioController;
+
+    [SerializeField] GameObject effect;
     private void OnEnable()
     {
         OnArrival += ArrivedDock;
@@ -97,6 +99,7 @@ public class Ship : MonoBehaviour
     public void ArrivedDock(Ship ship)
     {
         DestroyShipObject();
+        effect.SetActive(true);
         //GetComponent<Movements>().isMoving = false;
         agent.speed = 0;
         gameObject.tag = "Untagged";

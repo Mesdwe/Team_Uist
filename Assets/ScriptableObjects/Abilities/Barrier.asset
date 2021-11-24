@@ -25,7 +25,7 @@ MonoBehaviour:
   - 0.25
   - 0.4
   upgradeCost: e8030000d0070000b80b0000
-  description: Increasing the length
+  description: Increase size
   abilityDataSymbol: '%'
   barrierPreview: {fileID: 0}
   barrierTemplate: {fileID: 4241886592458094625, guid: 38896785e466bea4297ddff1b13eaadd, type: 3}

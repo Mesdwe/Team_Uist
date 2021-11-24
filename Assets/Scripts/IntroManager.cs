@@ -16,4 +16,13 @@ public class IntroManager : MonoBehaviour
         SceneManager.LoadScene(1);
 
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(1);
+
+        }
+    }
 }

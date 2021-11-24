@@ -25,6 +25,6 @@ MonoBehaviour:
   - 30
   - 35
   upgradeCost: f4010000e8030000d0070000
-  description: Heal every 3 seconds
+  description: Heal your ships
   abilityDataSymbol: 
   healTime: 0

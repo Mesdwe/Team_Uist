@@ -25,5 +25,5 @@ MonoBehaviour:
   - 5
   - 6
   upgradeCost: ee020000e2040000d0070000
-  description: DESCRIPTION HERE
+  description: Stun monsters
   abilityDataSymbol: ' seconds'
