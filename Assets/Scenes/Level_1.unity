@@ -2210,6 +2210,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1900580823, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7736601269304452269, guid: 8f049ee8e56baab4cb58aaedebb63af5, type: 3}
+    - target: {fileID: 5797850531267968960, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7736601269304452269, guid: 8f049ee8e56baab4cb58aaedebb63af5, type: 3}
     - target: {fileID: 6840965985229767864, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
       propertyPath: target
       value: 
@@ -2262,6 +2270,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8616209754162301706, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab4e5ccbd9b693e49a694b91b7b6628f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
 --- !u!1001 &2568698085906261815
@@ -2600,6 +2612,10 @@ PrefabInstance:
       propertyPath: lightBeam
       value: 
       objectReference: {fileID: 1152800262}
+    - target: {fileID: 5546731114409738352, guid: ce5ca137e3a96d840a9fd02163f863fc, type: 3}
+      propertyPath: rechargeValue
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5546731114409738352, guid: ce5ca137e3a96d840a9fd02163f863fc, type: 3}
       propertyPath: electricityBar
       value: 
