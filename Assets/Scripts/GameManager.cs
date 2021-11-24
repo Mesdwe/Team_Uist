@@ -37,7 +37,7 @@ public class GameManager : GenericSingletonClass<GameManager>
     }
     public void ReturnMainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void InitGameplay()
@@ -71,6 +71,7 @@ public class GameManager : GenericSingletonClass<GameManager>
 }
 public enum GameState
 {
+    Intro,
     MainMenu,
     Loading,
     Gameplay,

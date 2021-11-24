@@ -19,10 +19,10 @@ public class LoadingManager : MonoBehaviour
     }
     IEnumerator LoadScene()
     {
-        yield return null;
+        yield return new WaitForSeconds(2f);
 
         //Begin to load the Scene you specify
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(2);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(3);
         //Don't let the Scene activate until you allow it to
         asyncOperation.allowSceneActivation = false;
         Debug.Log("Pro :" + asyncOperation.progress);
