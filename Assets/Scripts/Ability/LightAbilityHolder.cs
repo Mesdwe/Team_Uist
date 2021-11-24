@@ -16,7 +16,7 @@ public class LightAbilityHolder : MonoBehaviour
 
     private AudioController audioController;
     public int id;
-
+    public GameObject particleEffect;
     void Start()
     {
         major = GetComponent<MajorLightController>();
@@ -39,7 +39,7 @@ public class LightAbilityHolder : MonoBehaviour
 
                 state = AbilityState.ready;
                 GetComponent<MajorLightController>().SetCurrentAbility(this);
-
+                particleEffect.SetActive(true);
             }
 
             if (state == AbilityState.cooldown)
@@ -75,6 +75,8 @@ public class LightAbilityHolder : MonoBehaviour
 
         ability.TriggerAbility(ship);
         audioController.PlayAudioClip();
+        particleEffect.SetActive(true);
+
     }
 
     public void StartCooldown()
@@ -99,6 +101,7 @@ public class LightAbilityHolder : MonoBehaviour
     }
     public void ResetAbility()
     {
+        particleEffect.SetActive(false);
         ability.ResetAbility();
         //state = AbilityState.ready;
     }
