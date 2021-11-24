@@ -18,6 +18,8 @@ public class MajorLightController : MonoBehaviour
     public Light light;
     [SerializeField] private GameObject lightBeam;
     [SerializeField] private LighthouseBuilding lighthouse;
+
+    [SerializeField] private float rechargeValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class MajorLightController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isDrain)
         {
-            CurrentElectricity += 1f;
+            CurrentElectricity += rechargeValue;
             electricityBar.HandleElectricityChanged(CurrentElectricity / maxElectricity);
         }
         if (lightOn)
