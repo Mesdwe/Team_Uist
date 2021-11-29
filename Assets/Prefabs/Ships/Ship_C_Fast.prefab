@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 6976006455068818071}
   - component: {fileID: -5331258589262430830}
   - component: {fileID: 1989350735466500765}
-  - component: {fileID: 6239420751082534916}
   - component: {fileID: 3682026339520917690}
   - component: {fileID: 6946928468041929777}
   m_Layer: 0
@@ -203,25 +202,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &6239420751082534916
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6976006455068818073}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 04f35c8a1de54204fac5632f50e4388b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &3682026339520917690
 AudioSource:
   m_ObjectHideFlags: 0
@@ -334,6 +314,25 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1ceb707d58d289e4e8076d185f1097c4, type: 3}
   - {fileID: 8300000, guid: b15ff4ee0f03f6e4b962de356182e388, type: 3}
   audioSource: {fileID: 3682026339520917690}
+--- !u!95 &4683352715008457527
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786346867713782303}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04f35c8a1de54204fac5632f50e4388b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6976006454914518862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -403,6 +402,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ea99ff2399208e4cbd26558660704fd, type: 3}
+--- !u!1 &7786346867713782303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ea99ff2399208e4cbd26558660704fd, type: 3}
+  m_PrefabInstance: {fileID: 6976006454914518862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7441487637853923493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0ea99ff2399208e4cbd26558660704fd, type: 3}
