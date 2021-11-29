@@ -26,6 +26,11 @@ public class LightAbilityHolder : MonoBehaviour
         audioController = GetComponent<AudioController>();
         audioController.SetAudioClip(0);    //speed up
     }
+
+    public void Initialize(GameObject go)
+    {
+        ability.Initialize(go);
+    }
     private void Update()
     {
         if (!major.lightOn)
@@ -39,7 +44,7 @@ public class LightAbilityHolder : MonoBehaviour
 
                 state = AbilityState.ready;
                 GetComponent<MajorLightController>().SetCurrentAbility(this);
-                particleEffect.SetActive(true);
+                //particleEffect.SetActive(true);
             }
 
             if (state == AbilityState.cooldown)
@@ -105,8 +110,6 @@ public class LightAbilityHolder : MonoBehaviour
         ability.ResetAbility();
         //state = AbilityState.ready;
     }
-
-
 }
 
 public enum AbilityState

@@ -35,16 +35,16 @@ public class MajorLightController : MonoBehaviour
     {
         if (GameManager.Instance.gameState != GameState.Gameplay)
             return;
-        if (Input.GetKeyDown(lightSwitch) && !isDrain)
-        {
-            lightOn = !lightOn;
-            light.enabled = lightOn;
-            lightBeam.SetActive(lightOn);
-            if (!lightOn)
-                Reset();
-            else
-                InitAbilities();
-        }
+        // if (Input.GetKeyDown(lightSwitch) && !isDrain)
+        // {
+        //     lightOn = !lightOn;
+        //     light.enabled = lightOn;
+        //     lightBeam.SetActive(lightOn);
+        //     if (!lightOn)
+        //         Reset();
+        //     else
+        //         InitAbilities();
+        // }
 
         if (Input.GetKeyDown(KeyCode.Space) && isDrain)
         {
@@ -71,20 +71,26 @@ public class MajorLightController : MonoBehaviour
         }
         else
         {
-            if (!isDrain)
-                CurrentElectricity += (maxElectricity / electricityDuration) * Time.deltaTime;
-            else
-            {
-                CurrentElectricity += (maxElectricity / electricityDuration) / 2f * Time.deltaTime;
+            CurrentElectricity += (maxElectricity / electricityDuration) * Time.deltaTime;
+            // if (!isDrain)
+            //     CurrentElectricity += (maxElectricity / electricityDuration) * Time.deltaTime;
+            // else
+            // {
+            //     CurrentElectricity += (maxElectricity / electricityDuration) / 2f * Time.deltaTime;
 
-            }
-            if (CurrentElectricity >= 100f)
+            // }
+            if (CurrentElectricity >= 100f)     //fully charged
             {
                 CurrentElectricity = 100f;
                 isDrain = false;
                 spacebarSprite.SetActive(false);
 
                 electricityBar.UpdateBarColor(isDrain);
+
+                lightOn = true;
+                light.enabled = lightOn;
+                lightBeam.SetActive(lightOn);
+                InitAbilities();
             }
             electricityBar.HandleElectricityChanged(CurrentElectricity / maxElectricity);
         }
@@ -132,6 +138,7 @@ public class MajorLightController : MonoBehaviour
                 if (holder.ability == currentAbility)
                 {
                     holder.state = AbilityState.ready;
+                    holder.ResetAbility();
                 }
             }
             other.gameObject.GetComponent<Ship>().ResetShip();
@@ -180,7 +187,8 @@ public class MajorLightController : MonoBehaviour
         foreach (var holder in lightAbilityHolders)
         {
             if (holder.state == AbilityState.ready)
-                holder.ability.Initialize(gameObject);
+                holder.Initialize(gameObject);
+            //holder.ability.Initialize(gameObject);
         }
     }
     public Vector3 GetWolrdPositionOnPlane(Vector3 screenPosition, float y)

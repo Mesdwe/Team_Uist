@@ -661,6 +661,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5734025430110243973, guid: fbb9b6c1ab9961547bdb4efac6326dea, type: 3}
   m_PrefabInstance: {fileID: 5734025430308283415}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &898502372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 562420716, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
+  m_PrefabInstance: {fileID: 1802991943795363255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1070722842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,12 +2311,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4010713233996193147}
     - target: {fileID: 5546731114409738352, guid: ce5ca137e3a96d840a9fd02163f863fc, type: 3}
+      propertyPath: spacebarSprite
+      value: 
+      objectReference: {fileID: 898502372}
+    - target: {fileID: 5546731114409738352, guid: ce5ca137e3a96d840a9fd02163f863fc, type: 3}
       propertyPath: electricityDuration
-      value: 35
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5546731114409738353, guid: ce5ca137e3a96d840a9fd02163f863fc, type: 3}
       propertyPath: m_Name
       value: MajorLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546731114409738362, guid: ce5ca137e3a96d840a9fd02163f863fc, type: 3}
+      propertyPath: key
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 5546731114409738363, guid: ce5ca137e3a96d840a9fd02163f863fc, type: 3}
       propertyPath: m_RootOrder
