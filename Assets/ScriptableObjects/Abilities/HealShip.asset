@@ -20,10 +20,10 @@ MonoBehaviour:
   upgrade: 0
   maxUpgrade: 3
   upgradeData:
-  - 20
-  - 25
-  - 30
-  - 35
+  - 2
+  - 2.5
+  - 3
+  - 3.5
   upgradeCost: f4010000e8030000d0070000
   description: Heal your ships
   abilityDataSymbol: 

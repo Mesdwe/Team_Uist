@@ -145,6 +145,7 @@ public class Ship : MonoBehaviour
         healing = false;
 
     }
+
     private void OnDisable()
     {
         OnHealthRemoved?.Invoke(this);
@@ -161,8 +162,8 @@ public class Ship : MonoBehaviour
             if (!LevelManager.Instance.GetApplicationIsQuitting())
                 LevelManager.Instance.NextWave();   //triggered when close game
         }
-
     }
+
     public void HealShips(float healValue)
     {
         if (healing)
@@ -175,7 +176,7 @@ public class Ship : MonoBehaviour
     {
         while (healing)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(0.2f);
             if (healing)
             {
                 Debug.Log("HEALED");
