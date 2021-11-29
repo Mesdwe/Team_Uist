@@ -39,6 +39,7 @@ public class SpawnController : MonoBehaviour
             spawnPoint.SpawnTarget(ship);
         }
 
+        LevelManager.Instance.waveOver = true;
         // else
         // {
         //     GetComponent<MonsterSpawner>().enabled = false;
