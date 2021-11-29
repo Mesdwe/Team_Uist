@@ -27,7 +27,6 @@ public class LighthouseBuilding : Building
         {
             currentHealth = 0;
             healthPct = 0;
-            Debug.Log("Lighthouse Dead");
         }
     }
 

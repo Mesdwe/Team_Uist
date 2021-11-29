@@ -20,6 +20,8 @@ public class MajorLightController : MonoBehaviour
     [SerializeField] private LighthouseBuilding lighthouse;
 
     [SerializeField] private float rechargeValue;
+
+    [SerializeField] private GameObject spacebarSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +63,8 @@ public class MajorLightController : MonoBehaviour
                 lightOn = false;
                 light.enabled = lightOn;
                 lightBeam.SetActive(lightOn);
-
+                spacebarSprite.SetActive(true);
+                //Reset abilities
                 Reset();
                 return;
             }
@@ -71,11 +74,16 @@ public class MajorLightController : MonoBehaviour
             if (!isDrain)
                 CurrentElectricity += (maxElectricity / electricityDuration) * Time.deltaTime;
             else
+            {
                 CurrentElectricity += (maxElectricity / electricityDuration) / 2f * Time.deltaTime;
+
+            }
             if (CurrentElectricity >= 100f)
             {
                 CurrentElectricity = 100f;
                 isDrain = false;
+                spacebarSprite.SetActive(false);
+
                 electricityBar.UpdateBarColor(isDrain);
             }
             electricityBar.HandleElectricityChanged(CurrentElectricity / maxElectricity);

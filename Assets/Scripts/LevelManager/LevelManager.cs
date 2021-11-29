@@ -22,6 +22,9 @@ public class LevelManager : GenericSingletonClass<LevelManager>
     void Start()
     {
         GameManager.Instance.gameState = GameState.Gameplay;
+        level = 1;
+        wave = 1;
+        Debug.Log("Init Level");
         StartCoroutine(StartInitLevel());
     }
     public void InitLevel()
@@ -63,10 +66,11 @@ public class LevelManager : GenericSingletonClass<LevelManager>
     public void NextWave()
     {
         wave += 1;
-        if (wave > 3)
+        if (wave > 3)   //nooo
         {
             wave = 1;
             //NextLevel();
+            Debug.Log("Can't do it now");
             StartUpgrade();
             return;
         }
@@ -81,6 +85,14 @@ public class LevelManager : GenericSingletonClass<LevelManager>
             //Don't DO THIS
             //ResetLevel();
             Debug.Log("END");
+
+            GameObject winPanel = GameObject.Find("Pause/WinPanel");
+            if (winPanel != null)
+            {
+                Time.timeScale = 0f;
+                GameManager.Instance.gameState = GameState.Pause;
+                winPanel.transform.GetChild(0).gameObject.SetActive(true);
+            }
             return;
         }
         OnLevelEnd?.Invoke();

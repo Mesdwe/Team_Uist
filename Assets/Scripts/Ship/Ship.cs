@@ -25,6 +25,8 @@ public class Ship : MonoBehaviour
     private bool healing;
 
     private AudioController audioController;
+
+    [SerializeField] GameObject effect;
     private void OnEnable()
     {
         OnArrival += ArrivedDock;
@@ -97,6 +99,7 @@ public class Ship : MonoBehaviour
     public void ArrivedDock(Ship ship)
     {
         DestroyShipObject();
+        effect.SetActive(true);
         //GetComponent<Movements>().isMoving = false;
         agent.speed = 0;
         gameObject.tag = "Untagged";
@@ -142,6 +145,7 @@ public class Ship : MonoBehaviour
         healing = false;
 
     }
+
     private void OnDisable()
     {
         OnHealthRemoved?.Invoke(this);
@@ -158,8 +162,8 @@ public class Ship : MonoBehaviour
             if (!LevelManager.Instance.GetApplicationIsQuitting())
                 LevelManager.Instance.NextWave();   //triggered when close game
         }
-
     }
+
     public void HealShips(float healValue)
     {
         if (healing)
@@ -172,7 +176,7 @@ public class Ship : MonoBehaviour
     {
         while (healing)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(0.2f);
             if (healing)
             {
                 Debug.Log("HEALED");

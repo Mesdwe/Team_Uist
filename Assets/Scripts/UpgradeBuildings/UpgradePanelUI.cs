@@ -11,7 +11,7 @@ public class UpgradePanelUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI[] abilityNames;
     [SerializeField] private TextMeshProUGUI[] abilityDescriptions;
-    [SerializeField] private TextMeshProUGUI[] abilityUpgradeData;
+    //[SerializeField] private TextMeshProUGUI[] abilityUpgradeData;
     [SerializeField] private GameObject[] abilityUI;
 
     [SerializeField] private UpgradeButton[] upgradeButtons;
@@ -44,7 +44,9 @@ public class UpgradePanelUI : MonoBehaviour
         {
             int buildingLevel = building.GetCurrentHealthLevel();
             TextMeshProUGUI buttonText = upgradeButtons[i].gameObject.GetComponentInChildren<TextMeshProUGUI>();
+            bool interactableFix = (Player.Instance.rp >= currentBuilding.fixCosts[0]) ? true : false;
             buttonText.text = currentBuilding.fixCosts[buildingLevel].ToString();
+            upgradeButtons[0].UpdateButtonState(interactableFix);
 
             if (isLighthouse && i >= 1)
             {
@@ -67,7 +69,6 @@ public class UpgradePanelUI : MonoBehaviour
                         buttonText.text = currentUpgradeCost.ToString();
                         bool interactable = (Player.Instance.rp >= currentUpgradeCost) ? true : false;
                         upgradeButtons[i].UpdateButtonState(interactable);
-
                     }
                     else
                     {
@@ -106,29 +107,29 @@ public class UpgradePanelUI : MonoBehaviour
             abilityNames[i].text = lighthouseAbilities[i].aName;
             abilityDescriptions[i].text = lighthouseAbilities[i].description;
 
-            int currentUpgrade = lighthouseAbilities[i].upgrade;
-            string symbol = lighthouseAbilities[i].abilityDataSymbol;
-            if (currentUpgrade + 1 <= lighthouseAbilities[i].maxUpgrade)
-            {
-                string currentData, nextData;
-                if (symbol == "%")
-                {
-                    currentData = (lighthouseAbilities[i].upgradeData[currentUpgrade] * 100).ToString() + symbol;
-                    nextData = (lighthouseAbilities[i].upgradeData[currentUpgrade + 1] * 100).ToString() + symbol;
-                }
-                else
-                {
-                    currentData = lighthouseAbilities[i].upgradeData[currentUpgrade].ToString() + symbol;
-                    nextData = lighthouseAbilities[i].upgradeData[currentUpgrade + 1].ToString() + symbol;
-                }
-                abilityUpgradeData[i].text = currentData + " -> " + nextData;
-            }
-            else if (symbol == "%")
-            {
-                abilityUpgradeData[i].text = (lighthouseAbilities[i].upgradeData[currentUpgrade] * 100).ToString() + lighthouseAbilities[i].abilityDataSymbol;
-            }
-            else
-                abilityUpgradeData[i].text = lighthouseAbilities[i].upgradeData[currentUpgrade].ToString() + symbol;
+            // int currentUpgrade = lighthouseAbilities[i].upgrade;
+            // string symbol = lighthouseAbilities[i].abilityDataSymbol;
+            // if (currentUpgrade + 1 <= lighthouseAbilities[i].maxUpgrade)
+            // {
+            //     string currentData, nextData;
+            //     if (symbol == "%")
+            //     {
+            //         currentData = (lighthouseAbilities[i].upgradeData[currentUpgrade] * 100).ToString() + symbol;
+            //         nextData = (lighthouseAbilities[i].upgradeData[currentUpgrade + 1] * 100).ToString() + symbol;
+            //     }
+            //     else
+            //     {
+            //         currentData = lighthouseAbilities[i].upgradeData[currentUpgrade].ToString() + symbol;
+            //         nextData = lighthouseAbilities[i].upgradeData[currentUpgrade + 1].ToString() + symbol;
+            //     }
+            //     abilityUpgradeData[i].text = currentData + " -> " + nextData;
+            // }
+            // else if (symbol == "%")
+            // {
+            //     abilityUpgradeData[i].text = (lighthouseAbilities[i].upgradeData[currentUpgrade] * 100).ToString() + lighthouseAbilities[i].abilityDataSymbol;
+            // }
+            // else
+            //     abilityUpgradeData[i].text = lighthouseAbilities[i].upgradeData[currentUpgrade].ToString() + symbol;
         }
     }
     public void FixBuilding()
