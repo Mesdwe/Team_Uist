@@ -159,6 +159,7 @@ public class Ship : MonoBehaviour
         OnDeath -= DestroyShip;
         if (GameObject.FindGameObjectsWithTag("Ship").Length == 0)
         {
+            //if ()
             if (!LevelManager.Instance.GetApplicationIsQuitting())
                 LevelManager.Instance.NextWave();   //triggered when close game
         }
