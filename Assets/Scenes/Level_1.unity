@@ -2305,6 +2305,10 @@ PrefabInstance:
       propertyPath: electricityBar
       value: 
       objectReference: {fileID: 4010713233996193147}
+    - target: {fileID: 5546731114409738352, guid: ce5ca137e3a96d840a9fd02163f863fc, type: 3}
+      propertyPath: electricityDuration
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 5546731114409738353, guid: ce5ca137e3a96d840a9fd02163f863fc, type: 3}
       propertyPath: m_Name
       value: MajorLight
