@@ -1313,8 +1313,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6519001, g: 0.53555536, b: 0.7830189, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.7126965, g: 0.70980394, b: 0.9528302, a: 1}
+  m_Intensity: 1.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1857,6 +1857,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 51d39bb5e218c1540a4ddb792f6b6970, type: 2}
   - {fileID: 11400000, guid: 620a9474f0a7be440acd55f5af347dd3, type: 2}
   spawnController: {fileID: 1777675004}
+  waveOver: 0
 --- !u!4 &1070722844
 Transform:
   m_ObjectHideFlags: 0
@@ -3401,6 +3402,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1070722843}
+    - target: {fileID: 5211019232761398636, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7124927149638021013, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3880,10 +3885,34 @@ PrefabInstance:
       propertyPath: lighthouse
       value: 
       objectReference: {fileID: 1900580824}
+    - target: {fileID: 4657658272520413971, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657658273722568495, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657658273722568495, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -879
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657658273722568495, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1073
+      objectReference: {fileID: 0}
     - target: {fileID: 4657658274368230739, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 486167117184729723}
+    - target: {fileID: 4657658274399927093, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657658274559031374, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5583883752392541920, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4449,6 +4478,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 6017954681111888438, guid: 18c218bf7d8ffc2408de3453f2fd1876, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e27ab4969b5ce24f892dea3daa37b75, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c218bf7d8ffc2408de3453f2fd1876, type: 3}
 --- !u!1 &5276269165195865742

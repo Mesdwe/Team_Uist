@@ -13,6 +13,8 @@ public class LevelManager : GenericSingletonClass<LevelManager>
     [SerializeField] private Wave[] waves;
     [SerializeField] private SpawnController spawnController;
 
+    public bool waveOver;
+
     void Awake()
     {
         //OnWaveStart += AddLevelInfo;
@@ -29,6 +31,7 @@ public class LevelManager : GenericSingletonClass<LevelManager>
     }
     public void InitLevel()
     {
+        waveOver = false;
         // //StartCoroutine(StartInitLevel());
         // spawnController.StartSpawning(waves[0]); //temp
         int index = (level - 1) * 3 + (wave - 1);

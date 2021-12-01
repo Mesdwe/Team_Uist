@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Threading.Tasks;
 using UnityEngine.AI;
 using System.Collections;
 public class Ship : MonoBehaviour
@@ -96,7 +97,7 @@ public class Ship : MonoBehaviour
         }
     }
 
-    public void ArrivedDock(Ship ship)
+    public void ArrivedDock(Ship ship)  //Docked
     {
         DestroyShipObject();
         effect.SetActive(true);
@@ -107,19 +108,45 @@ public class Ship : MonoBehaviour
         audioController.SetAudioClip(0);
         audioController.PlayAudioClip();
     }
-    public void DestroyShip(Ship ship)
+    public async void DestroyShip(Ship ship)  //Destroyed by monster
     {
-        DestroyShipObject();
+        //DestroyShipObject();
         //Temp
         agent.speed = 0;
+        agent.velocity = Vector3.zero;
         gameObject.tag = "Untagged";
         audioController.SetAudioClip(1);
         audioController.PlayAudioClip();
+
+        //Vector3 rotator = new Vector3(0, 0, 1);
+        Transform target = transform.GetChild(0);
+
+        //Rotate
+        var endRotate = Time.time + 0.5f;
+        while (Time.time < endRotate)
+        {
+            //rotator.z += Time.deltaTime;
+            target.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * -100);
+            await Task.Yield();
+        }
+        var end = Time.time + 1.5f;
+        while (Time.time < end)
+        {
+            //Transform target = transform.GetChild(0);
+            //rotator.z += Time.deltaTime * 10f;
+
+            target.position += new Vector3(0, -1, 0) * Time.deltaTime * 200;
+            //target.Rotate(rotator, Space.Self);
+            await Task.Yield();
+        }
+
+        Destroy(gameObject);
+        //
     }
 
-    private void DestroyShipObject()
+    private void DestroyShipObject()    //Destroy the ship
     {
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 0.5f);
     }
     public void SpeedUp(float increase)
     {
@@ -159,9 +186,13 @@ public class Ship : MonoBehaviour
         OnDeath -= DestroyShip;
         if (GameObject.FindGameObjectsWithTag("Ship").Length == 0)
         {
-            //if ()
-            if (!LevelManager.Instance.GetApplicationIsQuitting())
-                LevelManager.Instance.NextWave();   //triggered when close game
+            if (LevelManager.Instance != null)
+            {
+                if (!LevelManager.Instance.waveOver)
+                    return;
+                if (!LevelManager.Instance.GetApplicationIsQuitting())
+                    LevelManager.Instance.NextWave();   //triggered when close game
+            }
         }
     }
 
