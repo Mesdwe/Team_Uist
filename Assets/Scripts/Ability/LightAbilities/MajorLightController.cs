@@ -98,7 +98,7 @@ public class MajorLightController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ship"))
+        if (other.CompareTag("Ship") && !isDrain)
         {
             //temp
             if (currentShip == null)
