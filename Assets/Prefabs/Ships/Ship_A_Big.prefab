@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 250
-  defaultSpeed: 50
-  underAttackSpeed: 25
+  defaultSpeed: 150
+  underAttackSpeed: 125
   shipRewards: {fileID: 11400000, guid: 9ce86e50cc0880a4c9a42aecf6e33444, type: 2}
   effect: {fileID: 5306516356188025687}
 --- !u!114 &4991751222332513850

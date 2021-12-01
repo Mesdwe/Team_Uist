@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  speed: 200
+  speed: 250
   damageDealt: 10
   spawnChances: 0.5
   target: {fileID: 0}
