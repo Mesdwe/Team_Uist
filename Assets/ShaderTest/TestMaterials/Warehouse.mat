@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Village_10
+  m_Name: Warehouse
   m_Shader: {fileID: 4800000, guid: 688153d1de79c4d028596d37cd197e06, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4b54ec04562b3a546b3c331babb3b64b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9c33af69fee468745b5a5bf08dcafea1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
