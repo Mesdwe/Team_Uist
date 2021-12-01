@@ -113,25 +113,29 @@ public class Ship : MonoBehaviour
         //DestroyShipObject();
         //Temp
         agent.speed = 0;
+        agent.velocity = Vector3.zero;
         gameObject.tag = "Untagged";
         audioController.SetAudioClip(1);
         audioController.PlayAudioClip();
 
-        Vector3 rotator = new Vector3(0, 0, 1);
+        //Vector3 rotator = new Vector3(0, 0, 1);
         Transform target = transform.GetChild(0);
-        while (rotator.z < 90)
+
+        //Rotate
+        var endRotate = Time.time + 0.5f;
+        while (Time.time < endRotate)
         {
-            rotator.z += Time.deltaTime;
-            target.Rotate(rotator, Space.Self);
+            //rotator.z += Time.deltaTime;
+            target.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * -100);
             await Task.Yield();
         }
-        var end = Time.time + 1f;
+        var end = Time.time + 1.5f;
         while (Time.time < end)
         {
             //Transform target = transform.GetChild(0);
-            rotator.z += Time.deltaTime * 10f;
+            //rotator.z += Time.deltaTime * 10f;
 
-            // target.position += new Vector3(0, -10, 0) * Time.deltaTime * 150;
+            target.position += new Vector3(0, -1, 0) * Time.deltaTime * 200;
             //target.Rotate(rotator, Space.Self);
             await Task.Yield();
         }
