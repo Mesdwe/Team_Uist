@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour
         target = origin;
         upgradeCanvas.SetActive(false);
 
-        hudCanvas.SetActive(true);
+        // hudCanvas.SetActive(true);
 
         //BAD!
         GameObject.Find("Lighthouse_Major/GB_Lighthouse_Major").GetComponent<LighthouseMajor>().UpdateHealth();
@@ -56,6 +56,9 @@ public class CameraController : MonoBehaviour
                 moving = false;
                 if (target == upgradeTransform)
                     upgradeCanvas.SetActive(true);
+                else
+                    hudCanvas.SetActive(true);
+
             }
         }
     }
