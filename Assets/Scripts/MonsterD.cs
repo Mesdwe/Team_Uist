@@ -20,14 +20,6 @@ public class MonsterD : MonoBehaviour
     private bool isActive;
 
     [SerializeField] float shootSpeed;
-    void Start()
-    {
-        // shots = Random.Range(minShot, maxShot);
-        // isActive = true;
-        // transform.LookAt(targetLighthouse);
-        // StartCoroutine(Shoot());
-    }
-
     public void InitMonster(Transform tLT, Transform mST)
     {
         targetLighthouse = tLT;

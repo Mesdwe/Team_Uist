@@ -28,16 +28,18 @@ public class SpawnController : MonoBehaviour
     }
     IEnumerator SpawnShip()
     {
-        float spawnTime = Random.Range(currentWave.minShipSpawnTime, currentWave.maxShipSpawnTime);
-        yield return new WaitForSeconds(spawnTime);
-
-        SpawnPoint spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        GameObject ship = GetSpawnShip(Random.value);
-        spawnPoint.SpawnTarget(ship);
-        if (curShipIndex <= currentWave.shipCount)
+        while (curShipIndex <= currentWave.shipCount)
         {
-            StartCoroutine(SpawnShip());
+            float spawnTime = Random.Range(currentWave.minShipSpawnTime, currentWave.maxShipSpawnTime);
+            yield return new WaitForSeconds(spawnTime);
+
+            SpawnPoint spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            GameObject ship = GetSpawnShip(Random.value);
+            Debug.Log(curShipIndex);
+            spawnPoint.SpawnTarget(ship);
         }
+
+        LevelManager.Instance.waveOver = true;
         // else
         // {
         //     GetComponent<MonsterSpawner>().enabled = false;
@@ -49,7 +51,7 @@ public class SpawnController : MonoBehaviour
     {
         if (currentWave.ShipTypes.Length > 2)
         {
-            if (curShipIndex >= currentWave.shipCount)
+            if (curShipIndex == currentWave.shipCount)
             {
                 curShipIndex++;
                 return currentWave.ShipTypes[0];        //ship A
