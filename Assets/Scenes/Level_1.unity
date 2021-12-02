@@ -5261,6 +5261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GB_Sea
       objectReference: {fileID: 0}
+    - target: {fileID: 3769486917354824558, guid: fcf272eff769d8c44b6b5a2e7b98887a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4540816780315785684, guid: fcf272eff769d8c44b6b5a2e7b98887a, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -5969,15 +5973,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -295
+      value: -149.7
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1304
+      value: 1391.6
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3060
+      value: -3155.6
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalRotation.w

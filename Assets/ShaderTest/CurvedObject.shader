@@ -162,7 +162,7 @@ Shader "Unlit/CurvedObject"
                 output.posWorld = mul(modelMatrix, input.vertex);
                 //output.posWorld = mul(modelMatrix, input.vertex);
                 
-                output.posWorld = GetFixedRollWorldPos(output.posWorld,_Intensity,_Offset);
+                output.posWorld = GetFixedRollWorldPos(input.vertex,_Intensity,_Offset);
                 output.posLight = mul(unity_WorldToLight, output.posWorld);
                 output.normalDir = normalize(
                 mul(float4(input.normal, 0.0), modelMatrixInverse).xyz);
