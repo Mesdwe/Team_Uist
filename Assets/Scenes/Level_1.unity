@@ -4690,10 +4690,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7124927149638021018, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 810aee9257d3f1f43adce56a4d148573, type: 3}
 --- !u!212 &742679936247892696
@@ -5973,15 +5969,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -149.7
+      value: -295
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1391.6
+      value: 1304
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3155.6
+      value: -3060
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalRotation.w
