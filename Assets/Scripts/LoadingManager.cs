@@ -25,18 +25,19 @@ public class LoadingManager : MonoBehaviour
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(3);
         //Don't let the Scene activate until you allow it to
         asyncOperation.allowSceneActivation = false;
-        Debug.Log("Pro :" + asyncOperation.progress);
         //When the load is still in progress, output the Text and progress bar
         while (!asyncOperation.isDone)
         {
+            Debug.Log("Pro :" + asyncOperation.progress);
+
             //Output the current progress
-            m_Text.text = "Loading progress: " + (asyncOperation.progress * 100 * 0.03) + "%";
+            //m_Text.text = "Loading progress: " + (asyncOperation.progress * 100 * 0.03) + "%";
 
             // Check if the load has finished
             if (asyncOperation.progress >= 0.9f)
             {
                 //Change the Text to show the Scene is ready
-                m_Text.text = "Press the space bar to continue";
+                //m_Text.text = "Press the space bar to continue";
                 //Wait to you press the space key to activate the Scene
                 if (Input.GetKeyDown(KeyCode.Space))
                 {

@@ -35,7 +35,6 @@ public class SpawnController : MonoBehaviour
 
             SpawnPoint spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             GameObject ship = GetSpawnShip(Random.value);
-            Debug.Log(curShipIndex);
             spawnPoint.SpawnTarget(ship);
         }
 

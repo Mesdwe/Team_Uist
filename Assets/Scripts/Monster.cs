@@ -25,11 +25,15 @@ public class Monster : MonoBehaviour
     private bool cooldown = false;
 
     private bool stunned = false;
+
+    private AudioController audioController;
     //private Movements movements;
     void Start()
     {
         //movements = GetComponent<Movements>();
         //movements.SetSpeed(speed);
+        audioController = GetComponent<AudioController>();
+        audioController.SetAudioClip(0);
         agent = GetComponent<NavMeshAgent>();
         shipContact = false;
 
@@ -88,6 +92,7 @@ public class Monster : MonoBehaviour
     {
         cooldown = true;
         tar.gameObject.GetComponent<Ship>().UnderAttack(damageDealt);
+        audioController.PlayRandomPitch();
         yield return new WaitForSeconds(1f);
         cooldown = false;
     }
@@ -95,7 +100,8 @@ public class Monster : MonoBehaviour
     {
         if (!switchTarget)
         {
-            Destroy(gameObject);
+            if (this != null)
+                Destroy(gameObject);
             return;
         }
         Transform closestShip = GetClosestShip();
@@ -114,14 +120,6 @@ public class Monster : MonoBehaviour
     {
         shipContact = false;
         FindATarget();
-        // if (switchTarget)
-        // {
-        //     FindATarget();
-        // }
-        // else       //kill
-        // {
-        //     Destroy(gameObject, 0.6f);
-        // }
     }
 
     public void SetTarget(Transform tar)

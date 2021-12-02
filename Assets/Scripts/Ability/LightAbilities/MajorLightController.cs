@@ -71,7 +71,7 @@ public class MajorLightController : MonoBehaviour
         }
         else
         {
-            CurrentElectricity += (maxElectricity / electricityDuration) * Time.deltaTime;
+            CurrentElectricity += (maxElectricity / electricityDuration) * Time.deltaTime * 0.01f; ;
             // if (!isDrain)
             //     CurrentElectricity += (maxElectricity / electricityDuration) * Time.deltaTime;
             // else

@@ -9,7 +9,7 @@ public class AudioController : MonoBehaviour
 
     void Start()
     { //for testing
-        SetAudioClip(0);
+        //SetAudioClip(0);
     }
     public void SetAudioClip(int index)
     {
@@ -18,6 +18,13 @@ public class AudioController : MonoBehaviour
 
     public void PlayAudioClip()
     {
+        audioSource.Play();
+    }
+
+    public void PlayRandomPitch()
+    {
+        float randomPitch = Random.Range(0.5f, 1.5f);
+        audioSource.pitch = randomPitch;
         audioSource.Play();
     }
 }
