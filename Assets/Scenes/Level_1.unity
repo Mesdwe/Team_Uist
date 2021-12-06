@@ -420,7 +420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &91675470
 Transform:
   m_ObjectHideFlags: 0
@@ -476,7 +476,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 689774070839793907, guid: 55344621a18acc449976bb82a5f85859, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -548,7 +548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &164392779
 Transform:
   m_ObjectHideFlags: 0
@@ -604,7 +604,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 689774070839793907, guid: 55344621a18acc449976bb82a5f85859, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -712,7 +712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &192091481
 Transform:
   m_ObjectHideFlags: 0
@@ -768,7 +768,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 689774070839793907, guid: 55344621a18acc449976bb82a5f85859, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1502,7 +1502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &431172494
 Transform:
   m_ObjectHideFlags: 0
@@ -1558,7 +1558,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 689774070839793907, guid: 55344621a18acc449976bb82a5f85859, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2401,7 +2401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &800007997
 Transform:
   m_ObjectHideFlags: 0
@@ -2457,7 +2457,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 689774070839793907, guid: 55344621a18acc449976bb82a5f85859, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3456,7 +3456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1306283429
 Transform:
   m_ObjectHideFlags: 0
@@ -3512,7 +3512,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 689774070839793907, guid: 55344621a18acc449976bb82a5f85859, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4251,7 +4251,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 689774070839793907, guid: 55344621a18acc449976bb82a5f85859, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4900,7 +4900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1990733701
 Transform:
   m_ObjectHideFlags: 0
@@ -4956,7 +4956,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 689774070839793907, guid: 55344621a18acc449976bb82a5f85859, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4982,7 +4982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2011612447
 Transform:
   m_ObjectHideFlags: 0
@@ -5038,7 +5038,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 689774070839793907, guid: 55344621a18acc449976bb82a5f85859, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5679,7 +5679,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 343567629, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 490462596752850638, guid: 66b4aa6dc2c22db4491aa1e50e9e0865, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5836,7 +5836,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 562420716, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 562420717, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
       propertyPath: m_LocalScale.x
@@ -5852,15 +5852,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 562420717, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -116
+      value: -166
       objectReference: {fileID: 0}
     - target: {fileID: 562420717, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 562420717, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -102
+      value: -333
       objectReference: {fileID: 0}
     - target: {fileID: 562420719, guid: dc94432076b04214faf0cf6ba42ecd36, type: 3}
       propertyPath: m_Sprite
@@ -6679,15 +6679,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -295
+      value: -149.7
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1304
+      value: 1391.6
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3060
+      value: -3155.6
       objectReference: {fileID: 0}
     - target: {fileID: 8657403142103925601, guid: bc159df2da394914991ac2ca76f2270f, type: 3}
       propertyPath: m_LocalRotation.w

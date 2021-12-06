@@ -137,7 +137,7 @@ public class UpgradePanelUI : MonoBehaviour
         if (currentBuilding != null)
         {
             if (currentBuilding.buildingName == "Major Lighthouse")
-                currentBuilding.UpdateBuildingData(10);
+                currentBuilding.UpdateBuildingData((int)currentBuilding.healthValues[0]);
             else
             {
                 currentBuilding.UpdateBuildingData(50);
