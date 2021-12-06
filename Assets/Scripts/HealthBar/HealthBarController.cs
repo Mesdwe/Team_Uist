@@ -30,6 +30,7 @@ public class HealthBarController : MonoBehaviour
             if (healthBars[ship].gameObject != null)
                 Destroy(healthBars[ship].gameObject);
             healthBars.Remove(ship);
+            print("REMOVE HEALTH BAR");
         }
     }
 

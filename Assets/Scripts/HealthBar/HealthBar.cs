@@ -52,6 +52,8 @@ public class HealthBar : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (ship == null)
+            return;
         //transform.position = Camera.main.WorldToScreenPoint(ship.transform.position + Vector3.up * positionOffset);
         Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(ship.transform.position + Vector3.up * positionOffset);
         Vector2 proportionalPosition = new Vector2(ViewportPosition.x * canvasRect.sizeDelta.x, ViewportPosition.y * canvasRect.sizeDelta.y);

@@ -99,6 +99,7 @@ public class Ship : MonoBehaviour
 
     public void ArrivedDock(Ship ship)  //Docked
     {
+        OnHealthRemoved?.Invoke(this);
         DestroyShipObject();
         effect.SetActive(true);
         //GetComponent<Movements>().isMoving = false;
@@ -110,6 +111,8 @@ public class Ship : MonoBehaviour
     }
     public async void DestroyShip(Ship ship)  //Destroyed by monster
     {
+        OnHealthRemoved?.Invoke(this);
+
         //DestroyShipObject();
         //Temp
         agent.speed = 0;
@@ -175,7 +178,7 @@ public class Ship : MonoBehaviour
 
     private void OnDisable()
     {
-        OnHealthRemoved?.Invoke(this);
+        //OnHealthRemoved?.Invoke(this);
         if (Player.Instance != null)
         {
             OnArrival -= Player.Instance.HandleRPChanged;
