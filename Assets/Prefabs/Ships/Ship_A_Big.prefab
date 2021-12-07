@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64f2db12ecee44b39a5d19a43b29a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 250
+  health: 400
   defaultSpeed: 150
   underAttackSpeed: 125
   shipRewards: {fileID: 11400000, guid: 9ce86e50cc0880a4c9a42aecf6e33444, type: 2}

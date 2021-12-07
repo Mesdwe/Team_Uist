@@ -20,10 +20,10 @@ MonoBehaviour:
   upgrade: 0
   maxUpgrade: 3
   upgradeData:
-  - 0.25
-  - 0.3
-  - 0.35
-  - 0.4
-  upgradeCost: ee020000e2040000c4090000
+  - 0.8
+  - 1.5
+  - 2
+  - 3
+  upgradeCost: f4010000dc050000c4090000
   description: Increase ship speed
   abilityDataSymbol: '%'

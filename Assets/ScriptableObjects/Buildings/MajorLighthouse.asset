@@ -15,10 +15,10 @@ MonoBehaviour:
   buildingName: Major Lighthouse
   defaultHealth: 250
   maxHealth: 250
-  fixCosts: f40100000a0000000a000000
+  fixCosts: c80000000a0000000a000000
   defaultHealthLevel: 0
   healthValues:
-  - 10
+  - 20
   healthEffects:
   - 0
   - 0.1

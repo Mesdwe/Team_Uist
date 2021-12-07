@@ -15,7 +15,7 @@ MonoBehaviour:
   aName: Barrier
   cooldownTime: 5
   activeTime: 0
-  lightColor: {r: 1, g: 0, b: 0, a: 1}
+  lightColor: {r: 1, g: 0.155166, b: 0, a: 1}
   defaultUpgrade: 0
   upgrade: 0
   maxUpgrade: 3

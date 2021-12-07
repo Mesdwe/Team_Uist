@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  defaultSpeed: 250
+  defaultSpeed: 300
   underAttackSpeed: 200
   shipRewards: {fileID: 11400000, guid: 049d8597eba95b947895d09f6cee4a81, type: 2}
   effect: {fileID: 8551963341775360862}
@@ -235,7 +235,7 @@ NavMeshAgent:
   m_AgentTypeID: 1479372276
   m_Radius: 150
   m_Speed: 360
-  m_Acceleration: 200
+  m_Acceleration: 500
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 20
