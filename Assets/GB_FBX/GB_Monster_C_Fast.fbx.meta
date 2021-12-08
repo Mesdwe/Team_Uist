@@ -3,7 +3,12 @@ guid: 80da8a07368fd064fad25ae26b1cfaff
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Seamonster_05_lambert2
+    second: {fileID: 2100000, guid: 8b115738528cf423a9628e7ad17aa26c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
