@@ -1,0 +1,19 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:d396c330d8040059ef02878362c28306:284fc05e4c1d134fc0af251e326dc4a6:606ad564f67d883eadcccc348d35f2e7$
+#
+:format=40300
+:texture=buttons.png
+:size=760x1428
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+creditsbutton;8;1179;531;241; 0.5;0.5; 0;0;0;0
+logo;8;722;743;341; 0.5;0.5; 0;0;0;0
+play button;8;465;531;241; 0.5;0.5; 0;0;0;0
+quitbutton;8;108;531;241; 0.5;0.5; 0;0;0;0

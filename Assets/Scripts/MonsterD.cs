@@ -20,8 +20,13 @@ public class MonsterD : MonoBehaviour
     private bool isActive;
 
     [SerializeField] float shootSpeed;
+    private AudioController audioController;
+
     public void InitMonster(Transform tLT, Transform mST)
     {
+        audioController = GetComponent<AudioController>();
+        audioController.SetAudioClip(0);
+
         targetLighthouse = tLT;
         missShot = mST;
         shots = Random.Range(minShot, maxShot);
@@ -44,6 +49,8 @@ public class MonsterD : MonoBehaviour
             }
             GameObject bullete = Instantiate(bullet, transform.position, Quaternion.identity);
             currentShotCount++;
+
+            audioController.PlayAudioClip();
             if (Random.value > 0.7f)
             {
                 bullete.GetComponent<MonsterBullet>().SetStartPos(transform.position, targetLighthouse.position);

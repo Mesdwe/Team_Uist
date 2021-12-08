@@ -6,15 +6,20 @@ public class LighthouseMajor : MonoBehaviour
 {
     public LighthouseBuilding lighthouse;
     public event Action<float> OnHealthPctChanged;
+    private AudioController audioController;
+
     void Start()
     {
+        audioController = GetComponent<AudioController>();
+        audioController.SetAudioClip(0);
         lighthouse.InitBuildingData();
     }
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log("hit lighthouse");
+            audioController.PlayAudioClip();
+
             lighthouse.HandleHealthChange(this);
             lighthouse.TakingDamage(10);
             OnHealthPctChanged?.Invoke(lighthouse.GetCurrentHealthPct());//CHANGE IT!!! Get monster's attack
