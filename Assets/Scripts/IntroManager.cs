@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour
 {
-    public VideoPlayer vid;
+    // public VideoPlayer vid;
 
 
-    void Start() { vid.loopPointReached += CheckOver; }
-
+    //void Start() { vid.loopPointReached += CheckOver; }
+    private bool isDone;
+    public GameObject secondImage;
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
         SceneManager.LoadScene(1);
@@ -19,9 +20,18 @@ public class IntroManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene(1);
+            if (!isDone)
+            {
+                secondImage.SetActive(true);
+                isDone = true;
+                return;
+            }
+            if (isDone)
+            {
+                SceneManager.LoadScene(1);
+            }
 
         }
     }
